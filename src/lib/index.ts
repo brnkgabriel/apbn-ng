@@ -54,12 +54,11 @@ export const btnClasses = [
   "bg-white",
   "relative",
   "rounded-lg",
-  "dark:bg-gray-700",
+  "dark:bg-darklight",
   "focus:outline-none",
   "dark:text-gray-100",
-  "dark:border-gray-600",
+  "dark:border-darklight",
   "dark:hover:text-white",
-  "dark:hover:bg-gray-700",
   "shadow-rcn",
 ] 
 

@@ -300,11 +300,11 @@ text {
 }
 
 .paper {
-  @apply bg-white dark:bg-slate-800;
+  @apply bg-white dark:bg-dark;
 }
 
 .decorate {
-  @apply border border-dashed border-gray-800 dark:bg-mid-blue dark:border-gray-800 dark:text-white p-2 rounded-lg;
+  @apply border border-dashed border-dark dark:bg-mid-blue dark:border-dark dark:text-white p-2 rounded-lg;
 }
 
 .-mobile-navigation {
