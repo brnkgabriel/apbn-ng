@@ -12,9 +12,9 @@ module.exports = {
 				'red': '#F71002',
 				'light-bg': '#F1F3F5',
 				'dark-alternate': '#132034',
-				'darkest': '#0c0622',
-				'darker': '#160b3c',
-				'dark': '#160b3c',
+				'darkest': '#002c43',
+				'darker': '#003d5d',
+				'dark': '#0079b6',
 				'darklight': '#006090',
 
 				'font': '#282828',

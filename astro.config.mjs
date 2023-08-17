@@ -48,4 +48,5 @@ export default defineConfig({
     enabled: true,
     navigateFallbackAllowlist: [/^\/404$/]
   })],
+  experimental: { assets: true }
 });

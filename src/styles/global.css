@@ -223,9 +223,9 @@ text {
   }
 
   .btn-orange, .btn-program, .btn-details { 
-    background-color: #da561d !important;
-    box-shadow: 0px 4px 20px -5px #da561d;
-    color: white !important;
+    background-color: #EBBE1A !important;
+    box-shadow: 0px 4px 20px -5px #EBBE1A;
+    color: #282828 !important;
   }
   
   .btn-transparent {
