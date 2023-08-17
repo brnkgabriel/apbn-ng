@@ -1,0 +1,74 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+# These lines should *not* be indented
+media_folder: "public/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "events" # Used in routes, e.g., /admin/collections/blog
+    label: "Events" # Used in the UI
+    folder: "src/content/events" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{title}}" # Filename template, e.gf., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/BlogLayout.astro"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Caption", name: "description", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "ddd MMMM DD, YYYY"}
+      - {label: "Image (800 x 450px) .webp", name: "image", widget: "image"}
+      - {label: "Image (800 x 800px) .webp", name: "thumbnail", widget: "image"}
+      - {label: "Video URL", name: "videourl", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "sliders" # Used in routes, e.g., /admin/collections/departments
+    label: "Sliders" # Used in the UI
+    folder: "src/content/sliders" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/SliderLayout.astro"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+      - {label: "Event Date", name: "date", widget: "date", date_format: "ddd MMMM DD, YYYY"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Video URL", name: "videourl", widget: "string", required: false}
+      - {label: "Desktop Image (1326 x 602px)", name: "desktopimage", widget: "image"}
+      - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
+      - {label: "Slider Type", name: "type", widget: "select", options: ["Generic", "Program"]}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+  - name: "resources" # Used in routes, e.g., /admin/collections/blog
+    label: "Resources" # Used in the UI 
+    folder: "src/pages/resources" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/ResourcesLayout.astro"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+      - {label: "Desktop Image (1290 x 268px) .webp", name: "desktopimage", widget: "image"}
+      - {label: "Mobile Image (800 x 800px) .webp", name: "mobileimage", widget: "image"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Subline (Banner Description)", name: "subline", widget: "string"}
+      - {label: "Form Title", name: "formtitle", widget: "string", required: false}
+      - {label: "Last Widget", name: "lastwidget", widget: "select", options: ["Account Details", "Get in Touch"], default: ["Get in Touch"]}
+      - {
+          label: "Input Fields",
+          name: "inputfields",
+          widget: "list",
+          allow_add: true,
+          required: false,
+          summary: '{{fields.name}}',
+          fields: [
+            {label: "Field", name: "field", widget: "select", options: ["input", "textarea", "select"]},
+            {label: "Name (no spaces btw words)", name: "name", widget: "string"},
+            {label: "Type", name: "type", widget: "select", options: ["text", "tel", "email", "number", "date"], required: false},
+            {label: "Placeholder", name: "placeholder", widget: "string"}
+          ]
+        }
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Program", name: "program", widget: "string", required: false}
+      - {label: "Theme", name: "thtme", widget: "string", required: false}
+      - {label: "Ministers", name: "ministers", widget: "string", required: false}
+      - {label: "Date & Time", name: "datetime", widget: "string", required: false}
+      - {label: "Venue", name: "venue", widget: "string", required: false}

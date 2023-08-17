@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow:
+Sitemap: https://rcnlagos.org/sitemap.xml
