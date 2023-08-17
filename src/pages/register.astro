@@ -1,0 +1,16 @@
+---
+import { Constants } from "~/types";
+import Layout from "../layouts/Layout.astro";
+import HeroSection from "~/components/partials/HeroSection.astro"
+
+const keywords = [
+  "register"
+]
+const title = `Register | ${Constants.SITENAME}`
+---
+<Layout title={ title } keywords={keywords}>
+  <HeroSection
+    header="Member Registration"
+    showCta={false}
+    subline="Fill the form below to register." />
+</Layout>
