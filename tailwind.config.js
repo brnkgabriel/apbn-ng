@@ -33,18 +33,8 @@ module.exports = {
 				'16/9': '16 / 9'
 			},
 			backgroundImage: {
-        'home-mb': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/prayer_452x452.webp')",
-        'home-dk': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/prayer_1290x268.webp')",
-        'home-tr-mb': "url('/assets/hero-bg/transmbl_452x452.webp')",
-        'home-tr-dk': "url('/assets/hero-bg/transdsk_1511x495.webp')",
-        'blog-dk': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/blog_1511x495.webp')",
-        'blog-mb': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/blog_450x450.webp')",
-        'dept-dk': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/prayer_1290x268.webp')",
-        'dept-mb': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/prayer_452x452.webp')",
-        'serm-dk': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/sermons_1511x495.webp')",
-        'serm-mb': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)),url('/assets/hero-bg/sermons_450x450.webp')",
-        'regi-dk': "linear-gradient(rgba(0, 0, 0, 0.85),rgba(0, 0, 0, 0.85)),url('/images/uploads/08_19_thecraftsmen_1290x268v2.webp')",
-        'regi-mb': "linear-gradient(rgba(0, 0, 0, 0.85),rgba(0, 0, 0, 0.85)),url('/images/uploads/08_19_thecraftsmen_833x833v2.webp')",
+        'home-mb': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('/images/452x452.webp')",
+        'home-dk': "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('/images/1290x268.webp')", 
       },
 			backgroundPosition: {
 				"shift": "center center"

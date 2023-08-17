@@ -1,4 +1,5 @@
 ---
+import HeroSection from '~/components/partials/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
 import { Constants } from '~/types'
 
@@ -12,5 +13,8 @@ const title = `Home | ${Constants.SITENAME}`
 ---
 
 <Layout title={title} keywords={keywords}>
-	<h1>APBN Homepage</h1>
+  <HeroSection
+    header="APBN"
+    showCta={false}
+    subline="Uniting voices and providing expert advice to the Government on matters impacting professionals and their practices." /> 
 </Layout>

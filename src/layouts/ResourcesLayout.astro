@@ -115,11 +115,10 @@ const yesOrNo = [
   "Yes",
   "No"
 ]
-const classes = "bg-regi-mb md:bg-regi-dk"
 ---
 
 <Layout title={identity} keywords={keywords}>
-  <HeroSection classes={classes} header={name} showCta={false} subline={active ? subline : "Coming soon..."} />
+  <HeroSection header={name} showCta={false} subline={active ? subline : "Coming soon..."} />
   {
     hasContent && (
     <section class="flex flex-col gap-4 center subtitle-adjust">
