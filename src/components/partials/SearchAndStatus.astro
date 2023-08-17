@@ -1,0 +1,34 @@
+---
+import ResetSearchButton from "./ResetSearchButton.astro";
+import SearchButton from "./SearchButton.astro";
+import { inputClassList } from "~/types"
+
+interface Props {
+  name: string;
+  count: number;
+}
+
+const { name, count } = Astro.props as Props
+
+const placeholder = `Search for ${name}`
+
+const status = count === 1 ? `${count} ${name.slice(0, name.length - 1)} found` : `${count} ${name} found`
+
+---
+<div class="relative flex flex-col md:flex-row items-center justify-between w-full max-w-md gap-2">
+  <div class="flex items-center justify-center gap-2 w-full md:w-fit"> 
+    <input id="search-input" placeholder={placeholder} type="text" class:list={[
+      ...inputClassList,
+      "bg-white",
+      "dark:bg-transparent",
+      "focus-visible:border-mid-blue",
+      "dark:focus-visible:border-white",
+      "focus-visible:outline-none",
+      "w-fit",
+      "md:w-[270px]"
+    ]} />
+    <SearchButton />
+    <ResetSearchButton />
+  </div>
+  <p class="w-fit dark:opacity-60 text-xs">{ status }</p>
+</div>

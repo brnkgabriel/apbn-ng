@@ -1,0 +1,144 @@
+---
+// @ts-ignore
+import { pwaInfo } from "virtual:pwa-info";
+
+import Header from "../components/sections/Header.astro";
+import Footer from "../components/sections/Footer.astro";
+
+interface Props {
+  title: string;
+  keywords?: string[];
+}
+
+import "../styles/global.css";
+import MobileNavigation from "~/components/sections/MobileNavigation.astro";
+import Modal from "~/components/partials/Modal.astro";
+
+const { title, keywords } = Astro.props as Props;
+const defaultKeywords = "professional,bodies,nigeria,association"
+
+console.log("title is", title)
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Primary Meta Tags -->
+    <meta name="title" content={title} />
+    <meta
+      name="description"
+      content="A body of bodies"
+    />
+    <meta
+      name="keywords"
+      content={keywords ? keywords.join(",") : defaultKeywords}
+    />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="APBN" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://apbn.org.ng/" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="A body of bodies"
+    />
+    <meta
+      property="og:image"
+      content="https://rcnlagos-seo.netlify.app/banner_1920x1080.webp"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://apbn.org.ng/" />
+    <meta property="twitter:title" content={title} />
+    <meta
+      property="twitter:description"
+      content="A body of bodies"
+    />
+    <meta
+      property="twitter:image"
+      content="https://rcnlagos-seo.netlify.app/banner_1920x1080.webp"
+    /> 
+    <link rel="alternate" href="https://apbn.org.ng/" hreflang="en-ng" />
+    <link rel="alternate" href="https://apbn.org.ng/" hreflang="fr-ci" />
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+    <link rel="canonical" href="https://apbn.org.ng/" />
+    <script src="/src/pwa.ts"></script>
+    <script is:inline> 
+      // Global scripts
+      (function () {
+
+        const Util = { 
+        DARK:"dark",
+        LIGHT:"light",
+        THEME:"theme"
+      }
+      // set theme
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem(Util.THEME)
+        ) {
+          return localStorage.getItem(Util.THEME);
+        }
+
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return Util.DARK;
+        }
+        return Util.LIGHT;
+      })();
+
+      if (theme === Util.LIGHT) {
+        document.documentElement.classList.remove(Util.DARK);
+      } else {
+        document.documentElement.classList.add(Util.DARK);
+      }
+      window.localStorage.setItem(Util.THEME, theme);
+      })()
+    </script>
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-200 dark:bg-gray-900 dark:text-white leading-6 tracking-[.2px] text-font">
+    <Modal />
+    <main class="transition-transform duration-200 ease-in-out">
+      <Header />
+      <slot />
+      <hr class="border-gray-600"/>
+      <Footer />
+    </main>
+    <MobileNavigation />
+    <script> 
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+<script defer src="/admin/netlify-identity-widget.js"></script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-938QWQ7WFN"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-938QWQ7WFN"); 
+</script>
+<script src="../scripts/index.ts"></script> 

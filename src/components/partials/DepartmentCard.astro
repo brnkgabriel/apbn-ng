@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets"
+import type { iDepartment } from "~/types";
+import ButtonLink from "./ButtonLink.astro";
+export interface Props {
+	department: iDepartment;
+  key: number;
+}
+
+const { department } = Astro.props;
+---
+
+<a
+  href={`/departments/${department.url}`}
+  rel="prefetch"
+  aria-label={department.title}
+  class="flex flex-col gap-2 paper rounded-lg overflow-hidden shadow-rcn">
+  <Image
+    width={800}
+    height={450}
+    src={department.image}
+    alt={department.title}
+    format="avif"
+  />
+  <div aria-label="details" class="flex flex-col gap-4 p-2 pt-0">
+    <div>
+      <h2 class="text-base font-semibold one-line">{department.title}</h2>
+      <p class="two-lines dark:opacity-60">
+        {department.description}
+      </p>
+    </div>
+    <ButtonLink
+      title="read more"
+      type="button"
+      className="btn btn-orange dark:btn-white text-center"
+    />
+  </div>
+</a>

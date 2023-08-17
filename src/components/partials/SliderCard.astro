@@ -1,0 +1,52 @@
+---
+import { Constants, type iSlider } from "~/types";
+import { Image } from "astro:assets";
+
+interface Props {
+  slider: iSlider;
+  key: number;
+}
+
+const { slider, key } = Astro.props as Props;
+// const { type, name, date, image, url, videourl } = slider
+const { type, name, desktopimage, mobileimage, url } = slider;
+const common =
+  "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full slide";
+const className = key === 0 ? `${common} active` : common;
+---
+
+{
+  type === Constants.GENERIC ? (
+    <picture class={className}>
+      <source media="(max-width: 767px)" srcset={mobileimage} />
+      <source media="(min-width: 768px)" srcset={desktopimage} />
+      <Image
+        width={1326}
+        height={602}
+        alt={name}
+        class="w-full md:rounded-md"
+        aria-label={name}
+        data-num={key}
+        src={desktopimage}
+        format="webp"
+      />
+    </picture>
+  ) : (
+    <a href={url} data-num={key} class={className} aria-label={name}>
+      <picture class={className}>
+        <source media="(max-width: 767px)" srcset={mobileimage} />
+        <source media="(min-width: 768px)" srcset={desktopimage} />
+        <Image
+          width={1326}
+          height={602}
+          alt={name}
+          class="w-full md:rounded-md"
+          aria-label={name}
+          data-num={key}
+          src={desktopimage}
+          format="webp"
+        />
+      </picture>
+    </a>
+  )
+}

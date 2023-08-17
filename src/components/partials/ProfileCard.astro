@@ -1,0 +1,60 @@
+---
+import type { iPastor } from '~/types';
+import { Image } from "astro:assets"
+import ButtonLink from './ButtonLink.astro'; 
+
+
+interface Props {
+  pastor: iPastor,
+  key: number
+}
+
+const { pastor } = Astro.props as Props
+
+const icon = "/assets/icon_500x500.webp" 
+
+---
+<a
+  href={`/pastors/${pastor.url}`}
+  rel="prefetch"
+  aria-label={pastor.title} 
+  class:list={[
+    "flex",
+    "flex-col",
+    "gap-2",
+    "items-center",
+    "paper",
+    "rounded-lg",
+    "shadow-rcn",
+    "p-4",
+    "relative",
+  ]}>
+  <div class="w-36 h-36 rounded-full bg-white shadow-rcn overflow-hidden relative">
+    <Image
+      width={450}
+      height={450}
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 h-36 rounded-full"
+      src={pastor.image}
+      alt={pastor.title}
+      format="avif"
+    />
+    <Image
+      width={450}
+      height={450}
+      class="w-full h-full"
+      src={icon}
+      alt="rcn icon"
+      format="avif"
+    />
+  </div>
+  <div aria-label="details" class="flex flex-col items-center p-2">
+    <p class="dark:opacity-60">{pastor.title}</p>
+    <h2 class="text-base font-semibold one-line">{pastor.name}</h2>
+    <ButtonLink
+      title="view profile" 
+      type="button"
+      withArrow={true}
+      className="btn btn-orange dark:btn-white text-center"
+    />
+  </div>
+</a>

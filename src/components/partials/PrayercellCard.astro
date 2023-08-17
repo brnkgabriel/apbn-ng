@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets"
+import type { iPrayercell } from "~/types";
+import Time from "../icons/Time.astro";
+import ButtonLink from "./ButtonLink.astro";
+
+export interface Props {
+	prayercell: iPrayercell;
+  key: number;
+  withArrow?: boolean;
+  hideImage?: boolean;
+}
+
+const { prayercell, withArrow, hideImage = false } = Astro.props;
+---
+
+<a
+  href={`/prayercells/${prayercell.url}`}
+  rel="prefetch"
+  aria-label={prayercell.name}
+  class="flex flex-col gap-2 paper rounded-lg overflow-hidden shadow-rcn">
+  <Image
+    width={800}
+    height={450}
+    class={`${hideImage && "hidden"}`}
+    src={prayercell.image}
+    alt={prayercell.name}
+    format="avif"
+  />
+  <div aria-label="details" class="flex flex-col gap-4 p-2">
+    <div>
+      <h2 class="text-base font-semibold one-line">{prayercell.name}</h2>
+      <p class="two-lines h-12 dark:opacity-60">
+        {prayercell.address}
+      </p>
+    </div>
+    <div
+      class="flex items-center justify-start gap-1 dark:opacity-40"
+      aria-label="time">
+      <Time />
+      <span
+        aria-label="blog card date"
+        class="text-[10px] rounded-md leading-[1] w-fit">
+        {prayercell.meetingtime}
+      </span>
+    </div>
+    <hr class="dark:opacity-30"/>
+    <ButtonLink
+      withArrow={withArrow}
+      title="learn more"
+      type="button"
+      className="btn btn-orange dark:btn-white text-center"
+    />
+  </div>
+</a>

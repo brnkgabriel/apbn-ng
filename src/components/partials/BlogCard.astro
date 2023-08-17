@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets"
+import ButtonLink from "./ButtonLink.astro";
+import TimeElement from "./TimeElement.astro";
+import { formatDate } from "~/lib";
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+	post: CollectionEntry<"blog">;
+  key: number;
+  withArrow?: boolean;
+  hideImage?: boolean;
+}
+
+const { post, withArrow, hideImage = false } = Astro.props;
+---
+
+<div>
+  <a
+  href={`/blog/${post.slug}`}
+  rel="prefetch"
+  aria-label={post.data.title}
+  class="flex-col gap-2 paper rounded-lg overflow-hidden shadow-rcn hidden md:flex">
+    <Image
+      width={800}
+      height={450}
+      class={`${hideImage && "hidden"}`}
+      src={post.data.image}
+      alt={post.data.title}
+      format="avif"
+    />
+    <div aria-label="details" class="flex flex-col gap-4 p-2">
+      <div>
+        <h2 class="text-base font-semibold one-line">{post.data.title}</h2>
+        <p class="two-lines dark:opacity-60">
+          {post.data.description} 
+        </p>
+      </div>
+      <TimeElement date={formatDate(post.data.date)} />
+      <hr class="dark:opacity-30"/>
+      <ButtonLink
+        withArrow={withArrow}
+        title="read post"
+        type="button"
+        className="btn btn-orange dark:btn-white text-center"
+      />
+    </div>
+  </a>
+  <a
+    href={`/blog/${post.slug}`}
+    rel="prefetch"
+    aria-label={post.data.title}
+    class="flex md:hidden flex-col paper rounded-lg overflow-hidden shadow-rcn p-2 gap-2">
+    <div class="grid grid-cols-[1fr_2fr] gap-2">
+      <Image
+        width={800}
+        height={800}
+        class="w-full rounded-md"
+        src={post.data.thumbnail}
+        alt={post.data.title}
+        format="avif"
+      />
+      <div class="w-full h-full overflow-hidden text-ellipsis flex flex-col justify-between">
+        <div>
+          <h2 class="text-base font-semibold one-line w-full overflow-hidden text-ellipsis">{post.data.title}</h2>
+          <p class="two-lines dark:opacity-60 w-full text-xs">
+            {post.data.description} 
+          </p>
+        </div>
+        <TimeElement date={formatDate(post.data.date)} />
+      </div>
+    </div>
+    <div aria-label="details" class="flex flex-col gap-2">
+      <hr class="dark:opacity-30"/>
+      <ButtonLink
+        withArrow={withArrow}
+        title="read post"
+        type="button"
+        className="btn btn-orange dark:btn-white text-center"
+      />
+    </div>
+  </a>
+
+</div>

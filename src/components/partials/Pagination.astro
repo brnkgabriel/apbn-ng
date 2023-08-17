@@ -1,0 +1,27 @@
+---
+// import StartPageBtn from "~/components/partials/StartPageBtn.astro"
+import PrevBtn from "~/components/partials/PrevBtn.astro"
+import NextBtn from "~/components/partials/NextBtn.astro"
+// import EndPageBtn from "~/components/partials/EndPageBtn.astro"
+import type { iPage } from "~/types"
+
+interface Props {
+  page: iPage
+}
+ 
+
+const { page } = Astro.props as Props 
+---
+<section aria-label="pagination" class="flex justify-center items-center gap-1">
+  <!-- <StartPageBtn /> -->
+  {
+    page?.url?.prev && <PrevBtn url={page?.url?.prev} />
+  }
+  <div>
+    { page?.currentPage } of { page?.total }
+  </div>
+  {
+    page?.url?.next && <NextBtn url={page?.url?.next} />
+  }
+  <!-- <EndPageBtn /> -->
+</section>

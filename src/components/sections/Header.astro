@@ -1,0 +1,56 @@
+---
+import DarkModeBtn from "../partials/DarkModeBtn.astro";
+import Hamburger from "../partials/Hamburger.astro";
+import Logo from "../icons/Logo.astro"; 
+---
+
+<header class="sticky z-10 paper top-0 left-0 h-[75.2px] flex justify-center items-center" aria-labelledby="RCN Lagos main layout">
+  <div class="center flex items-center justify-between">
+    <Logo />
+    <nav
+      class="flex items-center justify-center gap-x-4"
+      role="navigation"
+      aria-label="navigation"
+    >
+      <div class="links hidden md:flex">
+        <a
+          href="/"
+          rel="prefetch"
+          data-type="menu" 
+          class="current:text-orange-600 font-semibold"
+          aria-label="home">Home</a
+        >
+        <a
+          href="/members"
+          rel="prefetch"
+          data-type="menu"
+          class="current:text-orange-600 font-semibold"
+          aria-label="members">Members</a
+        >
+        <a
+          href="/about"
+          rel="prefetch"
+          data-type="menu"
+          class="current:text-orange-600 font-semibold"
+          aria-label="about">About</a
+        >
+        <a
+          href="/events"
+          rel="prefetch"
+          data-type="menu"
+          class="current:text-orange-600 font-semibold"
+          aria-label="events">Events</a
+        >
+        <a
+          href="/contact"
+          rel="prefetch"
+          data-type="menu"
+          class="current:text-orange-600 font-semibold"
+          aria-label="contact">Contact</a
+        >
+      </div>
+      <DarkModeBtn id="darkModeBtn" />
+      <Hamburger id="mobileNavToggleBtn" />
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,85 @@
+---
+import HeroSection from "~/components/partials/HeroSection.astro";
+import Layout from "../layouts/Layout.astro";
+
+const keywords = [
+  "privacy",
+  "policy"
+]
+---
+
+<Layout title="Privacy | RCN Lagos" keywords={keywords}>
+  <HeroSection
+    header="Privacy Policy"
+    showCta={false}
+    subline="Explore Our Commitment to Protecting Your Information in Our Privacy Policy" />
+  <section class="center flex flex-col gap-4" aria-label="privacy">
+    <p>
+      At APBN, we are committed to protecting the
+      privacy of our members, donors, partners, and all visitors to our website.
+      We respect your privacy and we are committed to safeguarding any personal
+      information that we collect from you. This policy outlines how we collect,
+      use, store, and disclose your personal information.
+    </p>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Collection of Personal Information</h2>
+      <p>
+        We may collect personal information from you when you interact with us,
+        such as when you attend our events, make a donation, or sign up to receive
+        our newsletters. This information may include your name, address, email
+        address, phone number, and other details that you voluntarily provide.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Use of Personal Information</h2>
+      <p>
+        We may use your personal information to communicate with you about our
+        ministry, programs, and outreaches. We may also use your information to
+        process donations and to provide you with receipts and other information
+        related to your donations. Additionally, we may use your information for
+        administrative purposes, such as maintaining our database and analyzing
+        our ministry's effectiveness.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Disclosure of Personal Information</h2>
+      <p>
+        We do not share, sell, or otherwise disclose your personal information to
+        third parties except as required by law or as necessary to fulfill our
+        ministry's purposes. For example, we may share your information with our
+        trusted partners who assist us in processing donations, sending
+        newsletters, or analyzing our ministry's effectiveness.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Data Security</h2>
+      <p>
+        We take reasonable measures to protect the security of your personal
+        information and to prevent unauthorized access, disclosure, or
+        modification. However, no data transmission over the internet or other
+        network can be guaranteed to be 100% secure. Therefore, while we strive to
+        protect your personal information, we cannot guarantee its absolute
+        security.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Changes to this Privacy Policy</h2>
+      <p>
+        We reserve the right to update or modify this privacy policy at any time
+        without prior notice. Your continued use of our website and services
+        constitutes your agreement to this policy and any updates or
+        modifications.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Contact Information</h2>
+      <p class="flex items-baseline gap-1">
+        <span
+          >If you have any questions or concerns about this privacy policy, please
+          contact us at
+        </span>
+        <strong>info@apbn.org.ng</strong>
+      </p>
+    </div>
+  </section>
+</Layout>

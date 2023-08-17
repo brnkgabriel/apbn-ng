@@ -1,0 +1,32 @@
+---
+
+---
+<section id="modal" aria-label="modal" class="fixed w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[13] origin-center" data-key="modal">
+  <div data-name="modal overlay" class="opacity-75 bg-black absolute w-full h-full"></div>
+  <div data-name="modal content" class="absolute bg-white dark:bg-slate-800 text-current p-4 rounded-sm4 max-w-[592px] flex flex-col gap-1 origin-center">
+    <h2 data-name="modal-header" class="font-semibold">
+      Header
+    </h2>
+    <div data-name="modal-content">
+      <iframe
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        title="latest message"
+        loading="lazy"
+        class="w-full h-[56.25vw] md:w-[560px] md:h-[315px] rounded-sm4" src=""></iframe>
+      <audio class="w-full" controls data-title="" data-audiourl="">
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="w-full">
+      <!-- <audio class="w-full" controls data-title={sermon.data.title} data-audiourl={sermon.data.audiourl}>
+        <source src={sermon.data.audiourl} type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio> -->
+    </div>
+    <div data-name="modal-footer">
+      Footer
+    </div>
+  </div>
+</section>

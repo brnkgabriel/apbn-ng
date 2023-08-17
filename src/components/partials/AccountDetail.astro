@@ -1,0 +1,18 @@
+---
+import type { iAccount } from '~/types';
+import DetailField from './DetailField.astro';
+
+
+interface Props {
+  account: iAccount
+}
+
+const { account } = Astro.props as Props
+---
+
+<section aria-label="card" class="paper flex flex-col items-center gap-2 p-2 rounded-lg shadow-rcn">
+  <h2 class="title">{account.title}</h2>
+  {
+    account.keyvals.map(keyval => <DetailField title={account.title.toLowerCase()} key={keyval.key} value={keyval.val} />)
+  }
+</section>

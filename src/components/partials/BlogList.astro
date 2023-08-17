@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+  blogs: CollectionEntry<"blog">[]
+  withArrow?: boolean;
+  limit?: number
+}
+
+const { blogs, withArrow } = Astro.props as Props;
+---
+
+<div class="card-grid">
+  {
+    blogs.map((post, idx) => <BlogCard withArrow={withArrow} post={post} key={idx} />)
+  }
+</div>

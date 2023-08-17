@@ -1,0 +1,56 @@
+---
+import { footerLinks } from "~/lib";
+import { Constants } from "~/types";
+import Facebook from "../icons/Facebook.astro";
+import Instagram from "../icons/Instagram.astro";
+import Telegram from "../icons/Telegram.astro";
+import Twitter from "../icons/Twitter.astro";
+import WhatsApp from "../icons/WhatsApp.astro";
+import YouTube from "../icons/YouTube.astro";
+
+---
+
+<div class="w-full flex flex-col gap-2 paper p-2 rounded-lg shadow-rcn">
+  <h2 class="title text-center">Get in touch</h2> 
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+    <a href="tel:+2348186253251" aria-label="call us on line 1" class="-phone flex justify-between p-2 items-center bg-gray-200 dark:bg-gray-900 rounded-lg">
+      <span>Call Line #1</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+        <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    <a href="tel:+2349061767430" aria-label="call us on line 2" class="-phone flex justify-between p-2 items-center bg-gray-200 dark:bg-gray-900 rounded-lg">
+      <span>Call Line #2</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+        <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+      </svg>
+    </a>
+    
+  {
+    footerLinks.followus.submenu.map(menu => {
+      const icon = (name: string) => {
+        switch (name) {
+          case Constants.TWITTER: return <Twitter />;
+          case Constants.FACEBOOK: return <Facebook />;
+          case Constants.INSTAGRAM: return <Instagram />;
+          case Constants.YOUTUBE: return <YouTube />;
+          case Constants.TELEGRAM: return <Telegram />;
+          case Constants.WHATSAPP: return <WhatsApp />
+        }
+      }
+      const linkClass = "flex justify-between p-2 items-center bg-gray-200 dark:bg-gray-900 rounded-lg relative"
+      const clickableClass = "w-full h-full z-[5] top-0 left-0 absolute"
+      const textClass = "capitalize"
+      return (
+      <a href={menu.url} class={linkClass} aria-label={menu.name} >
+        <span class={clickableClass}></span>
+        <span class={textClass}>{menu.name}</span>
+        {
+          icon(menu.name)
+        }
+      </a>
+      )
+    })
+  }
+  </div>
+</div>

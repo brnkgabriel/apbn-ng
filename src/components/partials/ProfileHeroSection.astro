@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets"
+
+// const { header, subline, intro } = Astro.props
+export interface Props {
+  title: string;
+  imgSrc?: string;
+} 
+
+const { title, imgSrc } = Astro.props as Props
+const signature = "/assets/signature.webp"
+const icon = "/assets/icon_500x500.webp"
+---
+
+<section role="region" aria-label="profile hero section" class="grid grid-cols-2 gap-2 center place-items-center w-full md:w-3/4">
+  <div class="text-center flex flex-col items-center gap-2">
+    <div class="dark:text-white font-bold text-3xl md:text-4xl lg:text-5xl">
+      { title }
+    </div>
+    <Image
+    src={signature}
+    width={450}
+    height={450}
+    class="w-1/4"
+    alt="signature"
+    format="webp"
+  />
+  </div>
+  <div class="relative">
+    {
+      imgSrc && (
+        <Image
+          src={imgSrc}
+          width={450}
+          height={450}
+          class="rounded-full max-w-[245px] absolute bottom-0 left-1/2 -translate-x-1/2 w-[105%] h-[105%]"
+          alt="image background icon"
+          format="webp"
+        />
+      )
+    }
+    <Image
+      src={icon}
+      width={450}
+      height={450}
+      class="rounded-full bg-dark-blue dark:bg-white w-full max-w-[245px]"
+      alt="image background icon"
+      format="webp"
+    />
+  </div>
+</section>

@@ -1,0 +1,38 @@
+--- 
+
+--- 
+<div class="p-2 flex flex-col justify-center items-center text-center paper rounded-lg w-full max-w-[560px] md:max-w-[480px] shadow-rcn" id="subscribe">
+  <div class="text-center mb-4">
+    <h2 aria-label="ourprograms title" class="text-xl font-semibold uppercase">
+      join our community
+    </h2>
+    <p>Get the latest updates about our programs, blogs and other public related activities</p>
+  </div>
+
+  <form class="w-full flex flex-col items-center gap-2" action="#" method="POST" id="subscribeForm" data-name="subscribe form">
+    <input id="email" name="email" type="email" autocomplete="email" placeholder="Email" required 
+      class:list={[
+        "block",
+        "rounded-lg",
+        "border-2",
+        "border-mid-blue",
+        "dark:border-gray-600",
+        "dark:bg-gray-800",
+        "border-opacity-20",
+        "py-1.5",
+        "shadow-sm",
+        "placeholder:text-gray-400",
+        "w-full",
+        "px-2",
+        "focus-visible:border-mid-blue",
+        "dark:focus-visible:border-white",
+        "focus-visible:outline-none"
+      ]}
+    />
+    <button type="submit" class="btn btn-orange dark:btn-white w-full md:w-fit rounded-lg" data-name="subscribe form">
+      <span class="-txt">Subscribe</span>
+      <span class="-spin-loader border-white dark:border-mid-blue"></span>
+    </button>
+    <p class="-status" data-type="error"></p>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+---
+import type { MarkdownInstance } from 'astro';
+import type { SliderFrontmatter } from '~/pages/index.astro';
+import { slug } from "~/lib/index"
+import SliderCard from '../partials/SliderCard.astro';
+import { Image } from "astro:assets"
+
+
+interface Props {
+  sliders: MarkdownInstance<SliderFrontmatter>[]
+}
+
+const { sliders } = Astro.props as Props
+
+const list = sliders.sort((a, b) => {
+  const aTime = +new Date(a.frontmatter.date)
+  const bTime = +new Date(b.frontmatter.date)
+  return bTime - aTime
+})
+.filter(slider => slider.frontmatter.active)
+.map((slider, idx) => {
+  const { date, name, videourl, desktopimage, mobileimage, type } = slider.frontmatter
+  const { url } = slug(slider.file)
+  return {
+    url,
+    date,
+    name,
+    videourl,
+    desktopimage,
+    mobileimage,
+    type
+  }
+}) 
+
+
+const sliderBg = "/assets/1326x602.webp"
+
+const style = {
+	aspectRatio: 1326 / 602,
+	width: "100%",
+	maxWidth: "1258px",
+}
+---
+
+<div class="relative mx-auto py-2" style={style}>
+  {
+    list.map((slider, idx) => <SliderCard key={idx} slider={slider} />)
+  }
+  <Image
+    src={sliderBg}
+    class="w-full slide-bg rounded-lg"
+    width={1326}
+    height={602}
+    format="webp"
+    alt="slider background" />
+</div>

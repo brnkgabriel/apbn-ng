@@ -1,0 +1,33 @@
+---
+import PrayercellCard from "~/components/partials/PrayercellCard.astro";
+import type { CollectionEntry } from 'astro:content';
+
+
+interface Props {
+  prayercells: CollectionEntry<"prayercells">[];
+  withArrow?: boolean
+} 
+
+const { prayercells, withArrow } = Astro.props as Props
+
+const list = prayercells.map(pc => {
+  const { slug, data  } = pc 
+  return {
+    name: data.name,
+    type: data.type,
+    coordinator: data.coordinator,
+    phonenumber: data.phonenumber,
+    meetingtime: data.meetingtime,
+    address: data.address,
+    image: data.image,
+    url: slug,
+    active: data.active
+  }
+})
+
+---
+<div class="card-grid">
+  {
+    list.map((prayercell, idx) => <PrayercellCard hideImage={true} withArrow={withArrow} prayercell={prayercell} key={idx} />)
+  }
+</div>

@@ -1,0 +1,16 @@
+---
+import Time from "../icons/Time.astro";
+
+interface Props {
+  date: string;
+}
+
+const { date } = Astro.props as Props;
+---
+
+<div class="flex items-center justify-start gap-1 dark:opacity-40" aria-label="time">
+  <Time />
+  <span aria-label="blog card date" class="text-[10px] rounded-md leading-[1] w-fit">
+    {date}
+  </span>
+</div>

@@ -1,0 +1,39 @@
+---
+import { links } from "~/lib";
+import { Constants } from "~/types";
+import Facebook from "../icons/Facebook.astro";
+import Instagram from "../icons/Instagram.astro";
+import Telegram from "../icons/Telegram.astro";
+import Twitter from "../icons/Twitter.astro";
+import WhatsApp from "../icons/WhatsApp.astro";
+import YouTube from "../icons/YouTube.astro";
+import LinkedIn from "../icons/LinkedIn.astro";
+---
+
+<div class="grid grid-cols-6 gap-2">
+  {
+    links.followus.submenu.map(menu => {
+      const icon = (name: string) => {
+        switch (name) {
+          case Constants.TWITTER: return <Twitter />;
+          case Constants.FACEBOOK: return <Facebook />;
+          case Constants.INSTAGRAM: return <Instagram />;
+          case Constants.YOUTUBE: return <YouTube />;
+          case Constants.TELEGRAM: return <Telegram />;
+          case Constants.WHATSAPP: return <WhatsApp />;
+          case Constants.LINKEDIN: return <LinkedIn />;
+        }
+      }
+      const linkClass = "w-10 h-10 md:w-7 md:h-7 flex items-center justify-center rounded-lg relative border-2 border-white"
+      const clickableClass = "w-full h-full z-10 top-0 left-0 absolute"
+      return (
+      <a href={menu.url} class={linkClass} aria-label={menu.name} >
+        <span class={clickableClass}></span>
+        {
+          icon(menu.name)
+        }
+      </a>
+      )
+    })
+  }
+</div>

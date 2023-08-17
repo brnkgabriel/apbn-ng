@@ -1,0 +1,211 @@
+---
+
+import { Constants } from "~/types";
+
+
+import GetInTouch from "~/components/partials/GetInTouch.astro";
+
+import type { iAccount, iKeyVal } from "~/types";
+
+import AccountDetails from "~/components/partials/AccountDetails.astro";
+import AccountDetail from "~/components/partials/AccountDetail.astro";
+import '../styles/intlTelInput.min.css'
+
+import { type iInput, inputClassList } from "~/types";
+import Layout from "./Layout.astro";
+import HeroSection from "~/components/partials/HeroSection.astro"; 
+
+interface Frontmatter {
+  name: string;
+  formtitle: string;
+  subline: string;
+  lastwidget: string;
+  inputfields: iInput[];
+  active: boolean;
+  program?: string;
+  theme?: string;
+  ministers?: string;
+  datetime?: string;
+  venue?: string;
+  desktopimage?: string;
+  mobileimage?: string;
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+  rawContent: Function;
+}
+
+const { frontmatter, rawContent } = Astro.props as Props;
+const {
+  name,
+  formtitle,
+  subline,
+  inputfields,
+  lastwidget,
+  active,
+  program,
+  theme,
+  ministers,
+  datetime,
+  venue,
+  desktopimage,
+  mobileimage
+} = frontmatter;
+
+const keyvals: iKeyVal[] = []
+program && keyvals.push({ key: 'Program', val: program })
+theme && keyvals.push({ key: 'Theme', val: theme })
+ministers && keyvals.push({ key: 'Ministers', val: ministers })
+datetime && keyvals.push({ key: 'Date & Time', val: datetime })
+venue && keyvals.push({ key: 'Venue', val: venue })
+
+const title = "Details"
+
+const account: iAccount = {
+  title,
+  keyvals,
+  order: 1
+}
+
+const hasContent = rawContent().length > 10
+
+const identity = name;
+
+const keywords = [identity, subline];
+
+const programs = [
+  "The Convergence",
+  "Threshing Floor",
+  "12-Hours Prayer",
+  "International Prophetic Conference",
+  "The Voice of One",
+  "Festival of Glory",
+  "International Eagles Conference",
+]
+
+const joiningFrom = [
+  "Lagos Island",
+  "Lagos Mainland",
+  "Outside Lagos",
+  "Online"
+]
+
+const transport = [
+  "I will organize my transport",
+  "Ajegunle (BRT Bus)",
+  "Berger (BRT Bus)",
+  "Owode onirin (BRT Bus)",
+  "Egbeda 1 (BRT Bus)",
+  "Egbeda 2 (BRT Bus)",
+  "Ikorodu (BRT Bus)",
+  "Festac (BRT Bus)",
+  "Sangotedo (BRT Bus)",
+  "Abule Egba (BRT Bus)",
+  "Yaba- Ojuelegba- Costain (BRT Bus)",
+  "Academic Inn (Coaster Bus)",
+  "Agege (Coaster Bus)",
+  "Gbagada (Coaster Bus)",
+  "Ajao Estate - Oshodi (Coaster Bus)",
+  "Island (Coaster Bus)",
+  "Ojota - Maryland - Anthony (Coaster Bus)"
+]
+
+const yesOrNo = [
+  "Yes",
+  "No"
+]
+const classes = "bg-regi-mb md:bg-regi-dk"
+---
+
+<Layout title={identity} keywords={keywords}>
+  <HeroSection classes={classes} header={name} showCta={false} subline={active ? subline : "Coming soon..."} />
+  {
+    hasContent && (
+    <section class="flex flex-col gap-4 center subtitle-adjust">
+      <slot />
+    </section>
+    )  
+  }
+  <section aria-label="form" class="grid grid-cols-1 md:grid-cols-2 gap-2 center" data-id={identity.toLowerCase()}>
+    {
+      active && (
+      <form class="w-full grid grid-cols-2 place-items-center gap-2 paper p-2 rounded-lg shadow-rcn" data-name={`${name.toLowerCase()} form`}>
+        <h2 class="title col-span-2">{formtitle}</h2>
+        {
+          inputfields.map((input: iInput) => {
+
+            switch (input.field) {
+              case Constants.INPUT: return (
+                // @ts-ignore
+                <input
+                  name={input.name}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  class:list={[inputClassList, "col-span-2"]}
+                  required
+                />
+              )
+              case Constants.TEXTAREA: return (
+                <textarea
+                  name={input.name}
+                  class:list={[inputClassList, "col-span-2"]}
+                  placeholder={input.placeholder}
+                  required
+                />
+              )
+              case Constants.SELECT: return (
+                <select name={input.name} required class:list={[inputClassList, "col-span-2 md:col-span-1"]}>
+                  <option value="" disabled selected>{ input.placeholder }</option>
+                  {
+                    input.name === Constants.PROGRAMFIELD && (
+                      programs.map(program => <option class="dark:bg-gray-800 w-full" value={program}>{program}</option>)
+                    )
+                  }
+                  {
+                    input.name === Constants.JOININGFROM && (
+                      joiningFrom.map(location => <option class="dark:bg-gray-800 w-full" value={location}>{location}</option>)
+                    )
+                  }
+                  {
+                    input.name === Constants.NEEDACCOMMODATION && (
+                      yesOrNo.map(option => <option class="dark:bg-gray-800 w-full" value={option}>{option}</option>)
+                    )
+                  }
+                  {
+                    input.name === Constants.FIRSTTIMER && (
+                      yesOrNo.map(option => <option class="dark:bg-gray-800 w-full" value={option}>{option}</option>)
+                    )
+                  }
+                  {
+                    input.name === Constants.TRANSPORT && (
+                      transport.map(option => <option class="dark:bg-gray-800 w-full" value={option}>{option}</option>)
+                    )
+                  }
+                </select>
+              )
+            }
+          })
+        }
+        <button type="submit" class="btn btn-orange dark:btn-white w-full md:w-fit col-span-2">
+          <span class="-txt">Submit</span>
+          <span class="-spin-loader border-white dark:border-mid-blue"></span>
+        </button>
+        <p class="-status col-span-2" data-type="error"></p>
+      </form>
+      )
+    }
+    {
+      (active && (keyvals.length > 0)) && (
+        <section aria-label="program details">
+          <AccountDetail account={account} />
+        </section>
+      )
+    }
+    {
+      lastwidget === Constants.ACCOUNTDETAILS
+      ? <AccountDetails />
+      : <GetInTouch /> 
+    }
+  </section>
+</Layout>

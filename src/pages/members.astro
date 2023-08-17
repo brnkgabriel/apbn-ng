@@ -1,0 +1,16 @@
+---
+import { Constants } from "~/types";
+import Layout from "../layouts/Layout.astro";
+import HeroSection from "~/components/partials/HeroSection.astro"
+
+const keywords = [
+  "members"
+]
+const title = `Members | ${Constants.SITENAME}`
+---
+<Layout title={ title } keywords={keywords}>
+  <HeroSection
+    header="APBN Member Directory"
+    showCta={false}
+    subline="Explore the list of our member bodies" />
+</Layout>
