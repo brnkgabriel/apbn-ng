@@ -38,27 +38,29 @@ collections:
       - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["Generic", "Program"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
-  - name: "member" # Used in routes, e.g., /admin/collections/member
-    label: "Member" # Used in the UI 
-    folder: "src/pages/members" # The path to the folder where the documents are stored
+    label: "Event" # Used in the UI
+    folder: "src/content/events" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{title}}" # Filename template, e.gf., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/EventLayout.astro"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Caption", name: "description", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", date_format: "ddd MMMM DD, YYYY"}
+      - {label: "Image (800 x 450px) .webp", name: "image", widget: "image"}
+      - {label: "Image (800 x 800px) .webp", name: "thumbnail", widget: "image"}
+      - {label: "Video URL", name: "videourl", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "member" # Used in routes, e.g., /admin/collections/members
+    label: "Members" # Used in the UI
+    folder: "src/content/members" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
+    fields: # The fields for each document, usually in front matter 
       - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MemberLayout.astro"}
       - {label: "Name", name: "name", widget: "string"},
       - {label: "Caption (What they do)", name: "caption", widget: "string"}
       - {label: "Logo (800 x 800 or any highres dimension)", name: "logo", widget: "image"}
-          label: "Input Fields",
-          name: "inputfields",
-          widget: "list",
-          allow_add: true,
-          required: false,
-          summary: '{{fields.name}}',
-          fields: [
-            {label: "Field", name: "field", widget: "select", options: ["input", "textarea", "select"]},
-            {label: "Name (no spaces btw words)", name: "name", widget: "string"},
-            {label: "Type", name: "type", widget: "select", options: ["text", "tel", "email", "number", "date"], required: false},
-            {label: "Placeholder", name: "placeholder", widget: "string"}
-          ]
-        }
       - {label: "Body", name: "body", widget: "markdown", required: false}
