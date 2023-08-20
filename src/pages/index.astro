@@ -2,8 +2,8 @@
 import HeroSection from '~/components/partials/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
 import { Constants } from '~/types'
-import { Image } from "astro:assets"
-import ButtonLink from '~/components/partials/ButtonLink.astro';
+// import { Image } from "astro:assets"
+// import ButtonLink from '~/components/partials/ButtonLink.astro';
 
 const keywords = [
 	"homepage",
@@ -12,16 +12,16 @@ const keywords = [
 ]
 
 const title = `Home | ${Constants.SITENAME}`
-const president = "/images/president_square.webp"
+// const president = "/images/president_square.webp"
 ---
 
 <Layout title={title} keywords={keywords}>
   <HeroSection
     header="APBN"
-    showCta={false}
+    showCta={true}
     subline="Uniting voices and providing expert advice to the Government on matters impacting professionals and their practices." />
   
-  <div class="center relative w-full md:w-1/2 mx-auto flex flex-col gap-2">
+  <!-- <div class="center relative w-full md:w-1/2 mx-auto flex flex-col gap-2">
     <h2 class="text-3xl font-semibold">Meet the President</h2>
     <div>
       <Image
@@ -32,13 +32,13 @@ const president = "/images/president_square.webp"
       alt="signature"
       format="webp"
     />
-    <p>Mr. Manason Garkuwa Rubainu was born at about 14:00 hours Nigerian time on Wednesday August 14, 1957 to Rev and Mrs Rubainu Garkuwa in Kumo, Akko Local Government Area of the present Gombe State. Mr. M. G. Rubainu is a graduate of Chemistry from the prestigious Ahmadu Bello University and was first employed as Medical Laboratory Scientist-in-Training by the old Bauchi State (present Bauchi and Gombe States) government before proceeding to the School of Medical Laboratory Science of the Ahmadu Bello University Teaching Hospital, Zaria where he obtained the Associate of the Institute of Medical Laboratory Science (AIMLS) of Nigeria in Chemical Pathology. Mr. Manason Garkuwa RUBAINU is a Fellow of the West African Post Graduate College of Medical Laboratory Science (FWAPGCMLS) - Faculty of Molecular Diagnostics and Translation Science. He is also Fellow, Association of Medical Laboratory Scientists of Nigeria (FAMLSN).</p>
+    <p>Mr. Manason Garkuwa Rubainu was born at about 14:00 hours Nigerian time on Wednesday August 14, 1957 to Rev and Mrs Rubainu Garkuwa in Kumo, Akko Local Government Area of the present Gombe State. Mr. M. G. Rubainu is a graduate of Chemistry from the prestigious Ahmadu Bello University and was first employed as Medical Laboratory Scientist-in-Training by the old Bauchi State (present Bauchi and Gombe States) government before proceeding to the School of Medical Laboratory Science of the Ahmadu Bello University Teaching Hospital, Zaria where he obtained the Associate of the Institute of Medical Laboratory Science (AIMLS) of Nigeria in Chemical Pathology. Mr. Manason Garkuwa RUBAINU is a Fellow of the West African Post Graduate College of Medical Laboratory Science (FWAPGCMLS) - Faculty of Molecular Diagnostics and Translation Science. He is also Fellow, Association of Medical Laboratory Scientists of Nigeria (FAMLSN).</p>
     </div>
     <ButtonLink href="/president" className="btn btn-orange w-full md:w-fit" type="link" title="know more"/>
-  </div>
-  <div class="bg-white dark:bg-dark-alternate h-[315px]">
+  </div> -->
+  <!-- <div class="bg-white dark:bg-dark-alternate h-[315px]">
     <div class="center">
       the second section
     </div>
-  </div>
+  </div> -->
 </Layout>

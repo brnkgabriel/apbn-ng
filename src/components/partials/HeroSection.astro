@@ -1,7 +1,6 @@
 ---
 import { Constants } from '~/types';
 import ButtonLink from './ButtonLink.astro';
-import { showMixlr } from "~/lib";
 
 
 // const { header, subline, intro } = Astro.props
@@ -21,7 +20,6 @@ const className = classes ? `${commonClasses} ${classes}` : `${commonClasses} bg
 
 const heroFontColor = page === Constants.HOME ? "" : "text-white"
 
-const shouldShowMixlr = await showMixlr() 
 --- 
 <section
   aria-label="hero"
@@ -52,18 +50,8 @@ const shouldShowMixlr = await showMixlr()
 		<p id="subline" class="md:max-w-xl mx-auto" slot="subline" set:html={subline}></p> 
     {
       showCta && (
-      <div aria-label="ctas" class="w-full flex items-center justify-center flex-col sm:flex-row gap-2">
-        {
-          shouldShowMixlr ? (
-            <ButtonLink title="stream live" href="#streamlive" live={true} className="btn w-full sm:w-fit -streamlive" type="link" />
-          ) : (
-            <ButtonLink title="stream live" href="https://www.youtube.com/@RCNLagos/streams" className="btn btn-orange w-full sm:w-fit" type="link" />
-          )
-        }
-        <ButtonLink title="about" href="/about" className="btn btn-rcn dark:btn-white w-full sm:w-fit" type="link" />
-      </div>
+        <ButtonLink title="learn more" href="/about" className="btn btn-orange dark:btn-orange w-full sm:w-fit" type="link" />
       )
     }
   </div>
-  <!-- <div class={className}></div> -->
 </section>
