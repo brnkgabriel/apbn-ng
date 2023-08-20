@@ -23,6 +23,17 @@ collections:
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "member" # Used in routes, e.g., /admin/collections/members
+    label: "Members" # Used in the UI
+    folder: "src/content/members" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MemberLayout.astro"}
+      - {label: "Name", name: "name", widget: "string"},
+      - {label: "Caption (What they do)", name: "caption", widget: "string"}
+      - {label: "Logo (800 x 800 or any highres dimension)", name: "logo", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "slider" # Used in routes, e.g., /admin/collections/slider
     label: "Slider" # Used in the UI
     folder: "src/content/sliders" # The path to the folder where the documents are stored
@@ -37,15 +48,4 @@ collections:
       - {label: "Desktop Image (1326 x 602px)", name: "desktopimage", widget: "image"}
       - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["Generic", "Program"]}
-      - {label: "Body", name: "body", widget: "markdown", required: false} 
-  - name: "member" # Used in routes, e.g., /admin/collections/members
-    label: "Members" # Used in the UI
-    folder: "src/content/members" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter 
-      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MemberLayout.astro"}
-      - {label: "Name", name: "name", widget: "string"},
-      - {label: "Caption (What they do)", name: "caption", widget: "string"}
-      - {label: "Logo (800 x 800 or any highres dimension)", name: "logo", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown", required: false}
