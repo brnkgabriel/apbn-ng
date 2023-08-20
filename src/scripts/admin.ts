@@ -1,71 +1,7 @@
-<!doctype html>
-<html>
+import CMS from "@staticcms/core";
+import "@staticcms/core/dist/main.css"
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <!-- <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
-  <link rel="stylesheet" href="https://unpkg.com/@staticcms/app@^2.0.0/dist/main.css" />
-  <script>
-    // Clear site data
-    function clearSiteData() {
-      if ('caches' in window) {
-        // Clear cache storage
-        caches.keys().then(function (cacheNames) {
-          cacheNames.forEach(function (cacheName) {
-            caches.delete(cacheName);
-          });
-        });
-      }
-
-      if ('indexedDB' in window) {
-        // Clear IndexedDB storage
-        indexedDB.databases().then(function (databases) {
-          databases.forEach(function (database) {
-            indexedDB.deleteDatabase(database.name);
-          });
-        });
-      }
-
-      if ('serviceWorker' in navigator) {
-        // Clear service worker registration and caches
-        navigator.serviceWorker.getRegistrations().then(function (registrations) {
-          registrations.forEach(function (registration) {
-            registration.unregister();
-          });
-        });
-      }
-
-      // Clear local storage
-      localStorage.clear();
-
-      // Clear cookies
-      const cookies = document.cookie.split(";");
-
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i];
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-      }
-    }
-
-    // Call the clearSiteData function to clear site data
-    clearSiteData();
-
-  </script>
-  <script defer src="./netlify-identity-widget.js"></script>
-  <title>Content Manager</title>
-</head>
-
-<body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <!-- <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script> -->
-  <!-- <script src="./netlify-cms.js"></script> -->
-  <script src="https://unpkg.com/@staticcms/app@3.0.0/dist/static-cms-app.js"></script>
-  <script>
-    window.CMS.init({
+CMS.init({
   config: {
     backend: {
       name: "git-gateway",
@@ -194,8 +130,4 @@
       }
     ]
   }
-});
-  </script>
-</body>
-
-</html>
+})

@@ -8,22 +8,25 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
-  }, 
+  },
   "dependencies": {
     "@astrojs/netlify": "^2.3.0",
     "@astrojs/prefetch": "^0.2.3",
-    "@astrojs/tailwind": "^4.0.0", 
+    "@astrojs/tailwind": "^4.0.0",
+    "@staticcms/core": "^3.0.1",
+    "@types/netlify-identity-widget": "^1.9.3",
     "astro": "^2.10.9",
-    "contentful": "^10.3.0", 
+    "contentful": "^10.3.0",
     "intl-tel-input": "^18.1.7",
+    "netlify-identity-widget": "^1.9.2",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.12",
     "@types/intl-tel-input": "^18.1.0",
     "@vite-pwa/astro": "^0.1.1",
+    "tailwindcss": "^3.3.3",
     "vite-plugin-pwa": "^0.16.4",
-    "workbox-window": "^7.0.0",
-    "tailwindcss": "^3.3.3"
+    "workbox-window": "^7.0.0"
   }
 }
