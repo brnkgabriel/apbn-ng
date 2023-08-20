@@ -21,7 +21,7 @@ CMS.init({
             label: "Layout",
             name: "layout",
             widget: "hidden",
-            default: "../../layouts/Events.astro",
+            default: "../../layouts/EventsLayout.astro",
           },
           {
             label: "Active",
@@ -117,7 +117,7 @@ CMS.init({
             widget: "string",
           },
           {
-            label: "Logo (800 x 800 or any highres dimesion) .webp",
+            label: "Logo (800 x 800 or any highres dimension) .webp",
             name: "logo",
             widget: "image"
           },
