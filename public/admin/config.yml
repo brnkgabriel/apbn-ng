@@ -23,7 +23,7 @@ collections:
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
       - {label: "Body", name: "body", widget: "markdown"}
-  - name: "slider" # Used in routes, e.g., /admin/collections/departments
+  - name: "slider" # Used in routes, e.g., /admin/collections/slider
     label: "Slider" # Used in the UI
     folder: "src/content/sliders" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
@@ -38,7 +38,7 @@ collections:
       - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["Generic", "Program"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
-  - name: "member" # Used in routes, e.g., /admin/collections/blog
+  - name: "member" # Used in routes, e.g., /admin/collections/member
     label: "Member" # Used in the UI 
     folder: "src/pages/members" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
