@@ -37,22 +37,7 @@ collections:
       - {label: "Desktop Image (1326 x 602px)", name: "desktopimage", widget: "image"}
       - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["Generic", "Program"]}
-      - {label: "Body", name: "body", widget: "markdown", required: false}
-    label: "Event" # Used in the UI
-    folder: "src/content/events" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{title}}" # Filename template, e.gf., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter 
-      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/EventLayout.astro"}
-      - {label: "Active", name: "active", widget: "boolean", default: true}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Caption", name: "description", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime", date_format: "ddd MMMM DD, YYYY"}
-      - {label: "Image (800 x 450px) .webp", name: "image", widget: "image"}
-      - {label: "Image (800 x 800px) .webp", name: "thumbnail", widget: "image"}
-      - {label: "Video URL", name: "videourl", widget: "string", required: false}
-      - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown", required: false} 
   - name: "member" # Used in routes, e.g., /admin/collections/members
     label: "Members" # Used in the UI
     folder: "src/content/members" # The path to the folder where the documents are stored
