@@ -1,16 +1,265 @@
 ---
 import { Constants } from "~/types";
 import Layout from "../layouts/Layout.astro";
-import HeroSection from "~/components/partials/HeroSection.astro"
- 
-const keywords = [
-  "about"
-]
+import HeroSection from "~/components/partials/HeroSection.astro";
+// import ButtonLink from "~/components/partials/ButtonLink.astro";
+// import { Image } from "astro:assets"
+
+// const president = "/images/president_square.webp"
+
+const executiveCouncil = [
+  "president",
+  "1st deputy president",
+  "2nd deputy president",
+  "secretary general",
+  "assistant secretary general",
+  "treasurer",
+  "financial secretary",
+  "publicity secretary",
+];
+
+const values = [
+  "ethics",
+  "integrity",
+  "transparency",
+  "creativity",
+  "diligence",
+  "astuteness",
+];
+
+const keywords = ["about"];
 ---
+
 <Layout title=`About | ${Constants.SITENAME}` keywords={keywords}>
   <HeroSection
     header="About APBN"
     showCta={false}
-    subline="APBN is set up to speak with one voice on behalf of its member-bodies while at the same time giving professional and proper technical advise to Government on matters affecting the professionals and their practices." />
+    subline="APBN is set up to speak with one voice on behalf of its member-bodies while at the same time giving professional and proper technical advise to Government on matters affecting the professionals and their practices."
+  />
 
+  <div class="bg-white">
+    <div class="center">
+      <h2 class="text-lg font-semibold">The Association</h2>
+
+      <p>
+        Some highly placed and well-meaning Nigerian Professionals identified
+        the need for the creation of a unified body of professionals to render
+        advice to the government on national policy issues.
+      </p>
+
+      <p>
+        Erstwhile, on matters of business, commerce, industry and labor, the
+        opinions of the Nigerian Association of Chambers of Commerce Industry,
+        Mines and Agriculture (NACCIMA), the Manufacturers Association of
+        Nigeria (MAN) and the National Employers Consultative Association (NECA)
+        are frequently sought by Government before major policy decisions are
+        taken or implementation made.
+      </p>
+
+      <p>
+        There has been no parallel national body or association embracing
+        various professional organizations in Nigeria which can be called upon
+        by the Government to advise it.
+      </p>
+
+      <p>
+        Consequently, when policy matters of national importance are to be made,
+        the Government either neglects to seek consultations or turns to a few
+        known individuals whose views may not necessarily reflect those of the
+        various Professional Institutions. Yet, we all know that the soundness
+        of a policy depends largely on the quality and integrity of the advice
+        on which it is formulated.
+      </p>
+
+      <p>
+        The initiative to bridge this gap brought about the body of
+        Professionals: The Association of Professional Bodies of Nigeria (APBN).
+        APBN is an umbrella body of recognised professional Institutes,
+        Institutions and Associations promoting a new era of cooperation among
+        professionals in Nigeria. APBN is the veritable platform designed for
+        member-bodies to speak with one voice while at the same time giving
+        professional and proper technical advice to Government on matters
+        affecting the professionals and their practices.
+      </p>
+
+      <p>
+        It is the apex organization comprising, for now, thirty professional
+        bodies, whose main objective is to provide Nigeria with an effective
+        forum for transmitting to the Government the aggregate views of the
+        nation's professionals on matters of public interest which they are
+        competent to express, informed and enlightened views. APBN was given
+        official Federal government recognition as the third leg of the tripod
+        of the Organised Private Sector (OPS) in January 1992.
+      </p>
+
+      <p>
+        Prior to 1992, APBN had embarked upon several activities since1983. APBN
+        is actively involved in promoting and enhancing the status of
+        professional bodies by ensuring maximal utilization of the talents,
+        skills and knowledge of the Nigerian professionals. APBN believes that
+        human welfare problems are multi-dimensional in nature and for this
+        reason it employs a multi disciplinary approach to problem solving. In
+        this regard, APBN discourages traditional professional prejudice,
+        intolerance, and self-centredness.
+      </p>
+
+      <p>
+        APBN believes that, in the interest of the wider society, no profession
+        needs to operate in isolation of the other professional bodies and by
+        that very fact advocates frequent interfacing and cooperation amongst
+        professions.
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <div class="center">
+      <h2 class="text-lg font-semibold">The President</h2>
+      <p>
+        The Presidency of APBN is open only to Past Presidents of Member-bodies.
+        They contest for the post of 2nd Deputy President. The elected 2nd Deputy
+        president holds the office for two years before being elected to hold that
+        of the 1st Deputy President for another two years before ascending to the
+        office of the President.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="center">
+      <h2 class="text-lg font-semibold">The Executive Council</h2>
+      <ol>
+        {executiveCouncil.map((council) => <li class="capitalize">{council}</li>)}
+      </ol>
+      <p>
+        The immediate past President is an ex-officio for a period of two years.
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <div class="center">
+      <h2 class="text-lg font-semibold">The Board</h2>
+      <p>
+        The Board of APBN comprises the elected Executive Council Officers,
+        Presidents of Member-bodies and the Chairmen of State Chapters.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="center">
+      <h2 class="text-lg font-semibold">Vision Statement</h2>
+      <p>
+        To see excellence and integrity permeate and regulate all aspects of
+        professional life; locally, nationally and internationally
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <div class="center">
+      <h2 class="text-lg font-semibold">The Mission</h2>
+      <p>
+        Promoting professionalism and development issues through interactions,
+        co-operation and commitment to set objectives for the advancement of the
+        professions and the development of the nation at large
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="center">
+      <h2 class="text-lg font-semibold">Our values</h2>
+      <p>
+        To ensure that APBN functions effectively and achieves its noble goals, it
+        is guided by certain aims and objectives and core values envisioned by the
+        founding fathers.
+      </p>
+  
+      <p>
+        Through this, the Association is determined and committed to playing an
+        active and frontline role in the socio economic planning process and
+        development of Nigeria.
+      </p>
+  
+      <ol>
+        {values.map((value) => <li class="capitalize">{value}</li>)}
+      </ol>
+    </div>
+  </div>
+
+  <div>
+    <div class="center">
+      <h2 class="text-lg font-semibold">Aims & Objectives</h2>
+      <ol>
+        <li>
+          The aim of the Association shall be the advancement of professionalism
+          and professional practice in Nigeria. It shall seek to confer valuable
+          professional advantages and privileges, impose professional
+          responsibilities, on its member-bodies and encourage work that is
+          important to the nation and the professionals.
+        </li>
+        <li>
+          The Objectives of the Association shall be to foster, advance and
+          promote the interests of the professionals or professional bodies and to
+          improve its service to the community.
+        </li>
+        <li>
+          To encourage research in the advancement of professionalism and
+          disseminate results both in industry and academic institutions.
+        </li>
+        <li>
+          To influence opinion leaders to adopt policies and initiatives that will
+          promote professionalism and development.
+        </li>
+        <li>
+          To cooperate with similar professional organizations throughout the
+          world, and to render or reciprocate such services as are beneficial to
+          and consistent with the objectives of the Association, including
+          national and international conferences.
+        </li>
+        <li>
+          To encourage the exchange of ideas on subjects of common interest and
+          for this purpose to collect and publish literature which may result in
+          the promotion of such interest.
+        </li>
+        <li>
+          To promote and enhance the status of professional bodies in Nigeria.
+        </li>
+        <li>
+          To make or support representation to Government and other appropriate
+          bodies on matters affecting member associations or public interest.
+        </li>
+        <li>
+          To promote good relations and understanding amongst member bodies and
+          the public.
+        </li>
+        <li>
+          To resolve conflicts whenever they arise between professional bodies.
+        </li>
+        <li>
+          To encourage the establishment of a library and information services on
+          the professions.
+        </li>
+        <li>
+          To acquire and hold in the name of the Association or build upon, pull
+          down, rebuild and to alter, repair, improve, sell or dispose of or
+          otherwise deal with any land, buildings or other assets of the
+          Association.
+        </li>
+        <li>
+          To grant or direct to be granted mortgages for securing such assets.
+        </li>
+        <li>
+          To receive donations and contributions, and to raise funds by any lawful
+          means and to manage the funds of the Association.
+        </li>
+        <li>
+          Generally, to do such things as are incidental or conducive to the
+          attainment of the fore-going aims and objectives of the Association.
+        </li>
+      </ol>
+    </div>
+  </div>
 </Layout>
