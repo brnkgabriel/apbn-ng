@@ -31,8 +31,8 @@ collections:
     fields: # The fields for each document, usually in front matter 
       - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MemberLayout.astro"}
       - {label: "Name", name: "name", widget: "string"}
-      - {label: "Category", name: "category", widget: "string"}
       - {label: "Caption (What they do)", name: "caption", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
       - {label: "Logo (800 x 800 or any highres dimension)", name: "logo", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "slider" # Used in routes, e.g., /admin/collections/slider
