@@ -1,5 +1,5 @@
 ---
-import { footerLinks } from "~/lib";
+import { links } from "~/lib";
 import { Constants } from "~/types";
 import Facebook from "../icons/Facebook.astro";
 import Instagram from "../icons/Instagram.astro";
@@ -27,7 +27,7 @@ import YouTube from "../icons/YouTube.astro";
     </a>
     
   {
-    footerLinks.followus.submenu.map(menu => {
+    links.followus.submenu.map(menu => {
       const icon = (name: string) => {
         switch (name) {
           case Constants.TWITTER: return <Twitter />;

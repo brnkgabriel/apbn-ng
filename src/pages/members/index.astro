@@ -23,9 +23,7 @@ const members:CollectionEntry<"members">[] = await getCollection("members")
   <div class="center flex flex-col gap-2 items-center">
     <SearchAndStatus count={members.length} name="members" />
     <div class="card-grid">
-      {
-        members.map(member => <MembersCard member={member}  />)
-      }
+      { members.map(member => <MembersCard member={member}  />) }
     </div>
   </div>
 </Layout> 
