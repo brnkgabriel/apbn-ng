@@ -1,0 +1,16 @@
+---
+// import BlogLayout from "~/layouts/BlogLayout.astro";
+import { getEntry } from "astro:content"
+
+const { slug } = Astro.params
+
+const entry = await getEntry("members", slug as any)
+
+if (entry === undefined) {
+  return Astro.redirect("/404")
+}
+
+const { Content } = await entry.render()
+---
+
+<Content />
