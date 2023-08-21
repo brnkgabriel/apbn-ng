@@ -276,7 +276,7 @@ text {
 
   a[data-type="menu"].active,
   a[data-type="submenu"].active {
-    @apply text-orange dark:text-white dark:underline;
+    @apply text-dark dark:text-white dark:underline;
   }
 }
 @keyframes blinking {

@@ -3,17 +3,26 @@ import { CollectionEntry, getCollection } from "astro:content";
 import MembersCard from "~/components/partials/MembersCard.astro";
 import SearchAndStatus from "~/components/partials/SearchAndStatus.astro";
 
-import { Constants } from "~/types"; 
+import { Constants, iMember } from "~/types"; 
 import HeroSection from "~/components/partials/HeroSection.astro"
 import Layout from "~/layouts/Layout.astro";
+import { memberSearchFilter, paginate } from "~/lib";
 
+
+const entries = Object.fromEntries(Astro.url.searchParams.entries())
+const search = entries["search"] || ""
+const page = entries["page"] || "1"
+
+const list: CollectionEntry<"members">[] = await getCollection("members", ({ data, body }) => {
+  return memberSearchFilter(data as iMember, search, body)
+})
+
+const pageProps = paginate({ list, page, url: Astro.url, size: 12 })
+
+const title = `Members | ${Constants.SITENAME}`
 const keywords = [
   "members"
 ]
-const title = `Members | ${Constants.SITENAME}`
-
-const members:CollectionEntry<"members">[] = await getCollection("members")
-
 --- 
 <Layout title={ title } keywords={keywords}>
   <HeroSection
@@ -21,9 +30,9 @@ const members:CollectionEntry<"members">[] = await getCollection("members")
     showCta={false}
     subline="Explore the list of our member bodies" />
   <div class="center flex flex-col gap-2 items-center">
-    <SearchAndStatus count={members.length} name="members" />
+    <SearchAndStatus count={list.length} name="members" />
     <div class="card-grid">
-      { members.map(member => <MembersCard member={member}  />) }
+      { pageProps.data.map(member => <MembersCard member={member}  />) }
     </div>
   </div>
 </Layout> 

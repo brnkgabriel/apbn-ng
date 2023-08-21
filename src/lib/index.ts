@@ -1,4 +1,4 @@
-import { Constants, iSermon, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage } from "~/types";
+import { Constants, iSermon, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember } from "~/types";
 
 export * from "./data"
 
@@ -268,6 +268,24 @@ export const blogSearchFilter = (blog: iBlog, search: string, body?: string) => 
   const matchesBody = strBody?.indexOf(lowercaseSearch) !== -1
 
   const condition = matchesDate || matchesTitle || matchesDescription || matchesTags || matchesBody
+
+  return condition
+}
+
+export const memberSearchFilter = (member: iMember, search: string, body?: string) => {
+  const { acronym, category, fullname } = member
+  const lowercaseSearch = search.toLowerCase()
+  
+  const strAcronym = acronym.toLowerCase()
+  const matchesAcronym = strAcronym.indexOf(lowercaseSearch) !== -1
+
+  const strCategory = category.toLowerCase()
+  const matchesCategory = strCategory.indexOf(lowercaseSearch) !== -1
+
+  const strFullname = fullname.toLowerCase()
+  const matchesFullname = strFullname.indexOf(lowercaseSearch) !== -1
+
+  const condition = matchesAcronym || matchesCategory || matchesFullname
 
   return condition
 }
