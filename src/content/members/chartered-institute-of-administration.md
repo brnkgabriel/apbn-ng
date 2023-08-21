@@ -6,7 +6,7 @@ category: Administration
 website: https://www.cia.org.ng/
 logo: /images/uploads/cia.webp
 ---
-The institute is a professional and examining body established in 1987 and chartered by Act No.103, published in the Federal Government of Nigeria Gazette No.76 Vol.79 of 31st December 1992. Also visit www.nigeria-law.org/LFN.
+The institute is a professional and examining body established in 1987 and chartered by Act No.103, published in the Federal Government of Nigeria Gazette No.76 Vol.79 of 31st December 1992.
 
 The Act empowers the institute to, among other things; regulate the training and practice of Administration in public and private sectors of the Nigerian economy within a professional membership framework.
 
