@@ -27,7 +27,7 @@ const keywords = [
 
 ---
 <Layout title={`${acronym} | APBN`} keywords={keywords}>
-  <section role="region" aria-label="post" class="w-full center max-w-lg">
+  <section role="region" aria-label="post" class="w-full center">
     <div class="flex flex-col items-center justify-center gap-2">
       <div class="center text-center">
         <h1 class="text-2xl md:text-5xl font-semibold">{acronym}</h1>
@@ -42,10 +42,12 @@ const keywords = [
         format="webp"
       />
     </div>
-    <div class="center">
-      <article class="overflow-auto gap-3 flex flex-col">
-        <slot />
-        <div class="w-full text-center flex justify-center items-center gap-2 p-2">
+    <div>
+      <article class="gap-3 flex flex-col">
+        <div class="max-w-2xl mx-auto my-2">
+          <slot />
+        </div>
+        <div class="w-full text-center flex flex-col md:flex-row justify-center items-center gap-2 p-2">
           <ButtonLink title="all members" href="/members" type="link" className="btn btn-orange dark:btn-white text-center inline-block w-full md:w-fit" />
           <ButtonLink title={`${acronym} homepage`} href={website} type="link" className="btn btn-orange dark:btn-white text-center inline-block w-full md:w-fit" />
         </div>
