@@ -271,7 +271,7 @@ text {
   }
 
   .card-grid {
-    @apply grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full;
+    @apply grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full;
   }
 
   a[data-type="menu"].active,
