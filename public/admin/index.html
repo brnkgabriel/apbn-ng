@@ -55,6 +55,7 @@
     clearSiteData();
 
   </script>
+  <link rel="stylesheet" href="https://unpkg.com/@staticcms/app@^2.0.0/dist/main.css" />
   <script defer src="./netlify-identity-widget.js"></script>
   <title>Content Manager</title>
 </head>
@@ -62,11 +63,11 @@
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <!-- <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script> -->
-  <script src="./netlify-cms.js"></script>
-  <!-- <script src="https://unpkg.com/@staticcms/app@3.0.0/dist/static-cms-app.js"></script> -->
-  <!-- <script>
-    window.CMS.init();
-  </script> -->
+  <!-- <script src="./netlify-cms.js"></script> -->
+  <script src="https://unpkg.com/@staticcms/app@^2.0.0/dist/static-cms-app.js"></script>
+    <script>
+      window.CMS.init();
+    </script>
 </body>
 
 </html>
