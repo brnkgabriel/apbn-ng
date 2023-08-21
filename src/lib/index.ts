@@ -272,7 +272,7 @@ export const blogSearchFilter = (blog: iBlog, search: string, body?: string) => 
   return condition
 }
 
-export const memberSearchFilter = (member: iMember, search: string, body?: string) => {
+export const memberSearchFilter = (member: iMember, search: string, body: string) => {
   const { acronym, category, fullname } = member
   const lowercaseSearch = search.toLowerCase()
   
@@ -285,7 +285,10 @@ export const memberSearchFilter = (member: iMember, search: string, body?: strin
   const strFullname = fullname.toLowerCase()
   const matchesFullname = strFullname.indexOf(lowercaseSearch) !== -1
 
-  const condition = matchesAcronym || matchesCategory || matchesFullname
+  const strBody = body.toLowerCase()
+  const matchesBody = strBody.indexOf(lowercaseSearch) !== -1
+
+  const condition = matchesAcronym || matchesCategory || matchesFullname || matchesBody
 
   return condition
 }

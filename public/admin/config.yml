@@ -33,7 +33,7 @@ collections:
       - {label: "Acronym", name: "acronym", widget: "string"}
       - {label: "Full name", name: "fullname", widget: "string"}
       - {label: "Category", name: "category", widget: "string"}
-      - {label: "Website URL", name: "url", widget: "string"}
+      - {label: "Website URL", name: "website", widget: "string"}
       - {label: "Logo (800 x 800 or any highres dimension)", name: "logo", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "slider" # Used in routes, e.g., /admin/collections/slider

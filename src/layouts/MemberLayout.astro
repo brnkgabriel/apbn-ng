@@ -17,9 +17,9 @@ interface Props {
 }
 
 const { frontmatter } = Astro.props as Props
+
 const { fullname, acronym, url, logo } = frontmatter
 
-console.log("frontmatter is", frontmatter)
 const keywords = [
   acronym,
   fullname
