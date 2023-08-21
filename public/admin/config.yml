@@ -9,7 +9,7 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 collections:
   - name: "event" # Used in routes, e.g., /admin/collections/blog
     label: "Event" # Used in the UI
-    identifier_field: "event"
+    identifier_field: title
     folder: "src/content/events" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{title}}" # Filename template, e.gf., YYYY-MM-DD-title.md
@@ -26,7 +26,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "member" # Used in routes, e.g., /admin/collections/members
     label: "Member" # Used in the UI
-    identifier_field: "member"
+    identifier_field: fullname
     folder: "src/content/members" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{fullname}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -40,7 +40,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "slider" # Used in routes, e.g., /admin/collections/slider
     label: "Slider" # Used in the UI
-    identifier_field: "slider"
+    identifier_field: name
     folder: "src/content/sliders" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
