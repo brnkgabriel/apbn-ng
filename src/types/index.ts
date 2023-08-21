@@ -245,7 +245,7 @@ export interface iMember {
   acronym: string;
   fullname: string;
   category: string;
-  url: string;
+  website: string;
   logo: string
 }
 

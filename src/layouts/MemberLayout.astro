@@ -8,7 +8,7 @@ interface Frontmatter {
   acronym: string;
   fullname: string;
   category: string;
-  url: string;
+  website: string;
   logo: string;
 }
 
@@ -18,7 +18,7 @@ interface Props {
 
 const { frontmatter } = Astro.props as Props
 
-const { fullname, acronym, url, logo } = frontmatter
+const { fullname, acronym, website, logo } = frontmatter
 
 const keywords = [
   acronym,
@@ -47,7 +47,7 @@ const keywords = [
         <slot />
         <div class="w-full text-center flex justify-center items-center gap-2 p-2">
           <ButtonLink title="all members" href="/members" type="link" className="btn btn-orange dark:btn-white text-center inline-block w-full md:w-fit" />
-          <ButtonLink title={`${acronym} homepage`} href={url} type="link" className="btn btn-orange dark:btn-white text-center inline-block w-full md:w-fit" />
+          <ButtonLink title={`${acronym} homepage`} href={website} type="link" className="btn btn-orange dark:btn-white text-center inline-block w-full md:w-fit" />
         </div>
       </article>
       <aside></aside>

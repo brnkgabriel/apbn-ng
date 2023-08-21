@@ -6,7 +6,7 @@ const MembersCollection = defineCollection({
     acronym: z.string(),
     fullname: z.string(),
     category: z.string(),
-    url: z.string(),
+    website: z.string(),
     logo: z.string()
   })
 })
