@@ -59,7 +59,7 @@ export const btnClasses = [
   "dark:text-gray-100",
   "dark:border-darklight",
   "dark:hover:text-white",
-  "shadow-rcn",
+  "shadow-custom",
 ] 
 
 export const btnClassList = [
@@ -83,7 +83,7 @@ export const btnClassList = [
   "dark:hover:text-white",
   "dark:hover-bg-gray-700",
   "relative",
-  "shadow-rcn",
+  "shadow-custom",
   "dark:shadow:none"
 ]
  
