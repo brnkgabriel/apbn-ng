@@ -28,7 +28,7 @@ module.exports = {
 				'2xs': "10px"
 			},
 			boxShadow: {
-				"rcn": "0 2px 5px 0 rgba(0,0,0,0.2)"
+				"custom": "0 2px 5px 0 rgba(0,0,0,0.2)"
 			},
 			aspectRatio: {
 				'16/9': '16 / 9'
