@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets"
+import ButtonLink from './ButtonLink.astro';
+// import { formatDate } from '~/lib';
+
+
+export interface Props {
+  member: CollectionEntry<"members">
+}
+const withArrow = true
+
+const { member } = Astro.props
+---
+<div>
+  <a
+  href={`/blog/${member.slug}`}
+  rel="prefetch"
+  aria-label={member.data.fullname}
+  class="flex-col gap-2 paper rounded-lg overflow-hidden shadow-rcn hidden md:flex">
+    <Image
+      width={800}
+      height={800}
+      class=""
+      src={member.data.logo}
+      alt={member.data.fullname}
+      format="avif"
+    />
+    <div aria-label="details" class="flex flex-col gap-4 p-2">
+      <div>
+        <h2 class="text-base font-semibold one-line">{member.data.acronym}</h2>
+        <p class="two-lines dark:opacity-60">
+          {member.data.fullname} 
+        </p>
+      </div>
+      <!-- <TimeElement date={formatDate(member.data.logo)} /> -->
+      <hr class="dark:opacity-30"/>
+      <ButtonLink
+        withArrow={withArrow}
+        title="read post"
+        type="button"
+        className="btn btn-orange dark:btn-white text-center"
+      />
+    </div>
+  </a>
+  <a
+    href={`/blog/${member.slug}`}
+    rel="prefetch"
+    aria-label={member.data.fullname}
+    class="flex md:hidden flex-col paper rounded-lg overflow-hidden shadow-rcn p-2 gap-2">
+    <div class="grid grid-cols-[1fr_2fr] gap-2">
+      <Image
+        width={800}
+        height={800}
+        class="w-full rounded-md"
+        src={member.data.logo}
+        alt={member.data.fullname}
+        format="avif"
+      />
+      <div class="w-full h-full overflow-hidden text-ellipsis flex flex-col justify-between">
+        <div>
+          <h2 class="text-base font-semibold one-line w-full overflow-hidden text-ellipsis">{member.data.acronym}</h2>
+          <p class="two-lines dark:opacity-60 w-full text-xs">
+            {member.data.fullname} 
+          </p>
+        </div>
+        <!-- <TimeElement date={formatDate(member.data.date)} /> -->
+      </div>
+    </div>
+    <div aria-label="details" class="flex flex-col gap-2">
+      <hr class="dark:opacity-30"/>
+      <ButtonLink
+        withArrow={withArrow}
+        title="read post"
+        type="button"
+        className="btn btn-orange dark:btn-white text-center"
+      />
+    </div>
+  </a>
+
+</div>

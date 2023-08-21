@@ -1,13 +1,33 @@
 ---
-import { getCollection } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
+import MembersCard from "~/components/partials/MembersCard.astro";
+import SearchAndStatus from "~/components/partials/SearchAndStatus.astro";
 
-const members = getCollection("members")
+import { Constants } from "~/types"; 
+import HeroSection from "~/components/partials/HeroSection.astro"
+import Layout from "~/layouts/Layout.astro";
 
----
-<div>
+const keywords = [
+  "members"
+]
+const title = `Members | ${Constants.SITENAME}`
 
-</div>
+const members:CollectionEntry<"members">[] = await getCollection("members")
 
-<style>
-
-</style>
+--- 
+<Layout title={ title } keywords={keywords}>
+  <HeroSection
+    header="Member Directory"
+    showCta={false}
+    subline="Explore the list of our member bodies" />
+  <div class="center">
+    <SearchAndStatus count={members.length} name="members" />
+    <div>
+      {
+        members.map(member => {
+          <MembersCard member={member}  />
+        })
+      }
+    </div>
+  </div>
+</Layout> 
