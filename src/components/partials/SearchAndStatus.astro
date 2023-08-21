@@ -15,7 +15,7 @@ const placeholder = `Search for ${name}`
 const status = count === 1 ? `${count} ${name.slice(0, name.length - 1)} found` : `${count} ${name} found`
 
 ---
-<div class="relative flex flex-col md:flex-row items-center justify-between w-full md:max-w-lg gap-2">
+<div class="relative flex flex-col md:flex-row items-center justify-center w-full md:max-w-lg gap-2">
   <div class="flex items-center justify-center gap-2 w-full md:w-fit"> 
     <input id="search-input" placeholder={placeholder} type="text" class:list={[
       ...inputClassList,
