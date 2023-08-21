@@ -300,7 +300,7 @@ text {
 }
 
 .paper {
-  @apply bg-white dark:bg-darker;
+  @apply bg-white dark:bg-darkest shadow-custom;
 }
 
 .decorate {

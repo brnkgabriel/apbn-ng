@@ -27,23 +27,25 @@ const keywords = [
 
 ---
 <Layout title={`${acronym} | APBN`} keywords={keywords}>
-  <section role="region" aria-label="post" class="w-full center">
+  <section role="region" aria-label="post" class="w-full center flex flex-col gap-2">
     <div class="flex flex-col items-center justify-center gap-2">
-      <div class="center text-center">
+      <div class="text-center">
         <h1 class="text-2xl md:text-5xl font-semibold">{acronym}</h1>
         <span>{fullname}</span>
       </div>
-      <Image
-        src={logo}
-        width={800}
-        height={800}
-        class="w-32 h-32 rounded-md"
-        alt={fullname}
-        format="webp"
-      />
+      <div class="rounded-full p-4 shadow-custom bg-white overflow-hidden">
+        <Image
+          src={logo}
+          width={800}
+          height={800}
+          class="w-32 h-32"
+          alt={fullname}
+          format="webp"
+        />
+      </div>
     </div>
     <div>
-      <article class="gap-3 flex flex-col">
+      <article class="flex flex-col">
         <div class="max-w-2xl mx-auto bg-white dark:bg-dark-alternate p-4 rounded shadow-custom">
           <slot />
         </div>
