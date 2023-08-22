@@ -7,6 +7,7 @@ import { Constants, iMember } from "~/types";
 import HeroSection from "~/components/partials/HeroSection.astro"
 import Layout from "~/layouts/Layout.astro";
 import { memberSearchFilter, paginate } from "~/lib";
+import Pagination from "~/components/partials/Pagination.astro";
 
 
 const entries = Object.fromEntries(Astro.url.searchParams.entries())
@@ -34,5 +35,6 @@ const keywords = [
     <div class="card-grid">
       { pageProps.data.map(member => <MembersCard member={member}  />) }
     </div>
+    <Pagination page={pageProps} />
   </div>
 </Layout> 
