@@ -36,7 +36,7 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
         {
           links.usefullinks.submenu.map(menu => {
             const className = "p-2 pl-0 md:p-1 md:pl-0 w-full"
-            return <a href={menu.url} class={className} rel="prefetch" aria-label={menu.arialabel}>{menu.name}</a>
+            return <a href={menu.url} class={className} target="_blank" aria-label={menu.arialabel}>{menu.name}</a>
           })
         }
       </div>
