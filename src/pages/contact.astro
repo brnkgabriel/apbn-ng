@@ -6,8 +6,9 @@ import HeroSection from "~/components/partials/HeroSection.astro"
 const keywords = [
   "contact"
 ]
+const title = `Contact | ${Constants.SITENAME}`
 ---
-<Layout title=`Contact | ${Constants.SITENAME}`, keywords={keywords}>
+<Layout title={title} keywords={keywords}>
   <HeroSection
     header="Contact Us"
     showCta={false}
