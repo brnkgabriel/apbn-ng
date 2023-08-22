@@ -1,6 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import MembersCard from "~/components/partials/MembersCard.astro";
+import MemberCard from "~/components/partials/MemberCard.astro";
 import SearchAndStatus from "~/components/partials/SearchAndStatus.astro";
 
 import { Constants, iMember } from "~/types"; 
@@ -27,13 +27,13 @@ const keywords = [
 --- 
 <Layout title={ title } keywords={keywords}>
   <HeroSection
-    header="Member Directory"
+    header="Members Directory"
     showCta={false}
     subline="Explore the list of our member bodies" />
   <div class="center flex flex-col gap-2 items-center">
     <SearchAndStatus count={list.length} name="members" />
     <div class="card-grid">
-      { pageProps.data.map(member => <MembersCard member={member}  />) }
+      { pageProps.data.map(member => <MemberCard member={member}  />) }
     </div>
     <Pagination page={pageProps} />
   </div>
