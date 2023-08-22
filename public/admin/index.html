@@ -9,50 +9,50 @@
   <!-- <link rel="stylesheet" href="https://unpkg.com/@staticcms/app@^2.0.0/dist/main.css" /> -->
   <script>
     // Clear site data
-    function clearSiteData() {
-      if ('caches' in window) {
-        // Clear cache storage
-        caches.keys().then(function (cacheNames) {
-          cacheNames.forEach(function (cacheName) {
-            caches.delete(cacheName);
-          });
-        });
-      }
+    // function clearSiteData() {
+    //   if ('caches' in window) {
+    //     // Clear cache storage
+    //     caches.keys().then(function (cacheNames) {
+    //       cacheNames.forEach(function (cacheName) {
+    //         caches.delete(cacheName);
+    //       });
+    //     });
+    //   }
 
-      if ('indexedDB' in window) {
-        // Clear IndexedDB storage
-        indexedDB.databases().then(function (databases) {
-          databases.forEach(function (database) {
-            indexedDB.deleteDatabase(database.name);
-          });
-        });
-      }
+    //   if ('indexedDB' in window) {
+    //     // Clear IndexedDB storage
+    //     indexedDB.databases().then(function (databases) {
+    //       databases.forEach(function (database) {
+    //         indexedDB.deleteDatabase(database.name);
+    //       });
+    //     });
+    //   }
 
-      if ('serviceWorker' in navigator) {
-        // Clear service worker registration and caches
-        navigator.serviceWorker.getRegistrations().then(function (registrations) {
-          registrations.forEach(function (registration) {
-            registration.unregister();
-          });
-        });
-      }
+    //   if ('serviceWorker' in navigator) {
+    //     // Clear service worker registration and caches
+    //     navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    //       registrations.forEach(function (registration) {
+    //         registration.unregister();
+    //       });
+    //     });
+    //   }
 
-      // Clear local storage
-      localStorage.clear();
+    //   // Clear local storage
+    //   localStorage.clear();
 
-      // Clear cookies
-      const cookies = document.cookie.split(";");
+    //   // Clear cookies
+    //   const cookies = document.cookie.split(";");
 
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i];
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-      }
-    }
+    //   for (let i = 0; i < cookies.length; i++) {
+    //     const cookie = cookies[i];
+    //     const eqPos = cookie.indexOf("=");
+    //     const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    //     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    //   }
+    // }
 
-    // Call the clearSiteData function to clear site data
-    clearSiteData();
+    // // Call the clearSiteData function to clear site data
+    // clearSiteData();
 
   </script>
   <!-- <link rel="stylesheet" href="https://unpkg.com/@staticcms/app@^2.0.0/dist/main.css" /> -->
