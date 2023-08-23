@@ -1,0 +1,36 @@
+---
+import type { iSector } from '~/types';
+import { Image } from "astro:assets"
+
+export interface Props {
+  sector: iSector;
+  idx: number
+} 
+
+const { sector, idx } = Astro.props as Props
+const absoluteClasses = "hidden md:flex justify-center items-center absolute py-2 px-4 bg-black/60 text-white"
+const right = (idx % 2 === 1) ? "right-0": ""
+const bottom = (idx > 1) ? "bottom-0" : ""
+const absoluteClassName = absoluteClasses + " " + right + " " + bottom
+
+const staticClassName = "flex md:hidden justify-center items-center w-full text-font dark:text-white"
+---
+
+<div class="relative">
+  <div class={absoluteClassName}>
+    <p class="text-4xl capitalize font-bold">{sector.name}</p>
+  </div>
+  <div class={idx < 2 ? staticClassName: "hidden"}>
+    <p class="text-base capitalize font-medium">{sector.name}</p>
+  </div>
+  <Image
+    src={sector.img}
+    width={1920}
+    height={1080}
+    alt="business"
+    class="aspect-[1920/1080] w-full"
+    format="webp"/>
+  <div class={idx > 1 ? staticClassName: "hidden"}>
+    <p class="text-base capitalize font-medium">{sector.name}</p>
+  </div>
+</div>

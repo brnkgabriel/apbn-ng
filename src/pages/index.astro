@@ -1,12 +1,12 @@
 ---
 import HeroSection from '~/components/partials/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
-import { Constants } from '~/types'
+import { Constants, iSector } from '~/types'
 import ButtonLink from '~/components/partials/ButtonLink.astro';
 import MembersList from '~/components/partials/MembersList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-// import { Image } from "astro:assets"
-// import ButtonLink from '~/components/partials/ButtonLink.astro';
+import Sector from '~/components/partials/Sector.astro';
+import { Image } from "astro:assets"
 
 const allMembers: CollectionEntry<"members">[] = await getCollection("members")
 const members = allMembers.slice(0,4)
@@ -15,6 +15,19 @@ const keywords = [
 	"homepage",
 	"apbn",
 	"association"
+]
+
+const businessImg = "/images/homepage/business.webp"
+const commerceImg = "/images/homepage/commerce.webp"
+const industryImg = "/images/homepage/industry.webp"
+const labourImg = "/images/homepage/labor.webp"
+const speakImg = "/images/homepage/speak.webp"
+
+const sectors: iSector[] = [
+	{ name: "business", img: businessImg },
+	{ name: "commerce", img: commerceImg },
+	{ name: "industry", img: industryImg },
+	{ name: "labour", img: labourImg },
 ]
 
 const title = `Home | ${Constants.SITENAME}`
@@ -27,6 +40,26 @@ const title = `Home | ${Constants.SITENAME}`
     showCta={true}
     subline="Uniting voices and providing expert advice to the Government on matters impacting professionals and their practices." />
   
+	<section aria-label="about" class="bg-white dark:bg-darkest">
+		<div class="flex flex-col gap-2 center">
+			<p>APBN is a unified group of professionals who provide advice to the government on important national policy issues. Previously, when it concerns matters related to business, commerce, industry, and labor, the government frequently seeks opinions from other organizations: the Nigerian Association of Chambers of Commerce Industry, Mines and Agriculture (NACCIMA), the Manufacturers Association of Nigeria (MAN), and the National Employers Consultative Association (NECA). This input is sought before making significant policy decisions or implementing actions.</p>
+			<div class="grid grid-cols-2 gap-2 relative">
+				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-[2] overflow-hidden w-32 md:w-[200px] border-8 border-white dark:border-darkest">
+					<Image
+						src={speakImg}
+						width={1000}
+						height={1080}
+						alt="speak"
+						class="aspect-square w-full"
+						format="webp"/>
+				</div>
+				{
+					sectors.map((sector, idx) => <Sector idx={idx} sector={sector} />)
+				}
+			</div>
+			<ButtonLink className="btn btn-orange dark:btn-white text-center self-center w-full sm:w-fit" title="read more" href="/about" type="link" />
+		</div>
+	</section>
 	<section aria-label="members">
 		<div class="center flex flex-col gap-2 justify-center items-center">
 			<div class="text-center mb-4">

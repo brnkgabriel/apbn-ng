@@ -241,6 +241,11 @@ export interface iBlog {
   slug?: string
 }
 
+export interface iSector {
+  name: string;
+  img: string;
+}
+
 export interface iMember {
   acronym: string;
   fullname: string;
