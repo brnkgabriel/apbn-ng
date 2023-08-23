@@ -14,7 +14,7 @@ export interface Props {
   page?: string
 }
 
-const { intro, header, subline, classes, showCta, page } = Astro.props
+const { intro, header, subline, classes, page, showCta } = Astro.props
 const commonClasses = "absolute z-[1] w-full h-full bg-no-repeat bg-cover bg-center bg-shift"
 const className = classes ? `${commonClasses} ${classes}` : `${commonClasses} bg-home-mb md:bg-home-dk`
 
@@ -50,7 +50,10 @@ const heroFontColor = page === Constants.HOME ? "" : "text-white"
 		<p id="subline" class="md:max-w-xl mx-auto" slot="subline" set:html={subline}></p> 
     {
       showCta && (
-        <ButtonLink title="learn more about apbn" href="/about" className="btn btn-orange dark:btn-orange w-full sm:w-fit" type="link" />
+        <div class="w-full flex flex-col md:flex-row gap-2 justify-center items-center">
+          <ButtonLink title="know more" href="/about" className="btn btn-orange w-full sm:w-fit" type="link" />
+          <ButtonLink title="register" href="/register" className="btn btn-white w-full sm:w-fit" type="link" />
+        </div>
       )
     }
   </div>
