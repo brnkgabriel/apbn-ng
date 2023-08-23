@@ -38,9 +38,9 @@ export const showMixlr = async () => {
   return show
 }
 
-// export const btnClasses = "flex items-center p-2 sm:w-8 sm:h-8 sm:p-0 sm:justify-center text-xs font-medium text-gray-700 bg-white border-2 border-white rounded-lg   dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 relative shadow-rcn dark:shadow-none"
+// export const btClasses = "flex items-center p-2 sm:w-8 sm:h-8 sm:p-0 sm:justify-center text-xs font-medium text-gray-700 bg-white border-2 border-white rounded-lg   dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 relative shadow-rcn dark:shadow-none"
 
-export const btnClasses = [
+export const btClasses = [
   "flex",
   "items-center",
   "p-2",
@@ -62,7 +62,7 @@ export const btnClasses = [
   "shadow-custom",
 ] 
 
-export const btnClassList = [
+export const btClassList = [
   "flex",
   "items-center",
   "justify-center",
@@ -202,19 +202,19 @@ export const whatsappIcon = (number: string) => {
   return `https://api.whatsapp.com/send?phone=${number}&text=Hello`
 }
 
-export const copyToClipboard = (btnParent: HTMLElement, textToCopy: string) => {
+export const copyToClipboard = (btParent: HTMLElement, textToCopy: string) => {
   return navigator.clipboard.writeText(textToCopy)
-    .then(() => copyReaction(btnParent, "Copied!"))
-    .catch(() => copyReaction(btnParent, "Copy Error :("));
+    .then(() => copyReaction(btParent, "Copied!"))
+    .catch(() => copyReaction(btParent, "Copy Error :("));
 }
 
-const copyReaction = (btnParent: HTMLElement, msg: string) => {
-  const tooltip = btnParent.querySelector(Constants.TOOLTIPID) as HTMLElement
+const copyReaction = (btParent: HTMLElement, msg: string) => {
+  const tooltip = btParent.querySelector(Constants.TOOLTIPID) as HTMLElement
   const originalHTML = tooltip.innerHTML
   tooltip.innerHTML = msg
   setTimeout(() => {
     tooltip.innerHTML = originalHTML
-    btnParent.classList.remove(Constants.COPIED)
+    btParent.classList.remove(Constants.COPIED)
   }, 1000);
 }
 

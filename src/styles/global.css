@@ -107,25 +107,25 @@ text {
   overflow: hidden;
 }
 
-.btn-naira {
+.bt-naira {
   background-color: var(--green) !important;
   box-shadow: 0px 4px 20px -5px var(--green) !important;
   color: white !important;
 }
 
-.btn-dollars {
+.bt-dollars {
   background-color: var(--blue) !important;
   box-shadow: 0px 4px 20px -5px var(--blue) !important;
   color: white !important;
 }
 
-.btn-pounds {
+.bt-pounds {
   background-color: var(--mainorange) !important;
   box-shadow: 0px 4px 20px -5px var(--mainorange) !important;
   color: white !important;
 }
 
-.btn-euro {
+.bt-euro {
   background-color: var(--purple) !important;
   box-shadow: 0px 4px 20px -5px var(--purple) !important;
   color: white !important;
@@ -214,7 +214,7 @@ text {
   .center {
     @apply w-full max-w-[1290px] mx-auto p-4;
   }
-  .btn {
+  .bt {
     border-radius: 8px;
     padding: 8px 16px;
     text-transform: uppercase;
@@ -222,49 +222,49 @@ text {
     justify-content: center;
   }
 
-  .btn-orange, .btn-program, .btn-details { 
+  .bt-orange, .bt-program, .bt-details { 
     background-color: #EBBE1A !important;
     box-shadow: 0px 4px 20px -5px #EBBE1A;
     color: #282828 !important;
   }
   
-  .btn-transparent {
+  .bt-transparent {
     background-color: transparent !important;
     box-shadow: 0px 4px 20px -5px transparent;
     color: white !important;
   }
 
-  .btn-paystack {
+  .bt-paystack {
     background-color: var(--paystack) !important;
     box-shadow: 0px 4px 20px -5px var(--paystack);
     color: white !important;
   }
 
-  .btn-red {
+  .bt-red {
     background-color: #f71002 !important;
     box-shadow: 0px 4px 20px -5px #f71002;
     color: white !important;
   }
 
-  .btn-mid-blue {
+  .bt-mid-blue {
     background-color: #42526e !important;
     box-shadow: 0px 4px 20px -5px #42526e;
     color: white !important;
   }
 
-  .btn-dark-blue {
+  .bt-dark-blue {
     background-color: #171332 !important;
     box-shadow: 0px 4px 20px -5px #171332;
     color: white !important;
   }
 
-  .btn-white {
+  .bt-white {
     background-color: #fff !important;
     box-shadow: 0px 4px 20px -5px #fff;
     color: #171332 !important;
   }
 
-  .btn-rcn {
+  .bt-rcn {
     background-color: var(--rcnlighterbg) !important;
     box-shadow: 0px 4px 20px -5px var(--rcntext);
     color: var(--rcntext) !important;
@@ -336,11 +336,11 @@ text {
   justify-content: space-between;
 }
 
-.-top.-hide-back-btn .-back-btn {
+.-top.-hide-back-bt .-back-bt {
   display: none;
 }
 
-.-back-btn {
+.-back-bt {
   display: flex;
   align-items: center;
   -moz-column-gap: 4px;
@@ -381,7 +381,7 @@ text {
   font-weight: 600;
 }
 
-.-links a.btn {
+.-links a.bt {
   width: calc(100% - 32px);
   margin-left: 16px;
 }
@@ -549,13 +549,13 @@ form.-loading button {
   pointer-events: none;
 }
 
-.-loading .btn .-txt,
-.btn .-spin-loader {
+.-loading .bt .-txt,
+.bt .-spin-loader {
   display: none;
 }
 
-.btn .-txt ,
-.-loading .btn .-spin-loader {
+.bt .-txt ,
+.-loading .bt .-spin-loader {
   display: block;
   margin: 0 auto;
 }

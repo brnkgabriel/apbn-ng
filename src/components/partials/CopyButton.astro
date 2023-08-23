@@ -1,5 +1,5 @@
 ---
-import { btnClasses } from '~/lib';
+import { btClasses } from '~/lib';
 
 interface Props {
   className?: string;
@@ -7,9 +7,9 @@ interface Props {
 
 const { className } = Astro.props as Props
 
-const customizedClass = className ? className : "btn-orange"
+const customizedClass = className ? className : "bt-orange"
 
-const classes = btnClasses
+const classes = btClasses
 .filter(className => className !== "bg-white")
 .filter(className => className !== "dark:bg-gray-700")
 .filter(className => className !== "shadow-rcn")

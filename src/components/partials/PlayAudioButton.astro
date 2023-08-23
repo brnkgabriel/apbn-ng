@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { btnClasses } from '~/lib';
+import { btClasses } from '~/lib';
 
 export interface Props {
   sermon: CollectionEntry<"sermons">;
@@ -8,11 +8,11 @@ export interface Props {
 
 const { sermon } = Astro.props
 const label = sermon.data.title + " download button"
-const classes = btnClasses
+const classes = btClasses
 .filter(className => className !== "bg-white")
 .filter(className => className !== "dark:bg-gray-700")
 .filter(className => className !== "shadow-rcn")
-classes.push("btn-orange")
+classes.push("bt-orange")
 
 ---
 
