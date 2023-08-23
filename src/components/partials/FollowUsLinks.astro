@@ -27,7 +27,7 @@ import LinkedIn from "../icons/LinkedIn.astro";
       const linkClass = "w-10 h-10 md:w-7 md:h-7 flex items-center justify-center rounded-lg relative border-2 border-white"
       const clickableClass = "w-full h-full z-10 top-0 left-0 absolute"
       return (
-      <a href={menu.url} class={linkClass} aria-label={menu.name} >
+      <a href={menu.url} target="_blank" class={linkClass} aria-label={menu.name} >
         <span class={clickableClass}></span>
         {
           icon(menu.name)

@@ -17,10 +17,10 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/EventLayout.astro"}
       - {label: "Active", name: "active", widget: "boolean", default: true}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Caption", name: "description", widget: "string"}
+      - {label: "Caption", name: "description", widget: "string", required: false}
       - {label: "Date", name: "date", widget: "datetime", date_format: "ddd MMMM DD, YYYY"}
-      - {label: "Image (800 x 450px) .webp", name: "image", widget: "image"}
-      - {label: "Image (800 x 800px) .webp", name: "thumbnail", widget: "image"}
+      - {label: "Image (560 x 315px) .webp", name: "image", widget: "image"}
+      - {label: "Audio URL", name: "audiourl", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
       - {label: "Body", name: "body", widget: "markdown"}
