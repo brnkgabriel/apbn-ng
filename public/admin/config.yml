@@ -19,10 +19,9 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Caption", name: "description", widget: "string", required: false}
       - {label: "Event Date", name: "date", widget: "datetime", time_format:"HH:mm", date_format: "ddd mmmm, yyyy"}
-      - {label: "Image (560 x 315px) .webp", name: "image", widget: "image"}
+      - {label: "Image (560 x 315px) .webp", name: "image", widget: "image", required: false}
       - {label: "Audio URL", name: "audiourl", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
-      - {label: "Tags", name: "tags", widget: "list", default: ["Heart Check"]}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "member" # Used in routes, e.g., /admin/collections/members
     label: "Member" # Used in the UI
