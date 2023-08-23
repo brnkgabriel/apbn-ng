@@ -18,7 +18,7 @@ collections:
       - {label: "Active", name: "active", widget: "boolean", default: true}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Caption", name: "description", widget: "string", required: false}
-      - {label: "Event Date", name: "date", widget: "datetime", time_format:"HH:mm", date_format: "ddd MMMM DD, YYYY"}
+      - {label: "Event Date", name: "date", widget: "datetime", time_format:"HH:mm", date_format: "ddd MMMM, YYYY"}
       - {label: "Image (560 x 315px) .webp", name: "image", widget: "image"}
       - {label: "Audio URL", name: "audiourl", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
