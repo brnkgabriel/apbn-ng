@@ -39,9 +39,9 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
         }
       </div>
       <div class="flex items-start flex-col">
-        <p class="uppercase font-semibold underline">{links.usefullinks.name}</p>
+        <p class="uppercase font-semibold underline">{links.resources.name}</p>
         {
-          links.usefullinks.submenu.map(menu => {
+          links.resources.submenu.map(menu => {
             const className = "p-2 pl-0 md:p-1 md:pl-0 w-full"
             return <a href={menu.url} class={className} aria-label={menu.arialabel}>{menu.name}</a>
           })
@@ -59,7 +59,7 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
       <div class="flex items-start flex-col gap-2">
         <p class="uppercase font-semibold underline">{links.followus.name}</p>
         <FollowUsLinks />
-        <ButtonLink className="bt bt-white py-2 px-4 w-fit text-center" title="join us" href="/register" type="link" />
+        <ButtonLink className="bt bt-white py-2 px-4 w-full md:w-fit text-center" title="join us" href="/register" type="link" />
       </div>
     </div>
     <hr>

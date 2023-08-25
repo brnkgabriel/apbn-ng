@@ -7,7 +7,7 @@ export const links = {
       { name: "Team", url: "/team", arialabel: "team" },
     ],
   },
-  usefullinks: {
+  resources: {
     name: "useful links",
     submenu: [
       { name: "Contact", url: "/contact", arialabel: "contact" },
