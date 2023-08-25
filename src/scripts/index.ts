@@ -182,8 +182,9 @@ class Main {
       if (searchItem) {
         this.headerEl.textContent = searchItem.replaceAll("%20", " ")
       } else {
-        this.headerEl.innerHTML = (map.get(pathstring.main)?.header as string).replaceAll("%20", " ")
-        this.sublineEl.innerHTML = (map.get(pathstring.main)?.subline as string).replaceAll("%20", " ")
+        const str = (map.get(pathstring.main)?.header as string)
+        this.headerEl.innerHTML = str ? str.replaceAll("%20", " ") : ""
+        this.sublineEl.innerHTML = str ? str.replaceAll("%20", " ") : ""
       }
     }
   }

@@ -269,8 +269,6 @@ export const teamSearchFilter = (tMember: iTeam, search: string) => {
 
   const condition = matchesOrder || matchesName || matchesAcronym || matchesBody || matchesRole
 
-  console.log("search", search, "matchRole", matchesRole, "condition", condition)
-
   return condition
 }
 
