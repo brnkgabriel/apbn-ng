@@ -18,7 +18,7 @@ export const links = {
   legal: {
     name: "legal",
     submenu: [
-      { name: "Terms of Use", url: "/terms", arialabel: "terms of use" },
+      { name: "Terms of Use", url: "/terms-of-use", arialabel: "terms of use" },
       { name: "Privacy Policy", url: "/privacy", arialabel: "privacy policy" },
       { name: "Cookie Policy", url: "/cookie-policy", arialabel: "cookie policy" }
     ],
