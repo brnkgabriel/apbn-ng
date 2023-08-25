@@ -65,5 +65,5 @@ collections:
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Desktop Image (1326 x 602px)", name: "desktopimage", widget: "image"}
       - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
-      - {label: "Slider Type", name: "type", widget: "select", options: ["Generic", "Program"]}
+      - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
