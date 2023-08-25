@@ -25,7 +25,20 @@ const EventsCollection = defineCollection({
   })
 })
 
+const TeamCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    order: z.string(),
+    name: z.string(),
+    acronym: z.string().optional(),
+    role: z.string(),
+    picture: z.string(),
+    body: z.string().optional()
+  })
+})
+
 export const collections = {
   "members": MembersCollection,
-  "events": EventsCollection
+  "events": EventsCollection,
+  "team": TeamCollection
 }

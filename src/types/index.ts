@@ -243,6 +243,16 @@ export interface iBlog {
   slug?: string
 }
 
+export interface iTeam {
+  order: string,
+  name: string,
+  acronym?: string,
+  role: string,
+  date: Date,
+  picture: string,
+  body?: string
+}
+
 export interface iSector {
   name: string;
   img: string;

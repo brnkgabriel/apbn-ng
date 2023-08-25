@@ -1,0 +1,71 @@
+---
+import HeroSection from "~/components/partials/HeroSection.astro";
+import Layout from "../layouts/Layout.astro";
+
+const keywords = [
+  "privacy",
+  "Terms of Use"
+]
+const title = "Terms of Use | APBN"
+---
+
+<Layout title={title} keywords={keywords}>
+  <HeroSection
+    header="Terms of Use"
+    showCta={false}
+    subline="Guidelines for Using APBN's Website Responsibly and Effectively" />
+  <section class="center flex flex-col gap-4" aria-label="privacy">
+    <p>
+      Welcome to the Association of Professional Bodies of Nigeria (APBN) website. By using this website, you agree to comply with and be bound by the following terms and conditions of use. If you disagree with any part of these terms, please do not use our website.
+    </p>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Acceptance of Terms</h2>
+      <p>
+        By accessing or using this website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Use License</h2>
+      <p>
+        Permission is granted to temporarily access and view the materials (information, resources, documents, etc.) on APBN's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license, you may not:
+      </p>
+      <ul>
+        <li>Modify or copy the materials.</li>
+        <li>Use the materials for any commercial purpose or public display (commercial or non-commercial).</li>
+        <li>Attempt to decompile or reverse engineer any software contained on APBN's website.</li>
+        <li>Remove any copyright or other proprietary notations from the materials.</li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Disclaimer</h2>
+      <p>
+        The materials on APBN's website are provided on an 'as is' basis. APBN makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Limitations</h2>
+      <p>
+        In no event shall APBN or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on APBN's website, even if APBN or an APBN authorized representative has been notified orally or in writing of the possibility of such damage.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Links</h2>
+      <p>
+        APBN has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by APBN. Use of any such linked website is at the user's own risk.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Governing Law</h2>
+      <p class="flex items-baseline gap-1">
+        Any claim relating to APBN's website shall be governed by the laws of Nigeria without regard to its conflict of law provisions.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h2 class="text-xl font-semibold">Changes</h2>
+      <p class="flex items-baseline gap-1">
+        APBN reserves the right to modify or replace these Terms of Use at any time. It is your responsibility to check these Terms of Use periodically for changes. Your continued use of the website after any such modifications shall constitute your consent to such changes.
+      </p>
+    </div>
+    <p>By using APBN's website, you signify your acceptance of these terms. If you do not agree to these terms, please do not use our website.</p>
+  </section>
+</Layout>

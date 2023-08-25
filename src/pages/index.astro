@@ -8,6 +8,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Sector from '~/components/partials/Sector.astro';
 import { Image } from "astro:assets"
 import EventList from '~/components/partials/EventList.astro';
+import TeamList from '~/components/partials/TeamList.astro';
 
 const allMembers: CollectionEntry<"members">[] = await getCollection("members")
 const members = allMembers.slice(0,4)
@@ -17,6 +18,11 @@ const events = allEvents
 .filter(event => event.data.active)
 .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
 .slice(0, 2)
+
+const allTeam: CollectionEntry<"team">[] = await getCollection("team")
+const team = allTeam
+.sort((a, b) => Number(a.data.order) - Number(b.data.order))
+.slice(0,4)
 
 const keywords = [
 	"homepage",
@@ -96,6 +102,18 @@ const title = `Home | ${Constants.SITENAME}`
 				type="link"
 				title="see all events"
 			/>
+		</div>
+	</section>
+	<section aria-label="team">
+		<div class="center flex flex-col gap-2 justify-center items-center">
+			<div class="text-center mb-4">
+				<h2 aria-label="ourprograms title" class="text-xl font-semibold uppercase">
+					The Management Team
+				</h2>
+				<p></p>
+			</div>
+			<TeamList members={team} />
+			<ButtonLink className="bt bt-orange dark:bt-white text-center self-center w-full sm:w-fit" title="see all the team" href="/team" type="link" />
 		</div>
 	</section>
 </Layout> 

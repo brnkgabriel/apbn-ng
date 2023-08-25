@@ -1,4 +1,4 @@
-import { Constants, iEvent, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember } from "~/types";
+import { Constants, iEvent, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember, iTeam } from "~/types";
 
 export * from "./data"
 
@@ -244,6 +244,30 @@ export const eventSearchFilter = (event: iEvent, search: string) => {
   const matchesMetadata = strMetadata.indexOf(lowercaseSearch) !== -1
 
   const condition = matchesDate || matchesDescription || matchesBody || matchesTitle || matchesMetadata
+
+  return condition
+}
+
+export const teamSearchFilter = (tMember: iTeam, search: string) => {
+  const { order, name, acronym, role, body } = tMember
+  const lowercaseSearch = search.toLowerCase()
+
+  const strOrder = order.toLowerCase() 
+  const matchesOrder = strOrder.indexOf(lowercaseSearch) !== -1
+
+  const strName = name.toLowerCase()
+  const matchesName = strName.indexOf(lowercaseSearch) !== -1
+
+  const strAcronym = acronym ? acronym.toLowerCase() : ""
+  const matchesAcronym = strAcronym.indexOf(lowercaseSearch) !== -1
+
+  const strBody = body ? body.toLowerCase() : ""
+  const matchesBody = strBody.indexOf(lowercaseSearch) !== -1
+
+  const strRole = role.toLowerCase()
+  const matchesRole = strRole.indexOf(lowercaseSearch) !== -1
+
+  const condition = matchesOrder || matchesName || matchesAcronym || matchesBody || matchesRole
 
   return condition
 }

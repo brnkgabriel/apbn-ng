@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets"
+import ButtonLink from './ButtonLink.astro';
+import CategoryElement from './CategoryElement.astro';
+
+
+export interface Props {
+  member: CollectionEntry<"team">;
+}
+const withArrow = true
+
+const { member } = Astro.props
+---
+<div
+aria-label={member.data.name}
+class="flex flex-col paper rounded-lg overflow-hidden shadow-rcn p-2 gap-2">
+<div class="grid grid-cols-[1fr_2fr] gap-2">
+  <Image
+    width={800}
+    height={800}
+    class="w-full rounded-lg"
+    src={member.data.picture}
+    alt={member.data.name}
+    format="avif"
+  />
+  <div class="w-full h-full overflow-hidden text-ellipsis flex flex-col justify-between">
+    <div>
+      <h2 class="text-base font-semibold two-lines w-full overflow-hidden text-ellipsis">{member.data.name}</h2>
+      <p class="two-lines dark:opacity-60 w-full text-xs">
+        {member.data.role} 
+      </p>
+    </div>
+    {
+      member.data.acronym && (
+        <CategoryElement title={member.data.acronym} />
+      )
+    }
+  </div>
+</div>
+{
+  member.data.body && (
+    <div aria-label="details" class="flex flex-col gap-2">
+      <hr class="dark:opacity-30"/>
+      <ButtonLink
+        withArrow={withArrow}
+        title="learn more"
+        type="button"
+        className="bt bt-orange dark:bt-white text-center"
+      />
+    </div>
+  )
+}
+</div>

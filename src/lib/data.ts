@@ -1,12 +1,26 @@
 export const links = {
+  association: {
+    name: "the association",
+    submenu: [
+      { name: "About", url: "/about", arialabel: "about" },
+      { name: "Member Bodies", url: "/members", arialabel: "members" },
+      { name: "Team", url: "/team", arialabel: "team" },
+    ],
+  },
   usefullinks: {
     name: "useful links",
     submenu: [
-      { name: "About", url: "/about", arialabel: "about" },
-      { name: "Members", url: "/members", arialabel: "members" },
-      { name: "Events", url: "/events", arialabel: "events" },
-      { name: "Privacy Policy", url: "/privacy", arialabel: "privacy policy" },
+      { name: "Contact", url: "/contact", arialabel: "contact" },
+      { name: "Register", url: "/register", arialabel: "register" },
       { name: "Sitemap", url: "/sitemap.xml", arialabel: "sitemap" }
+    ],
+  },
+  legal: {
+    name: "legal",
+    submenu: [
+      { name: "Terms of Use", url: "/terms", arialabel: "terms of use" },
+      { name: "Privacy Policy", url: "/privacy", arialabel: "privacy policy" },
+      { name: "Cookie Policy", url: "/cookie-policy", arialabel: "cookie policy" }
     ],
   },
   followus: {

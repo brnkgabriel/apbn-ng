@@ -8,7 +8,7 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
 
 <footer class="w-full -footer bg-darklight text-white" aria-label="footer" role="contentinfo">
   <div class="center flex flex-col gap-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-2">
       <div class="flex items-start flex-col gap-2">
         <WhiteLogo/>
         <div class="flex flex-col justify-start items-start">
@@ -28,8 +28,15 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
           </svg>          
           <span>Send us an email</span>
         </a>
-        <FollowUsLinks />
-        <ButtonLink className="bt bt-white py-2 px-4 w-fit text-center" title="join us" href="/register" type="link" />
+      </div>
+      <div class="flex items-start flex-col">
+        <p class="uppercase font-semibold underline">{links.association.name}</p>
+        {
+          links.association.submenu.map(menu => {
+            const className = "p-2 pl-0 md:p-1 md:pl-0 w-full"
+            return <a href={menu.url} class={className} aria-label={menu.arialabel}>{menu.name}</a>
+          })
+        }
       </div>
       <div class="flex items-start flex-col">
         <p class="uppercase font-semibold underline">{links.usefullinks.name}</p>
@@ -39,6 +46,20 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
             return <a href={menu.url} class={className} aria-label={menu.arialabel}>{menu.name}</a>
           })
         }
+      </div>
+      <div class="flex items-start flex-col">
+        <p class="uppercase font-semibold underline">{links.legal.name}</p>
+        {
+          links.legal.submenu.map(menu => {
+            const className = "p-2 pl-0 md:p-1 md:pl-0 w-full"
+            return <a href={menu.url} class={className} aria-label={menu.arialabel}>{menu.name}</a>
+          })
+        }
+      </div>
+      <div class="flex items-start flex-col gap-2">
+        <p class="uppercase font-semibold underline">{links.followus.name}</p>
+        <FollowUsLinks />
+        <ButtonLink className="bt bt-white py-2 px-4 w-fit text-center" title="join us" href="/register" type="link" />
       </div>
     </div>
     <hr>

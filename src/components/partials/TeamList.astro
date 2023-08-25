@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TeamCard from "./TeamCard.astro";
+
+interface Props {
+  members: CollectionEntry<"team">[]
+}
+
+const { members } = Astro.props as Props;
+---
+
+<div class="card-grid w-full">
+  {
+    members.map((member, idx) => <TeamCard member={member} />)
+  }
+</div>

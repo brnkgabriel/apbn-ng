@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroSection from "~/components/partials/HeroSection.astro";
+import { paginate, teamSearchFilter } from "~/lib";
+import { CollectionEntry, getCollection } from "astro:content"
+import { Constants, type iTeam } from "~/types";
+import SearchAndStatus from "~/components/partials/SearchAndStatus.astro";
+import Pagination from "~/components/partials/Pagination.astro"
+import TeamCard from "~/components/partials/TeamCard.astro";
+
+const keywords = [
+  "team",
+  "apbn"
+]
+const title = `Team | ${Constants.SITENAME}`
+
+const entries = Object.fromEntries(Astro.url.searchParams.entries())
+const search = entries["search"] || ""
+const page = entries["page"] || "1"
+
+const allTeam: CollectionEntry<"team">[] = await getCollection("team", ({ data }) => {
+  return teamSearchFilter(data as unknown as iTeam, search)
+})
+
+const list = allTeam
+.sort((a, b) => Number(a.data.order) - Number(b.data.order))
+
+const pageProps = paginate({ list, page, url: Astro.url, size: 8 })
+---
+
+<Layout title={title}, keywords={keywords}>
+  <HeroSection
+    header="The Team"
+    showCta={false}
+    subline="Meet Our Management Team" />
+  
+    <div class="center flex flex-col items-center gap-2 w-full">
+      <SearchAndStatus count={list.length} name="team members" />
+      <div class="card-grid">
+        {
+          pageProps.data.map((member, idx) => (<TeamCard member={member} />))
+        }
+      </div>
+      <Pagination page={pageProps} />
+    </div>
+</Layout>
