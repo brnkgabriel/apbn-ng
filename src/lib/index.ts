@@ -54,10 +54,10 @@ export const btClasses = [
   "bg-white",
   "relative",
   "rounded-lg",
-  "dark:bg-darklight",
+  "dark:bg-darker",
   "focus:outline-none",
   "dark:text-gray-100",
-  "dark:border-darklight",
+  "dark:border-darker",
   "dark:hover:text-white",
   "shadow-custom",
 ] 
