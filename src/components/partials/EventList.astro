@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+import EventCard from "./EventCard.astro";
+
+interface Props {
+  events: CollectionEntry<"events">[]
+}
+
+const { events } = Astro.props as Props;
+---
+
+<div class="two-col-card-grid w-full">
+  {
+    events.map((event, idx) => <EventCard event={event} key={idx} />)
+  }
+</div>

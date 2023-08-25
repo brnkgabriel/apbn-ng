@@ -1,35 +1,47 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroSection from "~/components/partials/HeroSection.astro";
-import { blogSearchFilter, paginate } from "~/lib";
+import { eventSearchFilter, paginate } from "~/lib";
 import { CollectionEntry, getCollection } from "astro:content"
-import type { iBlog } from "~/types";
-import BlogCard from "~/components/partials/BlogCard.astro";
+import { Constants, type iEvent } from "~/types";
 import SearchAndStatus from "~/components/partials/SearchAndStatus.astro";
 import Pagination from "~/components/partials/Pagination.astro"
-
-// const entries = Object.fromEntries(Astro.url.searchParams.entries());
-// const search = entries["search"] || ""
-// const page = entries["page"] || "1"
-
-// const allBlogPosts:CollectionEntry<"blog">[] = await getCollection("blog", ({ data, body }) => {
-//   return blogSearchFilter(data as iBlog, search, body)
-// })
-
-// const list = allBlogPosts
-// .filter(blog => blog.data.active)
-// .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
-
-// const pageProps = paginate({ list, page, url: Astro.url, size: 8 }) 
+import EventCard from "~/components/partials/EventCard.astro";
 
 const keywords = [
-  "events"
+  "events",
+  "apbn"
 ]
+const title = `Events | ${Constants.SITENAME}`
+
+const entries = Object.fromEntries(Astro.url.searchParams.entries())
+const search = entries["search"] || ""
+const page = entries["page"] || "1"
+
+const allEvents: CollectionEntry<"events">[] = await getCollection("events", ({ data }) => {
+  return eventSearchFilter(data as unknown as iEvent, search)
+})
+
+const list = allEvents
+.filter(sermon => sermon.data.active)
+.sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+
+const pageProps = paginate({ list, page, url: Astro.url, size: 8 })
 ---
 
-<Layout title=`Events | ${Constants.SITENAME}`, keywords={keywords}>
+<Layout title={title}, keywords={keywords}>
   <HeroSection
     header="All APBN Events"
     showCta={false}
     subline="Unleashing Excellence: Explore All APBN Events - Connecting Nigeria's Professional Minds." />
+  
+    <div class="center flex flex-col items-center gap-2 w-full">
+      <SearchAndStatus count={list.length} name="events" />
+      <div class="card-grid">
+        {
+          pageProps.data.map((event, idx) => (<EventCard key={idx} event={event} />))
+        }
+      </div>
+      <Pagination page={pageProps} />
+    </div>
 </Layout>

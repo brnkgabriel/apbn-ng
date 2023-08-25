@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+// import type { iSermon } from "~/types";
+import YouTubeRed from "../icons/YouTubeRed.astro";
+import { formatDate, youTubeThumbnail } from "~/lib";
+import DownloadButton from "./DownloadButton.astro";
+import TimeElement from "./TimeElement.astro";
+import PlayVideoButton from "./PlayVideoButton.astro";
+import ShareButton from "./ShareButton.astro";
+import type { CollectionEntry } from "astro:content";
+import PlayAudioButton from "./PlayAudioButton.astro";
+
+interface Props {
+  event: CollectionEntry<"events">;
+  key: number;
+}
+
+const { event } = Astro.props as Props;
+---
+
+<div class="w-full flex flex-col gap-2 bg-white paper rounded-lg overflow-hidden shadow-rcn">
+  <button
+    aria-label="play youtube video"
+    class:list={[
+      "bg-113",
+      "bg-center",
+      "relative",
+      "w-full",
+      "aspect-video",
+      "shadow-rcn",
+      "overflow-hidden",
+      "bg-no-repeat",
+      "flex",
+      "justify-content",
+      "items-center",
+    ]}>
+    <span
+      data-name={event.data.videourl ? "play video" : "play audio"}
+      class="-clickable"
+      data-event={JSON.stringify(event.data)}></span>
+    {
+      event.data.videourl && (
+      <YouTubeRed className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 fill-white" />
+      )
+    }
+    <Image
+      width={560}
+      height={315}
+      class="object-cover w-full"
+      alt="latest message"
+      src={event.data.image || youTubeThumbnail(event.data.videourl as string)}
+      format="webp"
+    />
+  </button>
+
+  <div class="flex flex-col items-start justify-center p-2 pt-0 gap-2 w-full">
+    <div class="w-full">
+      <h2 class="text-base font-semibold one-line">{event.data.title}</h2>
+      <p class="one-line dark:opacity-60">
+        {event.data.description}
+      </p>
+    </div>
+    <TimeElement date={formatDate(event.data.date)} />
+    <hr class="dark:opacity-30 w-full"/>
+    <div class="flex justify-start items-center gap-2" aria-label="ctas"> 
+      {
+        event.data.audiourl && <PlayAudioButton event={event} />
+      }
+      {
+        event.data.videourl && <PlayVideoButton event={event} id={event.data.title} />
+      }
+      {
+        event.data.audiourl && (
+          <a href={event.data.audiourl} download aria-label={`download the audio of ${event.data.title}`}>
+            <DownloadButton event={event} id={event.data.title} />
+          </a>
+        )
+      }
+      <ShareButton event={event} id={event.data.title} />
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { copyToClipboard, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants, map } from "~/types";
-import type { iDynamic, iSermon, iApiOptions, iSubmit, iModal } from "~/types";
+import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal } from "~/types";
 import intlTelInput from "intl-tel-input"
 
 const url = new URL(location.href)
@@ -153,13 +153,13 @@ class Main {
   }
 
   shareSermon(target: HTMLElement) {
-    const sermon = JSON.parse(target.getAttribute(Constants.DATASERMON) as string) as iSermon
-    handleShare(sermon.title, sermon.videourl || sermon.audiourl)
+    const event = JSON.parse(target.getAttribute(Constants.DATAEVENT) as string) as iEvent
+    handleShare(event.title, event.videourl || event.audiourl)
     gtag(Constants.EVENT, Constants.SHARESERMON, {
-      'sermon_title': sermon.title,
+      'title': event.title,
       'screen_name': pathstring,
-      'sermon_program': sermon.program,
-      'sermon_date': sermon.date
+      'description': event.description,
+      'date': event.date
     });
   }
 
@@ -283,18 +283,18 @@ class Main {
     const name = target?.getAttribute(Constants.DATANAME)
     const iframe = this.modalEl.querySelector(Constants.IFRAME) as HTMLIFrameElement
     const audio = this.modalEl.querySelector(Constants.AUDIO) as HTMLAudioElement
-    const sermon = JSON.parse(target?.getAttribute(Constants.DATASERMON) as string || "{}") as iSermon
+    const event = JSON.parse(target?.getAttribute(Constants.DATAEVENT) as string || "{}") as iEvent
     const header = this.modalEl.querySelector(`h2[data-name="${Constants.MODALHEADER}"]`) as HTMLElement
     const footer = this.modalEl.querySelector(`div[data-name="${Constants.MODALFOOTER}"]`) as HTMLElement
 
-    const props: iModal = { audio, iframe, sermon }
+    const props: iModal = { audio, iframe, event }
 
     if (!this.modalEl.classList.contains(Constants.DISPLAY)) {
       // stopAllAudio()
       this.modalEl.classList.add(Constants.DISPLAY)
       this.modalEl.classList.add(Constants.ANIMATE)
-      header.textContent = sermon.title
-      footer.textContent = `By ${sermon.ministers}`
+      header.textContent = event.title
+      footer.textContent = event.description
       name === Constants.PLAYVIDEO ? this.handleVideo(props) : this.handleAudio(props)
     } else {
       this.modalEl.classList.remove(Constants.ANIMATE)
@@ -314,17 +314,17 @@ class Main {
   }
 
   handleVideo(props: iModal) {
-    const { audio, iframe, sermon } = props
-    iframe?.setAttribute("src", youTubeEmbedLink(sermon.videourl))
+    const { audio, iframe, event } = props
+    iframe?.setAttribute("src", youTubeEmbedLink(event.videourl))
     iframe.style.display = "block"
     audio.style.display = "none"
   }
 
   handleAudio(props: iModal) {
-    const { audio, iframe, sermon } = props
+    const { audio, iframe, event } = props
     const source = audio.querySelector("source")
-    audio.setAttribute("src", sermon.audiourl)
-    source?.setAttribute("src", sermon.audiourl)
+    audio.setAttribute("src", event.audiourl)
+    source?.setAttribute("src", event.audiourl)
 
     iframe.style.display = "none"
     audio.style.display = "block"

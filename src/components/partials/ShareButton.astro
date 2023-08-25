@@ -5,11 +5,11 @@ import { btClasses } from '~/lib';
 
 export interface Props {
   id: string;
-  sermon: CollectionEntry<"sermons">;
+  event: CollectionEntry<"events">;
 }
 
-const { sermon } = Astro.props
-const label = sermon.data.title + " share button"
+const { event } = Astro.props
+const label = event.data.title + " share button"
 const classes = btClasses
 .filter(className => className !== "bg-white")
 .filter(className => className !== "dark:bg-gray-700")
@@ -19,7 +19,7 @@ classes.push("bt-orange")
 ---
 
 <button aria-label={label} class:list={classes}>
-  <span class="-clickable" data-name="share" data-sermon={JSON.stringify(sermon.data)}></span>
+  <span class="-clickable" data-name="share" data-event={JSON.stringify(event.data)}></span>
   <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 sm:w-4 sm:h-4">
     <path fill-rule="evenodd"
       d="M15.75 4.5a3 3 0 11.825 2.066l-8.421 4.679a3.002 3.002 0 010 1.51l8.421 4.679a3 3 0 11-.729 1.31l-8.421-4.678a3 3 0 110-4.132l8.421-4.679a3 3 0 01-.096-.755z"

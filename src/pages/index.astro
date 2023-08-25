@@ -7,9 +7,16 @@ import MembersList from '~/components/partials/MembersList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Sector from '~/components/partials/Sector.astro';
 import { Image } from "astro:assets"
+import EventList from '~/components/partials/EventList.astro';
 
 const allMembers: CollectionEntry<"members">[] = await getCollection("members")
 const members = allMembers.slice(0,4)
+
+const allEvents: CollectionEntry<"events">[] = await getCollection("events")
+const events = allEvents
+.filter(event => event.data.active)
+.sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+.slice(0, 2)
 
 const keywords = [
 	"homepage",
@@ -72,6 +79,23 @@ const title = `Home | ${Constants.SITENAME}`
 			</div>
 			<MembersList members={members} />
 			<ButtonLink className="bt bt-orange dark:bt-white text-center self-center w-full sm:w-fit" title="see all member bodies" href="/members" type="link" />
+		</div>
+	</section>
+	<section aria-label="watch latest messages" class="bg-white dark:bg-darkest">
+		<div class="center flex flex-col gap-2 items-center">
+			<div class="text-center mb-4">
+				<h2 aria-label="ourprograms title" class="text-xl font-semibold uppercase">
+					watch latest events
+				</h2>
+				<p>Explore our recent sermons</p>
+			</div>
+			<EventList events={events} />
+			<ButtonLink
+				href="/events"
+				className="bt bt-orange dark:bt-white w-full sm:w-fit text-center"
+				type="link"
+				title="see all events"
+			/>
 		</div>
 	</section>
 </Layout> 

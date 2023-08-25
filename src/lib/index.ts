@@ -1,4 +1,4 @@
-import { Constants, iSermon, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember } from "~/types";
+import { Constants, iEvent, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember } from "~/types";
 
 export * from "./data"
 
@@ -224,18 +224,18 @@ export const handleShare = (title: string, url: string) => {
     .catch((err) => console.log("Error sharing", err))
 }
 
-export const sermonSearchFilter = (sermon: iSermon, search: string) => {
-  const { date, ministers, program, title, metadata } = sermon
+export const eventSearchFilter = (event: iEvent, search: string) => {
+  const { date, description, body, title, metadata } = event
   const lowercaseSearch = search.toLowerCase()
 
   const strDate = formatDate(date).toLowerCase() 
   const matchesDate = strDate.indexOf(lowercaseSearch) !== -1
 
-  const strMinisters = ministers.toLowerCase()
-  const matchesMinisters = strMinisters.indexOf(lowercaseSearch) !== -1
+  const strDescription = description.toLowerCase()
+  const matchesDescription = strDescription.indexOf(lowercaseSearch) !== -1
 
-  const strProgram = program.toLowerCase()
-  const matchesProgram = strProgram.indexOf(lowercaseSearch) !== -1
+  const strBody = body ? body.toLowerCase() : ""
+  const matchesBody = strBody.indexOf(lowercaseSearch) !== -1
 
   const strTitle = title.toLowerCase() 
   const matchesTitle = strTitle.indexOf(lowercaseSearch) !== -1
@@ -243,7 +243,7 @@ export const sermonSearchFilter = (sermon: iSermon, search: string) => {
   const strMetadata = metadata ? metadata.toLowerCase() : ""
   const matchesMetadata = strMetadata.indexOf(lowercaseSearch) !== -1
 
-  const condition = matchesDate || matchesMinisters || matchesProgram || matchesTitle || matchesMetadata
+  const condition = matchesDate || matchesDescription || matchesBody || matchesTitle || matchesMetadata
 
   return condition
 }

@@ -95,6 +95,7 @@ export enum Constants {
   PRAYERREQUESTFORM="request form",
   TESTIMONYFORM="testimony form",
   REGISTRATIONFORM="registration form",
+  PARTNERSFORM="partners form",
 
   // select field names
   JOININGFROM="joiningFrom",
@@ -120,6 +121,7 @@ export enum Constants {
   DATANAME = "data-name",
   DATATYPE = "data-type",
   DATASERMON="data-sermon",
+  DATAEVENT="data-event",
 
   SERMONS="sermons",
   RESETSEARCH="reset search",
@@ -330,16 +332,15 @@ export interface iProgramCategory {
   description: string;
 }
 
-export interface iSermon {
+export interface iEvent {
   date: Date;
   title: string;
-  ministers: string;
+  description: string;
   image: string;
   videourl: string;
   audiourl: string;
   metadata: string;
-  program: string;
-  sermonquotes: iImage[] 
+  body: string;
 }
 
 export interface iQuery {
@@ -438,7 +439,7 @@ export interface iAccount {
 }
 
 export interface iModal {
-  sermon: iSermon,
+  event: iEvent,
   iframe: HTMLIFrameElement,
   audio: HTMLAudioElement
 }

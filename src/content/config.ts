@@ -11,6 +11,21 @@ const MembersCollection = defineCollection({
   })
 })
 
+const EventsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    active: z.boolean(),
+    title: z.string(),
+    description: z.string().optional(),
+    date: z.date(),
+    image: z.string().optional(),
+    audiourl: z.string().optional(),
+    videourl: z.string().optional(),
+    body: z.string().optional()
+  })
+})
+
 export const collections = {
-  "members": MembersCollection
+  "members": MembersCollection,
+  "events": EventsCollection
 }
