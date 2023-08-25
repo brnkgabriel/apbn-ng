@@ -68,3 +68,33 @@ collections:
       - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
+  - name: "resources" # Used in routes, e.g., /admin/collections/resources
+    label: "Resources" # Used in the UI 
+    folder: "src/pages/resources" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    identifier_field: name
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/ResourcesLayout.astro"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Desktop Image (1290 x 268px) .webp", name: "desktopimage", widget: "image"}
+      - {label: "Mobile Image (800 x 800px) .webp", name: "mobileimage", widget: "image"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Form Title", name: "formtitle", widget: "string", required: false}
+      - {label: "Last Widget", name: "lastwidget", widget: "select", options: ["Account Details", "Get in Touch"], default: ["Get in Touch"]}
+      - {
+          label: "Input Fields",
+          name: "inputfields",
+          widget: "list",
+          allow_add: true,
+          required: false,
+          summary: '{{fields.name}}',
+          fields: [
+            {label: "Field", name: "field", widget: "select", options: ["input", "textarea", "select"]},
+            {label: "Name (no spaces btw words)", name: "name", widget: "string"},
+            {label: "Type", name: "type", widget: "select", options: ["text", "tel", "email", "number", "date", "file"], required: false},
+            {label: "Placeholder", name: "placeholder", widget: "string"}
+          ]
+        }
+      - {label: "Body", name: "body", widget: "markdown", required: false}
