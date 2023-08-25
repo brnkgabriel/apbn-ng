@@ -11,7 +11,7 @@ export const links = {
     name: "useful links",
     submenu: [
       { name: "Contact", url: "/contact", arialabel: "contact" },
-      { name: "Register", url: "/register", arialabel: "register" },
+      { name: "Register", url: "/resources/apbn-membership-registration", arialabel: "register" },
       { name: "Sitemap", url: "/sitemap.xml", arialabel: "sitemap" }
     ],
   },
