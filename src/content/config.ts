@@ -45,6 +45,7 @@ const SlidersCollection = defineCollection({
     name: z.string(),
     time: z.string().optional(),
     venue: z.string().optional(),
+    map: z.string().optional(),
     theme: z.string().optional(),
     host: z.string().optional(),
     chairman: z.string().optional(),
