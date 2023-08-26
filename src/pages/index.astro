@@ -38,10 +38,10 @@ const managementImg = "/images/homepage/management.webp"
 const speakImg = "/images/homepage/speak.webp"
 
 const sectors: iSector[] = [
-	{ name: "health", img: healthImg },
 	{ name: "finance", img: financeImg },
-	{ name: "engineering", img: engineeringImg },
+	{ name: "health", img: healthImg },
 	{ name: "management", img: managementImg }, 
+	{ name: "engineering", img: engineeringImg },
 ]
 
 const title = `Home | ${Constants.SITENAME}`
@@ -109,12 +109,12 @@ const title = `Home | ${Constants.SITENAME}`
 		<div class="center flex flex-col gap-2 justify-center items-center">
 			<div class="text-center mb-4">
 				<h2 aria-label="ourprograms title" class="text-xl font-semibold uppercase">
-					The Management Team
+					The Team
 				</h2>
-				<p></p>
+				<p>Meet our management team</p>
 			</div>
 			<TeamList members={team} />
-			<ButtonLink className="bt bt-orange dark:bt-white text-center self-center w-full sm:w-fit" title="see all the team" href="/team" type="link" />
+			<ButtonLink className="bt bt-orange dark:bt-white text-center self-center w-full sm:w-fit" title="see all team members" href="/team" type="link" />
 		</div>
 	</section>
 </Layout> 
