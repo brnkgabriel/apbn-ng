@@ -60,12 +60,16 @@ collections:
     fields: # The fields for each document, usually in front matter 
       - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/SliderLayout.astro"}
       - {label: "Active", name: "active", widget: "boolean", default: true}
-      - {label: "Event Date", name: "date", widget: "date", date_format: "ddd MMMM DD, YYYY"}
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Date", name: "date", widget: "string", required: false}
+      - {label: "Name", name: "name", widget: "string", required: false}
+      - {label: "Time", name: "time", widget: "string", required: false}
+      - {label: "Venue", name: "venue", widget: "string", required: false}
+      - {label: "Theme", name: "time", widget: "string", required: false}
+      - {label: "Host", name: "host", widget: "string", required: false}
+      - {label: "Chairman", name: "chairman", widget: "string", required: false}
+      - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string"}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
-      - {label: "Desktop Image (1326 x 602px)", name: "desktopimage", widget: "image"}
-      - {label: "Mobile Image (768 x 349px)", name: "mobileimage", widget: "image"}
+      - {label: "Image (960 x 960)", name: "image", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "resources" # Used in routes, e.g., /admin/collections/resources
