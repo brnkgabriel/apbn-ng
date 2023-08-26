@@ -12,16 +12,18 @@ const slider = allSliders
 
 {
   slider && (
-  <div class="center aspect-[1326/602] md:aspect-[1920/400] grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden">
-    <Image
-      width={1326}
-      height={602}
-      class="rounded-lg w-full object-center"
-      src={slider.data.image}
-      alt={slider.data.name}
-      format="webp"
-    />
-    <div>details</div>
-  </div>
+    <section>
+      <div class="rounded-lg center grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden">
+        <Image
+          width={1326}
+          height={602}
+          class="w-full object-center aspect-[1326/602] md:aspect-[1920/400]"
+          src={slider.data.image}
+          alt={slider.data.name}
+          format="webp"
+        />
+        <div>details</div>
+      </div>
+    </section>
   )
 }
