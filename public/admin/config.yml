@@ -67,7 +67,7 @@ collections:
       - {label: "Theme", name: "time", widget: "string", required: false}
       - {label: "Host", name: "host", widget: "string", required: false}
       - {label: "Chairman", name: "chairman", widget: "string", required: false}
-      - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string"}
+      - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Image (960 x 960)", name: "image", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
