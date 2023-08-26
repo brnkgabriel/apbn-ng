@@ -60,5 +60,6 @@ const SlidersCollection = defineCollection({
 export const collections = {
   "members": MembersCollection,
   "events": EventsCollection,
-  "team": TeamCollection
+  "team": TeamCollection,
+  "sliders": SlidersCollection
 }

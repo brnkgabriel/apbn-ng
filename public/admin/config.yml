@@ -64,7 +64,7 @@ collections:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Time", name: "time", widget: "string", required: false}
       - {label: "Venue", name: "venue", widget: "string", required: false}
-      - {label: "Theme", name: "time", widget: "string", required: false}
+      - {label: "Theme", name: "theme", widget: "string", required: false}
       - {label: "Host", name: "host", widget: "string", required: false}
       - {label: "Chairman", name: "chairman", widget: "string", required: false}
       - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string", required: false}
