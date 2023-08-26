@@ -41,17 +41,18 @@ const SlidersCollection = defineCollection({
   type: "content",
   schema: z.object({
     active: z.boolean(),
-    date: z.string(),
+    date: z.string().optional(),
     name: z.string(),
-    time: z.string(),
-    venue: z.string(),
-    theme: z.string(),
-    host: z.string(),
-    chairman: z.string(),
-    keynotespeaker: z.string(),
+    time: z.string().optional(),
+    venue: z.string().optional(),
+    theme: z.string().optional(),
+    host: z.string().optional(),
+    chairman: z.string().optional(),
+    keynotespeaker: z.string().optional(),
     videourl: z.string().optional(),
     image: z.string(),
     type: z.string(),
+    website: z.string(),
     body: z.string().optional()
   })
 })
