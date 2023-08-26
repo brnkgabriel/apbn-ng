@@ -71,7 +71,7 @@ collections:
       - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Image (960 x 960)", name: "image", widget: "image"}
+      - {label: "Image (1326 x 602)", name: "image", widget: "image"}
       - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "resources" # Used in routes, e.g., /admin/collections/resources

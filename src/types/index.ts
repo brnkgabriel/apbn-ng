@@ -134,7 +134,10 @@ export enum Constants {
   SUBLINEID="subline",
   DEFAULTSERMONHEADER="encounter the word",
   DEFAULTSUBLINEHEADER="Explore our programs and get notified of upcoming programs.",
-  PAGESIZE="10"
+  PAGESIZE="10",
+
+  APBN="APBN",
+  ADVERTISING="Advertising"
 }
 
 interface iHeroHeader {

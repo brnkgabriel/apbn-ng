@@ -1,16 +1,29 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import TeamCard from "./TeamCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { Constants } from "~/types";
+import { Image } from "astro:assets"
 
-interface Props {
-  members: CollectionEntry<"team">[]
-}
+const allSliders: CollectionEntry<"sliders">[] = await getCollection("sliders")
+const slider = allSliders
+.filter(slider => slider.data.active)
+.filter(slider => slider.data.type === Constants.APBN)[0]
 
-const { members } = Astro.props as Props;
 ---
 
-<div class="card-grid w-full">
-  {
-    members.map((member, idx) => <TeamCard member={member} />)
-  }
-</div>
+{
+  slider && (
+  <div class="center aspect-[1326/602] md:aspect-[1920/400] grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden">
+    <div class="flex items-center justify-center">
+      <Image
+        width={800}
+        height={800}
+        class="rounded-lg w-full"
+        src={slider.data.image}
+        alt={slider.data.name}
+        format="webp"
+      />
+    </div>
+    <div>details</div>
+  </div>
+  )
+}
