@@ -18,50 +18,50 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
     <section>
       <div class="my-4 md:my-0 md:center grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden md:aspect-[1920/400] md:min-h-[268px]">
         <div class="w-full h-full aspect-[1326/602] md:aspect-[1920/400]" style={style}></div>
-        <div aria-label="details" class="flex flex-col gap-4 p-2">
+        <div aria-label="details" class="flex flex-col gap-4 p-4 md:p-2">
           {
             slider.data.theme && (
-              <div class="leading-[1.1] text-center md:text-start">
+              <div class="leading-[1.1] w-full text-center md:text-start">
                 <h4 class="text-sm font-semibold">Theme:</h4>
-                <p>{slider.data.theme}</p>
+                <p class="one-line">{slider.data.theme}</p>
               </div>
             )
           }  
           <div class="grid grid-cols-1 place-items-center md:place-items-start text-center md:text-start md:grid-cols-2 gap-4 items-center">
             {
               slider.data.host && (
-                <div class="leading-[1.1]">
+                <div class="leading-[1.1] w-full">
                   <h4 class="text-sm font-semibold">Host:</h4>
-                  <p>{slider.data.host}</p>
+                  <p class="one-line">{slider.data.host}</p>
                 </div>
               )
             } 
             {
               slider.data.chairman && (
-                <div class="leading-[1.1]">
+                <div class="leading-[1.1] w-full">
                   <h4 class="text-sm font-semibold">Chairman:</h4>
-                  <p>{slider.data.chairman}</p>
+                  <p class="one-line">{slider.data.chairman}</p>
                 </div>
               )
             }  
             {
               slider.data.keynotespeaker && (
-                <div class="leading-[1.1]">
+                <div class="leading-[1.1] w-full">
                   <h4 class="text-sm font-semibold">Key note speaker:</h4>
-                  <p>{slider.data.keynotespeaker}</p>
+                  <p class="one-line">{slider.data.keynotespeaker}</p>
                 </div>
               )
             } 
             {
               slider.data.date && (
-                <div class="leading-[1.1]">
+                <div class="leading-[1.1] w-full">
                   <h4 class="text-sm font-semibold">Time:</h4>
-                  <p>{`${formatDate(slider.data.date)} ${new Date(slider.data.date).toLocaleTimeString()}`}</p>
+                  <p class="one-line">{`${formatDate(slider.data.date)} ${new Date(slider.data.date).toLocaleTimeString()}`}</p>
                 </div>
               )
             } 
             <Countdown classes="!self-center" date={slider.data.date as Date} />
-            <ButtonLink type="link" href={`/sliders/${slider.slug}`} className="bt bt-orange h-fit" title="learn more" />
+            <ButtonLink type="link" href={`/sliders/${slider.slug}`} className="bt bt-orange w-full md:w-fit h-fit" title="learn more" />
           </div>
         </div>
       </div>
