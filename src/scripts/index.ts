@@ -461,6 +461,29 @@ export class Clock {
   updateClockUi(rtime: iTime) {
 
     console.log("rtime is", rtime)
+    if (rtime.days === 0) {
+      this.daysDigit.style.visibility = "hidden"
+    } else {
+      this.daysDigit.setAttribute("style", `--value:${rtime.days};`)
+    }
+    
+    if (rtime.hours === 0) {
+      this.hoursDigit.style.visibility = "hidden"
+    } else {
+      this.hoursDigit.setAttribute("style", `--value:${rtime.hours};`)
+    }
+    
+    if (rtime.minutes === 0) {
+      this.minutesDigit.style.visibility = "hidden"
+    } else {
+      this.minutesDigit.setAttribute("style", `--value:${rtime.minutes};`)
+    }
+    
+    if (rtime.seconds === 0) {
+      this.secondsDigit.style.visibility = "hidden"
+    } else {
+      this.secondsDigit.setAttribute("style", `--value:${rtime.seconds};`)
+    }
   }
 
   isCountdownOver(time: iTime) {
