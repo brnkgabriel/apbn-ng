@@ -3,6 +3,8 @@
 import type { iSlider } from "~/types"; 
 import Layout from "./Layout.astro";
 import HeroSection from "~/components/partials/HeroSection.astro"; 
+import ButtonLink from "~/components/partials/ButtonLink.astro";
+import { Image } from "astro:assets"
 
 
 interface Props {
@@ -12,7 +14,7 @@ interface Props {
 
 const { frontmatter, rawContent } = Astro.props as Props;
 const {
-  // image,
+  image,
   name,
   type,
   body,
@@ -20,7 +22,7 @@ const {
   date,
   host,
   keynotespeaker,
-  // map,
+  map,
   theme,
   venue,
   website
@@ -55,6 +57,26 @@ const keywords = [
   />
   <div class="center grid grid-cols-1 gap-4">
     {
+      image && (
+        <Image
+          width={1326}
+          height={602}
+          src={image}
+          class="max-w-3xl block"
+          alt={name}
+          format="webp"
+        />
+      )
+    }
+    {
+      name && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Name:</h4>
+          <p>{name}</p>
+        </div>
+      )
+    }  
+    {
       theme && (
         <div class="leading-[1.1]">
           <h4 class="text-sm font-semibold">Theme:</h4>
@@ -83,6 +105,22 @@ const keywords = [
         <div class="leading-[1.1]">
           <h4 class="text-sm font-semibold">Key note speaker:</h4>
           <p>{keynotespeaker}</p>
+        </div>
+      )
+    } 
+    {
+      venue && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Venue:</h4>
+          <p>{venue}</p>
+        </div>
+      )
+    } 
+    {
+      map && (
+        <div class="leading-[1.1] flex flex-col gap-2">
+          <h4 class="text-sm font-semibold">Locate venue:</h4>
+          <ButtonLink className="bt bt-orange w-full md:w-fit" href={map} type="link" title="Venue"  />
         </div>
       )
     } 
