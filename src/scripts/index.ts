@@ -445,7 +445,7 @@ export class Clock {
     }
 
   }
-  
+   
   initializeClock(endTime: number) {
     clearInterval(this.timeInterval)
     console.log("inside initialize clock")
