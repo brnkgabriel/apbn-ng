@@ -420,10 +420,10 @@ export class Clock {
   private clockIsVisible: boolean = false
   private countdownStillLive: boolean = false
   constructor() {
-    this.daysDigit = el(`span[aria-digit="${Constants.DAYS}"]`) as HTMLElement
-    this.hoursDigit = el(`span[aria-digit="${Constants.HOURS}"]`) as HTMLElement
-    this.minutesDigit = el(`span[aria-digit="${Constants.MINUTES}"]`) as HTMLElement
-    this.secondsDigit = el(`span[aria-digit="${Constants.SECONDS}"]`) as HTMLElement
+    this.daysDigit = el(`span[data-digit="${Constants.DAYS}"]`) as HTMLElement
+    this.hoursDigit = el(`span[data-digit="${Constants.HOURS}"]`) as HTMLElement
+    this.minutesDigit = el(`span[data-digit="${Constants.MINUTES}"]`) as HTMLElement
+    this.secondsDigit = el(`span[data-digit="${Constants.SECONDS}"]`) as HTMLElement
 
     this.clockIsVisible = this.daysDigit !== null
     || this.hoursDigit !== null

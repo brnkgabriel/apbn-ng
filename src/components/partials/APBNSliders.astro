@@ -22,7 +22,7 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
           {
             slider.data.theme && (
               <div class="leading-[1.1] w-full text-center md:text-start">
-                <h4 class="text-sm font-semibold">Theme:</h4>
+                <h3 class="text-sm font-semibold">Theme:</h3>
                 <p class="one-line">{slider.data.theme}</p>
               </div>
             )
@@ -31,7 +31,7 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
             {
               slider.data.host && (
                 <div class="leading-[1.1] w-full">
-                  <h4 class="text-sm font-semibold">Host:</h4>
+                  <h3 class="text-sm font-semibold">Host:</h3>
                   <p class="one-line">{slider.data.host}</p>
                 </div>
               )
@@ -39,7 +39,7 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
             {
               slider.data.chairman && (
                 <div class="leading-[1.1] w-full">
-                  <h4 class="text-sm font-semibold">Chairman:</h4>
+                  <h3 class="text-sm font-semibold">Chairman:</h3>
                   <p class="one-line">{slider.data.chairman}</p>
                 </div>
               )
@@ -47,7 +47,7 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
             {
               slider.data.keynotespeaker && (
                 <div class="leading-[1.1] w-full">
-                  <h4 class="text-sm font-semibold">Key note speaker:</h4>
+                  <h3 class="text-sm font-semibold">Key note speaker:</h3>
                   <p class="one-line">{slider.data.keynotespeaker}</p>
                 </div>
               )
@@ -55,13 +55,13 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
             {
               slider.data.date && (
                 <div class="leading-[1.1] w-full">
-                  <h4 class="text-sm font-semibold">Time:</h4>
+                  <h3 class="text-sm font-semibold">Time:</h3>
                   <p class="one-line">{`${formatDate(slider.data.date)} ${new Date(slider.data.date).toLocaleTimeString()}`}</p>
                 </div>
               )
             } 
             <Countdown classes="!self-center" date={slider.data.date as Date} />
-            <ButtonLink type="link" href={`/sliders/${slider.slug}`} className="bt bt-orange w-full md:w-fit h-fit" title="learn more" />
+            <ButtonLink type="link" href={`/sliders/${slider.slug}`} className="bt bt-orange w-full md:w-fit h-fit" title="more details" />
           </div>
         </div>
       </div>
