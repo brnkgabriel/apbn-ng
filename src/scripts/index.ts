@@ -1,4 +1,4 @@
-import { copyToClipboard, formatDateTime, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
+import { copyToClipboard, formatDate, formatDateTime, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants } from "~/types";
 import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime } from "~/types";
 import intlTelInput from "intl-tel-input"
@@ -441,7 +441,7 @@ export class Clock {
     if (this.timeElement) {
       const sliderTimestampStr = this.timeElement.getAttribute(Constants.DATASLIDERDATE)
       const sliderDate = new Date(Number(sliderTimestampStr))
-      this.timeElement.textContent = sliderDate.toLocaleString()
+      this.timeElement.textContent = `${formatDate(sliderDate)}, ${sliderDate.toLocaleTimeString()}`
     }
     if (this.clockIsVisible) {
       const dateStr = this.secondsDigit.getAttribute("data-date") as string
