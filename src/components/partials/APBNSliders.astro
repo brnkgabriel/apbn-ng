@@ -56,7 +56,7 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
               slider.data.date && (
                 <div class="leading-[1.1] w-full">
                   <h4 class="text-sm font-semibold">Time:</h4>
-                  <p class="one-line">{`${formatDate(slider.data.date)} ${new Date(slider.data.date).toLocaleTimeString()}`}</p>
+                  <p class="one-line">{`${formatDate(slider.data.date)} ${new Date(slider.data.date).toTimeString()}`}</p>
                 </div>
               )
             } 
