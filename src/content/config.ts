@@ -50,6 +50,8 @@ const SlidersCollection = defineCollection({
     chairman: z.string().optional(),
     keynotespeaker: z.string().optional(),
     videourl: z.string().optional(),
+    dkimage: z.string().optional(),
+    mbimage: z.string().optional(),
     image: z.string(),
     type: z.string(),
     website: z.string().optional(),
