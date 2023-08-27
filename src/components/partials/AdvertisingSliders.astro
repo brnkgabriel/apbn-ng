@@ -1,0 +1,43 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { Constants } from "~/types";
+import { Image } from "astro:assets"
+import ButtonLink from "./ButtonLink.astro";
+
+const allSliders: CollectionEntry<"sliders">[] = await getCollection("sliders");
+const sliders = allSliders
+  .filter((slider) => slider.data.active)
+  .filter((slider) => slider.data.type === Constants.ADVERTISING);
+---
+
+<section>
+  {
+    sliders.map((slider) => (
+      <div class="my-4 md:my-0 md:center grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden aspect-[1326/602] md:aspect-[1920/400] md:min-h-[268px]">
+        <Image
+          width={1920}
+          height={400}
+          class="w-full rounded-lg hidden md:block"
+          src={slider.data.dkimage as string}
+          alt={slider.data.name}
+          format="webp"
+        />
+        <Image
+          width={1326}
+          height={602}
+          class="w-full rounded-lg block md:hidden"
+          src={slider.data.mbimage as string}
+          alt={slider.data.name}
+          format="webp"
+        />
+
+        <ButtonLink className="hidden md:block bt bt-orange absolute bottom-[8px] right-[8px] w-fit" href={slider.data.website as string} type="link" title="Discover" />
+      </div>
+      <ButtonLink className="block md:hidden bt bt-orange w-full" href={slider.data.website as string} type="link" title="Discover" />
+    ))
+  }
+  <div class="flex flex-col gap-2">
+    <h2>Want to advertise? Contact us via WhatsApp</h2>
+    <ButtonLink className="bt bt-orange w-full md:w-fit" href="+2348129962551" type="link" title="Let's talk" />
+  </div>
+</section>

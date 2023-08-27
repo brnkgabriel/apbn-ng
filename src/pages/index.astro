@@ -10,6 +10,7 @@ import { Image } from "astro:assets"
 import EventList from '~/components/partials/EventList.astro';
 import TeamList from '~/components/partials/TeamList.astro';
 import APBNSliders from '~/components/partials/APBNSliders.astro';
+import AdvertisingSliders from '~/components/partials/AdvertisingSliders.astro';
 
 const allMembers: CollectionEntry<"members">[] = await getCollection("members")
 const members = allMembers.slice(0,4)
@@ -77,6 +78,7 @@ const title = `Home | ${Constants.SITENAME}`
 			<ButtonLink className="bt bt-orange dark:bt-white text-center self-center w-full sm:w-fit" title="know more" href="/about" type="link" />
 		</div>
 	</section>
+	<AdvertisingSliders />
 	<section aria-label="members">
 		<div class="center flex flex-col gap-2 justify-center items-center">
 			<div class="text-center mb-4">
