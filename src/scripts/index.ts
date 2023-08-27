@@ -1,5 +1,5 @@
 import { copyToClipboard, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
-import { Constants, map } from "~/types";
+import { Constants } from "~/types";
 import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime } from "~/types";
 import intlTelInput from "intl-tel-input"
 

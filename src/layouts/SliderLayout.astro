@@ -1,0 +1,97 @@
+---
+
+import type { iSlider } from "~/types"; 
+import Layout from "./Layout.astro";
+import HeroSection from "~/components/partials/HeroSection.astro"; 
+
+
+interface Props {
+  frontmatter: iSlider;
+  rawContent: Function;
+}
+
+const { frontmatter, rawContent } = Astro.props as Props;
+const {
+  // image,
+  name,
+  type,
+  body,
+  chairman,
+  date,
+  host,
+  keynotespeaker,
+  // map,
+  theme,
+  venue,
+  website
+} = frontmatter;
+
+
+const hasContent = rawContent().length > 10
+
+const identity = name;
+
+const keywords = [
+  identity,
+  type,
+  chairman as string,
+  new Date(date as Date).toLocaleString() as string,
+  host as string,
+  keynotespeaker as string,
+  theme as string,
+  venue as string,
+  website as string
+];
+
+
+---
+
+<Layout title={identity} keywords={keywords}>
+
+  <HeroSection
+    header={name}
+    showCta={false}
+    subline={theme as string}
+  />
+  <div class="center grid grid-cols-2 gap-2">
+    {
+      theme && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Theme:</h4>
+          <p>{theme}</p>
+        </div>
+      )
+    }  
+    {
+      host && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Host:</h4>
+          <p>{host}</p>
+        </div>
+      )
+    } 
+    {
+      chairman && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Chairman:</h4>
+          <p>{chairman}</p>
+        </div>
+      )
+    }  
+    {
+      keynotespeaker && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Key note speaker:</h4>
+          <p>{keynotespeaker}</p>
+        </div>
+      )
+    } 
+  </div>
+  {
+    hasContent && (
+    <section class="center">
+      { body }
+    </section>
+    )
+  }
+</Layout>

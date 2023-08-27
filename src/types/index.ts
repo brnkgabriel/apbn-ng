@@ -146,9 +146,26 @@ export enum Constants {
   SECONDS="seconds"
 }
 
-interface iHeroHeader {
-  header: string;
-  subline: string;
+// interface iHeroHeader {
+//   header: string;
+//   subline: string;
+// }
+
+export interface iSlider {
+  active: boolean;
+  date?: Date;
+  name: string; 
+  venue?: string;
+  map?: string;
+  theme?: string;
+  host?: string;
+  chairman?: string;
+  keynotespeaker?: string;
+  videourl?: string;
+  image: string;
+  type: string;
+  website?: string;
+  body?: string;
 }
 
 export interface iTime {
@@ -196,20 +213,20 @@ export interface iPage<T = any> {
 //   }
 // }
 
-const map = new Map<string, iHeroHeader>()
-map.set("sermons", {
-  header: "Encounter the Word",
-  subline: "Explore our programs and get notified of upcoming programs."
-})
+// const map = new Map<string, iHeroHeader>()
+// map.set("sermons", {
+//   header: "Encounter the Word",
+//   subline: "Explore our programs and get notified of upcoming programs."
+// })
 
-map.set("blog", {
-  header: "Blog",
-  subline: "A community board seasoned to rejuvinate your heart"
-})
+// map.set("blog", {
+//   header: "Blog",
+//   subline: "A community board seasoned to rejuvinate your heart"
+// })
 
-export {
-  map
-}
+// export {
+//   map
+// }
 
 export const inputClassList = [
   "block",
@@ -340,16 +357,6 @@ export interface iPastor {
   image: string;
   content: string;
   url?: string;
-}
-
-export interface iSlider {
-	date: string;
-	name: string;
-	videourl: string;
-	desktopimage: string;
-  mobileimage: string;
-	type: string;
-  url: string;
 }
 
 export interface iProgramCategory {

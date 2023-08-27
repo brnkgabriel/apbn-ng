@@ -563,3 +563,14 @@ form.-loading button {
   display: block;
   margin: 0 auto;
 }
+
+.countdown > *:before {
+  position: absolute !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.countdown > * {
+  width: 32px !important;
+  height: 24px !important;
+  overflow: hidden;
+}
