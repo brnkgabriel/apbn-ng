@@ -1,4 +1,4 @@
-import { copyToClipboard, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
+import { copyToClipboard, formatDateTime, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants } from "~/types";
 import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime } from "~/types";
 import intlTelInput from "intl-tel-input"
@@ -267,22 +267,23 @@ class Main {
     entries.countryName = this.countryName
     entries.countryCode = this.countryCode
 
-    gtag(Constants.EVENT, Constants.PARTNERFORMSUBMISSION, {
+    gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
       ...entries,
       'screen_name': id
     });
+    
+    console.log("entries", entries)
+    // const map = this.formMap.get(id) as iSubmit
 
-    const map = this.formMap.get(id) as iSubmit
+    // const apiOptions: iApiOptions = {
+    //   collection: Constants.RCNLAGOSCOLLECTION,
+    //   id,
+    //   entries,
+    //   wrapperHTML: form,
+    //   statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
+    // }
 
-    const apiOptions: iApiOptions = {
-      collection: Constants.RCNLAGOSCOLLECTION,
-      id,
-      entries,
-      wrapperHTML: form,
-      statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
-    }
-
-    postForm(apiOptions, map.messages, map.api)
+    // postForm(apiOptions, map.messages, map.api)
   }
 
   toggleModal(target?: HTMLElement) {
@@ -417,6 +418,7 @@ export class Clock {
   private hoursDigit: HTMLElement
   private minutesDigit: HTMLElement
   private secondsDigit: HTMLElement
+  private timeElement: HTMLElement
   private clockIsVisible: boolean = false
   private countdownStillLive: boolean = false
   constructor() {
@@ -424,43 +426,47 @@ export class Clock {
     this.hoursDigit = el(`span[data-digit="${Constants.HOURS}"]`) as HTMLElement
     this.minutesDigit = el(`span[data-digit="${Constants.MINUTES}"]`) as HTMLElement
     this.secondsDigit = el(`span[data-digit="${Constants.SECONDS}"]`) as HTMLElement
+    this.timeElement = el(`p[${Constants.DATASLIDERDATE}]`) as HTMLElement
 
     this.clockIsVisible = this.daysDigit !== null
     || this.hoursDigit !== null
     || this.minutesDigit !== null
     || this.secondsDigit !== null
 
+
+    this.start()
+  }
+
+  start() {
+    if (this.timeElement) {
+      const sliderTimestampStr = this.timeElement.getAttribute(Constants.DATASLIDERDATE)
+      const sliderDate = new Date(Number(sliderTimestampStr))
+      this.timeElement.textContent = sliderDate.toLocaleString()
+    }
     if (this.clockIsVisible) {
-      console.log("inside clockIsVisible if block")
       const dateStr = this.secondsDigit.getAttribute("data-date") as string
       const endTime = +new Date(dateStr)
-      console.log("dateStr", dateStr, "endTime", endTime)
       const timeDiff = (endTime - Date.now())
       this.countdownStillLive = timeDiff >= 0
-      console.log("timeDiff", timeDiff, "countdownStillLive")
 
       if (this.countdownStillLive) {
         this.initializeClock(endTime)
       }
     }
-
   }
    
   initializeClock(endTime: number) {
-    clearInterval(this.timeInterval)
-    console.log("inside initialize clock")
+    clearInterval(this.timeInterval) 
     this.timeInterval = setInterval(() => this.tick(endTime), 1000) as unknown as number
   }
   
   tick(endTime: number) {
     var rtime = this.remainingTime(endTime)
-    console.log("inside tick")
     this.updateClockUi(rtime)
   }
 
   updateClockUi(rtime: iTime) {
 
-    console.log("rtime is", rtime)
     this.daysDigit.setAttribute("style", `--value:${rtime.days};`)
     this.hoursDigit.setAttribute("style", `--value:${rtime.hours};`)
     this.minutesDigit.setAttribute("style", `--value:${rtime.minutes};`)

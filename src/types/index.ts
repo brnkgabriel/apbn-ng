@@ -64,7 +64,7 @@ export enum Constants {
   STATUSQUERY=".-status",
   EVENT="event",
   SUBSCRIBE="subscribe",
-  PARTNERFORMSUBMISSION="partner_form_submission",
+  REGISTRATIONFORMSUBMISSION="registration_form_submission",
   CONTACTFORMSUBMISSION="contact_form_submission",
   SUBSCRIBERS="subscribers",
   PARTNERS="partners",
@@ -143,7 +143,8 @@ export enum Constants {
   DAYS="days",
   HOURS="hours",
   MINUTES="minutes",
-  SECONDS="seconds"
+  SECONDS="seconds",
+  DATASLIDERDATE="data-slider-date"
 }
 
 // interface iHeroHeader {

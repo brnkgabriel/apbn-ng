@@ -3,7 +3,6 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { Constants } from "~/types";
 import ButtonLink from "./ButtonLink.astro";
 import Countdown from "./Countdown.astro";
-import { formatDate } from "~/lib";
 
 const allSliders: CollectionEntry<"sliders">[] = await getCollection("sliders")
 const slider = allSliders
@@ -56,7 +55,7 @@ const style = `background: url(${slider.data.image}) no-repeat;background-size: 
               slider.data.date && (
                 <div class="leading-[1.1] w-full">
                   <h3 class="text-sm font-semibold">Time:</h3>
-                  <p class="one-line">{`${formatDate(slider.data.date)} ${new Date(slider.data.date).toLocaleTimeString()}`}</p>
+                  <p class="one-line" data-slider-date={+new Date(slider.data.date as Date)}>Loading...</p>
                 </div>
               )
             } 
