@@ -435,10 +435,11 @@ export class Clock {
       const dateStr = this.secondsDigit.getAttribute("data-date") as string
       const endTime = +new Date(dateStr)
       console.log("dateStr", dateStr, "endTime", endTime)
-      this.countdownStillLive = (endTime - Date.now()) >= 0
+      const timeDiff = (endTime - Date.now())
+      this.countdownStillLive = timeDiff >= 0
+      console.log("timeDiff", timeDiff, "countdownStillLive")
 
       if (this.countdownStillLive) {
-        console.log("inside countdownStillLive if block")
         this.initializeClock(endTime)
       }
     }
@@ -447,12 +448,13 @@ export class Clock {
   
   initializeClock(endTime: number) {
     clearInterval(this.timeInterval)
+    console.log("inside initialize clock")
     this.timeInterval = setInterval(() => this.tick(endTime), 1000) as unknown as number
   }
   
   tick(endTime: number) {
     var rtime = this.remainingTime(endTime)
-
+    console.log("inside tick")
     this.updateClockUi(rtime)
   }
 
