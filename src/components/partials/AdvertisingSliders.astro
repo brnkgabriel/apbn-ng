@@ -11,13 +11,18 @@ const sliders = allSliders
 ---
 
 <section aria-label="advertising" class="flex flex-col gap-2">
+  <div class="text-center my-0 mt-2">
+    <h2 aria-label="ourprograms title" class="text-xl font-semibold uppercase">
+      Advertisement
+    </h2>
+  </div>
   {
     sliders.map((slider) => (
-      <a href={slider.data.website as string} class="md:center aspect-[1326/602] md:aspect-[1920/400] md:min-h-[268px] flex flex-col gap-2 relative">
+      <a href={slider.data.website as string} class="flex flex-col gap-2 relative w-fit mx-auto">
         <Image
           width={1920}
           height={400}
-          class="w-full hidden md:block"
+          class="w-full hidden md:block center py-0 aspect-[1920/400]"
           src={slider.data.dkimage as string}
           alt={slider.data.name}
           format="webp"
@@ -25,13 +30,13 @@ const sliders = allSliders
         <Image
           width={1326}
           height={602}
-          class="w-full block md:hidden"
+          class="w-full block md:hidden aspect-[1326/602]"
           src={slider.data.mbimage as string}
           alt={slider.data.name}
           format="webp"
         />
 
-        <ButtonLink className="hidden md:block bt bt-orange absolute bottom-[8px] right-[32px] w-fit" type="button" title="Discover" />
+        <ButtonLink className="hidden md:block bt bt-orange absolute bottom-[8px] right-[24px] w-fit" type="button" title="Discover" />
       </a>
       <ButtonLink className="block md:hidden bt bt-orange w-[calc(100%-32px)] mx-auto" href={slider.data.website as string} type="link" title="Discover" />
     ))
