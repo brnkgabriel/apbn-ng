@@ -11,10 +11,11 @@ export interface Props {
 	type?: "link" | "button", 
 	ariaLabel?: string;
 	withArrow?: boolean;
-	live?: boolean
+	live?: boolean;
+	btnType?: "button" | "submit"
 }
 
-const { title, href, className, type, ariaLabel, withArrow, live } = Astro.props 
+const { title, href, className, type, ariaLabel, withArrow, live, btnType } = Astro.props 
 const showLink = type === Constants.LINK ? true : false
 ---
 {
@@ -40,6 +41,7 @@ const showLink = type === Constants.LINK ? true : false
 			<ArrowLink title={title} />
 		) : (
 			<button
+				type={btnType}
 				class={className}
 				aria-label={title}>
 				{title}

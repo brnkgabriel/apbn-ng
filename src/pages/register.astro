@@ -1,16 +1,257 @@
 ---
 import { Constants } from "~/types";
 import Layout from "../layouts/Layout.astro";
-import HeroSection from "~/components/partials/HeroSection.astro"
+import HeroSection from "~/components/partials/HeroSection.astro";
+import ButtonLink from "~/components/partials/ButtonLink.astro";
 
-const keywords = [
-  "register"
-]
-const title = `Register | ${Constants.SITENAME}`
+const keywords = ["register"];
+const title = `Register | ${Constants.SITENAME}`;
 ---
-<Layout title={ title } keywords={keywords}>
+
+<Layout title={title} keywords={keywords}>
   <HeroSection
     header="Member Registration"
     showCta={false}
-    subline="Fill the form below to register your association" />
+    subline="Fill the form below to register your association"
+  />
+  <div class="center">                      
+    <h2 class="font-semibold text-md">ADMISSION REQUIREMENTS</h2>
+    The following are the admission requirements:
+    <ol class="list-decimal pl-[25px]">
+      <li>Dully completed sponsored Application form (Form C)</li>
+      <li>A profile of the Institute/Institute/Association</li>
+      <li>Copy of the Certificate of Incorporation</li>
+      <li>Copy of Act of Parliament or Decree backing the Institute/Association</li>
+      <li>Current annual year book/handbook of the Institute/Association</li>
+      <li>Register of current membership strength (including breakdown into available classes of full members)</li>
+      <li>Minimum requirement for enrolment of students/training and graduation into the various membership status up to fellowship level</li>
+      <li>Brief on continuous education for members of the Institute/Association</li>
+      <li>Brief on affiliations</li>
+      <li>Other supportive documents</li>
+      <li>Two Hundred Thousand Naira (₦200,000.00) application fee</li>
+      <li>Two Hundred Thousand Naira (₦200,000.00) processing fee</li>
+      <li>Records of past activities</li>
+      <li>Audited account for the past 3 years</li>
+      <li>Site visit</li>
+      <li>Date of next AGM</li>
+    </ol>
+  </div>
+  <form class="center flex flex-col items-center gap-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Basic Data</h2>
+        <input
+        name="name"
+        type="text"
+        placeholder="Name of the professional body"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="telephone"
+        type="text"
+        placeholder="Telephone number(s) [separate with comma]"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required=/>
+      <input
+        name="email"
+        type="email"
+        placeholder="Email"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>  
+      <input
+        name="website"
+        type="text"
+        placeholder="Website address"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="yearofincorporation"
+        type="number"
+        placeholder="Year of Incorporation / Establishment"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="address"
+        placeholder="Address"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Name of Principal Officers</h2>
+        <input
+        name="president"
+        type="text"
+        placeholder="President"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="registrar"
+        type="text"
+        placeholder="Registrar"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required=/>
+      <input
+        name="nationalSecretary"
+        type="text"
+        placeholder="National Secretary"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>  
+      <input
+        name="staffStrength"
+        type="number"
+        placeholder="Staff strength (paid staff)"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="stateChapters"
+        type="number"
+        placeholder="State Chapters (if any)"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Membership strength (Briefly outline by categories)</h2>
+        <input
+        name="fellows"
+        type="number"
+        placeholder="Fellows"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="associates"
+        type="number"
+        placeholder="Associates"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required=/>
+      <input
+        name="others"
+        type="number"
+        placeholder="Others"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>  
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Qualifications</h2>
+        <input
+        name="minimumQualificationForRegisteringMembers"
+        type="number"
+        placeholder="State minimum qualification required for registering members"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+  
+        <select name="backedByParliament" class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2" required>
+          <option value="" selected disabled class="dark:text-font">Is your organization backed by Parliament</option>
+          <option value="yes" class="dark:text-font">Yes</option>
+          <option value="no" class="dark:text-font">No</option>
+        </select>
+      <textarea
+        name="parliamentQuote"
+        rows="5"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        placeholder="Is your organization backed up by Art or Parliament? If yes, quote the Act/Decree and forward a copy. Otherwise indicate the effort being made on the Issue"></textarea>
+      
+      <input
+        name="decreeUpload"
+        type="file"
+        placeholder="State minimum qualification required for registering members"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Organization activities</h2>
+        <textarea
+          name="organizationActivities"
+          rows="5"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+          placeholder="Give a brief outline on the activities of your professional body since its inception"></textarea>
+        <textarea
+          name="affiliatedToAnotherBody"
+          rows="5"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+          placeholder="Is your professional body affiliated to any other body – locally or internationally? If yes, state name and address of the body"></textarea>
+  
+        <select name="willingToAbideByRules" class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2" required>
+          <option value="" selected disabled class="dark:text-font">If admitted, will your professional body be willing to abide by the rules and regulations of the Association</option>
+          <option value="yes" class="dark:text-font">Yes</option>
+          <option value="no" class="dark:text-font">No</option>
+        </select>
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Sponsor #1</h2>
+        <input
+        name="sponsor1name"
+        type="text"
+        placeholder="Name"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="sponsor1address"
+        type="text"
+        placeholder="Address"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="sponsor1number"
+        type="number"
+        placeholder="Phone Number"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>  
+        <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN</h3>
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Sponsor #2</h2>
+        <input
+        name="sponsor2name"
+        type="text"
+        placeholder="Name"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="sponsor2address"
+        type="text"
+        placeholder="Address"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+        required/>
+      <input
+        name="sponsor2number"
+        type="number"
+        placeholder="Phone Number"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>  
+      <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN</h3>
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Others</h2>
+        <input
+          name="relevantInfoFile"
+          type="file"
+          placeholder="Names and signatures of sponsors"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2" required/>
+        <textarea
+          name="otherRelevantInfo"
+          rows="5"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+          placeholder="Other relevant information"></textarea> 
+      </div>
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
+        <h2 class="font-semibold text-md">Supportive documents or payment receipts</h2>
+        <input
+          name="documentOrRecipt1"
+          type="file"
+          placeholder="Supportive document or receipt"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+        <input
+          name="documentOrRecipt2"
+          type="file"
+          placeholder="Supportive document or receipt"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+        <input
+          name="documentOrRecipt3"
+          type="file"
+          placeholder="Supportive documents or receipt"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+      </div>
+    </div>
+    <ButtonLink
+      className="bt bt-orange dark:bt-white w-full md:w-fit"
+      btnType="submit"
+      title="submit"
+      type="button"
+    />
+  </form>
 </Layout>
