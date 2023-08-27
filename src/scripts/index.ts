@@ -1,7 +1,10 @@
 import { copyToClipboard, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants, map } from "~/types";
-import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal } from "~/types";
+import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime } from "~/types";
 import intlTelInput from "intl-tel-input"
+
+export const el = (query: string, parent?: HTMLElement) => parent ? parent.querySelector(query) : document.querySelector(query)
+export const all = (query: string, parent?: HTMLElement) => parent ? parent.querySelectorAll(query) : document.querySelectorAll(query)
 
 const url = new URL(location.href)
 const pathstring = getPathString(url.pathname);
@@ -408,13 +411,85 @@ class AudioController {
   }
 }
 
+export class Clock {
+  private timeInterval:number = 1
+  private daysDigit: HTMLElement
+  private hoursDigit: HTMLElement
+  private minutesDigit: HTMLElement
+  private secondsDigit: HTMLElement
+  private clockIsVisible: boolean = false
+  private countdownStillLive: boolean = false
+  constructor() {
+    this.daysDigit = el(`span[aria-digit="${Constants.DAYS}"]`) as HTMLElement
+    this.hoursDigit = el(`span[aria-digit="${Constants.HOURS}"]`) as HTMLElement
+    this.minutesDigit = el(`span[aria-digit="${Constants.MINUTES}"]`) as HTMLElement
+    this.secondsDigit = el(`span[aria-digit="${Constants.SECONDS}"]`) as HTMLElement
+
+    this.clockIsVisible = this.daysDigit !== null
+    || this.hoursDigit !== null
+    || this.minutesDigit !== null
+    || this.secondsDigit !== null
+
+    if (this.clockIsVisible) {
+      console.log("inside clockIsVisible if block")
+      const dateStr = this.secondsDigit.getAttribute("data-date") as string
+      const endTime = +new Date(dateStr)
+      console.log("dateStr", dateStr, "endTime", endTime)
+      this.countdownStillLive = (endTime - Date.now()) >= 0
+
+      if (this.countdownStillLive) {
+        console.log("inside countdownStillLive if block")
+        this.initializeClock(endTime)
+      }
+    }
+
+  }
+  
+  initializeClock(endTime: number) {
+    clearInterval(this.timeInterval)
+    this.timeInterval = setInterval(() => this.tick(endTime), 1000) as unknown as number
+  }
+  
+  tick(endTime: number) {
+    var rtime = this.remainingTime(endTime)
+
+    this.updateClockUi(rtime)
+  }
+
+  updateClockUi(rtime: iTime) {
+
+    console.log("rtime is", rtime)
+  }
+
+  isCountdownOver(time: iTime) {
+    return time.days === 0 && time.hours === 0 &&
+    time.minutes === 0 && time.seconds === 0
+  }
+  
+  remainingTime(endTime: number) {
+    const t = +new Date(endTime) - Date.now()
+
+    const seconds = Math.floor((t / 1000) % 60)
+    const minutes = Math.floor((t / 1000 / 60) % 60)
+    const hours = Math.floor((t / (1000 * 60 * 60)) % 24)
+    const days = Math.floor(t / (1000 * 60 * 60 * 24))
+    const time: iTime = {t, days, hours, minutes, seconds }
+
+    if (this.isCountdownOver(time))
+      setTimeout(() => console.log("countdown = over"), 3000)
+
+    return time
+  }
+}
+
 const main = new Main()
-const slider = new Slider()
+// const slider = new Slider()
+const clock = new Clock()
 const audioController = new AudioController()
 
-if (pathstring.main === Constants.HOME) {
-  slider.init()
-}
+// if (pathstring.main === Constants.HOME) {
+//   slider.init()
+// }
 
 if (pathstring.main === Constants.SERMONS) {
   audioController.init()

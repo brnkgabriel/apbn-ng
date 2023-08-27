@@ -1,28 +1,26 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Constants } from "~/types";
-import { Image } from "astro:assets"
+import ButtonLink from "./ButtonLink.astro";
+import Countdown from "./Countdown.astro";
 
 const allSliders: CollectionEntry<"sliders">[] = await getCollection("sliders")
 const slider = allSliders
 .filter(slider => slider.data.active)
 .filter(slider => slider.data.type === Constants.APBN)[0]
 
+const style = `background: url(${slider.data.image}) no-repeat;background-size: cover; background-position: center`
 ---
 
 {
   slider && (
     <section>
-      <div class="rounded-lg center grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden">
-        <Image
-          width={1326}
-          height={602}
-          class="w-full object-center aspect-[1326/602] md:aspect-[1920/400]"
-          src={slider.data.image}
-          alt={slider.data.name}
-          format="webp"
-        />
-        <div>details</div>
+      <div class="my-4 md:my-0 md:center grid grid-cols-1 md:grid-cols-2 gap-2 overflow-hidden md:aspect-[1920/400] md:min-h-[268px]">
+        <div class="w-full h-full aspect-[1326/602] md:aspect-[1920/400]" style={style}></div>
+        <div aria-label="details">
+          <Countdown date="September 27, 2023, 12:01pm" />
+          <ButtonLink type="link" href={`/sliders/${slider.slug}`} className="bt bt-orange" title="learn more" />
+        </div>
       </div>
     </section>
   )

@@ -137,12 +137,26 @@ export enum Constants {
   PAGESIZE="10",
 
   APBN="APBN",
-  ADVERTISING="Advertising"
+  ADVERTISING="Advertising",
+
+  // clock
+  DAYS="days",
+  HOURS="hours",
+  MINUTES="minutes",
+  SECONDS="seconds"
 }
 
 interface iHeroHeader {
   header: string;
   subline: string;
+}
+
+export interface iTime {
+  t: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
 export interface iPage<T = any> {

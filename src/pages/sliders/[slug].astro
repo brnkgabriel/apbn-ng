@@ -4,7 +4,7 @@ import { getEntry } from "astro:content"
 
 const { slug } = Astro.params
 
-const entry = await getEntry("team", slug as any)
+const entry = await getEntry("sliders", slug as any)
 
 if (entry === undefined) {
   return Astro.redirect("/404")
