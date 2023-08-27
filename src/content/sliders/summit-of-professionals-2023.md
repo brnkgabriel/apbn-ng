@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/SliderLayout.astro
 active: true
-date: September 12 - 13, 2023
+date: 2023-08-28T00:00:17.000+01:00
 name: Summit of Professionals 2023
 time: 10am
 venue: Nicon Luxury Hotel, Abuja
