@@ -52,7 +52,7 @@ const SlidersCollection = defineCollection({
     videourl: z.string().optional(),
     dkimage: z.string().optional(),
     mbimage: z.string().optional(),
-    image: z.string(),
+    image: z.string().optional(),
     type: z.string(),
     website: z.string().optional(),
     body: z.string().optional()
