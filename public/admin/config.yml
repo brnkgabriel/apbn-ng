@@ -70,7 +70,9 @@ collections:
       - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Image (1326 x 602)", name: "image", widget: "image"}
+      - {label: "Desktop Advertising Image (1920 x 400)", name: "dkimage", widget: "image", required: false}
+      - {label: "Mobile Advertising Image (1326 x 602)", name: "mbimage", widget: "image", required: false}
+      - {label: "APBN Event Image (1326 x 602)", name: "image", widget: "image", required: false}
       - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "resources" # Used in routes, e.g., /admin/collections/resources
