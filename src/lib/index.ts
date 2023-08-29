@@ -2,11 +2,17 @@ import { Constants, iEvent, type DateTimeFormatOptions, type iApiOptions, type i
 
 export * from "./data"
 
-export const formatDate = (date: any) => {
+export const formatDate = (date: Date) => {
+  console.log("date:any", date)
   const options: DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = new Date(date).toLocaleDateString(undefined, options);
   return formattedDate;
 };
+
+export const ftDate = (date: Date) => {
+  console.log("from ftDate", date)
+  return `${formatDate(date)} ${date.toLocaleTimeString()}`
+}
 
 export const slug = (file: string): iSlug => {
   const pieces = file.split("/")

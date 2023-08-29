@@ -38,7 +38,7 @@ const title = `Register | ${Constants.SITENAME}`;
   </div>
   <form class="center flex flex-col items-center gap-2" data-name="registration form">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Basic Data</h2>
         <input
         name="name"
@@ -76,7 +76,7 @@ const title = `Register | ${Constants.SITENAME}`;
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
         />
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Name of Principal Officers</h2>
         <input
         name="president"
@@ -108,7 +108,7 @@ const title = `Register | ${Constants.SITENAME}`;
         placeholder="State Chapters (if any)"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Membership strength (Briefly outline by categories)</h2>
         <input
         name="fellows"
@@ -128,7 +128,7 @@ const title = `Register | ${Constants.SITENAME}`;
         placeholder="Others"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>  
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Qualifications</h2>
         <input
         name="minimumQualificationForRegisteringMembers"
@@ -154,7 +154,7 @@ const title = `Register | ${Constants.SITENAME}`;
         placeholder="State minimum qualification required for registering members"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Organization activities</h2>
         <textarea
           name="organizationActivities"
@@ -173,7 +173,7 @@ const title = `Register | ${Constants.SITENAME}`;
           <option value="no" class="dark:text-font">No</option>
         </select>
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Sponsor #1</h2>
         <input
         name="sponsor1name"
@@ -192,9 +192,14 @@ const title = `Register | ${Constants.SITENAME}`;
         type="number"
         placeholder="Phone Number"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>  
-        <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN</h3>
+        <input
+          name="sponsor1Signature"
+          type="file"
+          placeholder="Supportive document or receipt"
+          class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+        <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN (upload sponsor #1 signature above)</h3>
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Sponsor #2</h2>
         <input
         name="sponsor2name"
@@ -213,9 +218,14 @@ const title = `Register | ${Constants.SITENAME}`;
         type="number"
         placeholder="Phone Number"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>  
-      <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN</h3>
+      <input
+        name="sponsor2Signature"
+        type="file"
+        placeholder="Supportive document or receipt"
+        class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
+      <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN (upload sponsor #2 signature above)</h3>
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Others</h2>
         <input
           name="relevantInfoFile"
@@ -228,20 +238,20 @@ const title = `Register | ${Constants.SITENAME}`;
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
           placeholder="Other relevant information"></textarea> 
       </div>
-      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom">
+      <div aria-label="form-control" class="flex flex-col gap-2 bg-white dark:bg-darker p-4 shadow-custom rounded-lg">
         <h2 class="font-semibold text-md">Supportive documents or payment receipts</h2>
         <input
-          name="documentOrRecipt1"
+          name="documentOrReceipt1"
           type="file"
           placeholder="Supportive document or receipt"
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
         <input
-          name="documentOrRecipt2"
+          name="documentOrReceipt2"
           type="file"
           placeholder="Supportive document or receipt"
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
         <input
-          name="documentOrRecipt3"
+          name="documentOrReceipt3"
           type="file"
           placeholder="Supportive documents or receipt"
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 shadow-sm placeholder:text-gray-400 w-full px-2 shadow-rcn bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>

@@ -144,7 +144,14 @@ export enum Constants {
   HOURS="hours",
   MINUTES="minutes",
   SECONDS="seconds",
-  DATASLIDERDATE="data-slider-date"
+  DATASLIDERDATE="data-slider-date",
+  DECREEUPLOAD="decreeUpload",
+  DOCUMENTORRECEIPT1="documentOrReceipt1",
+  DOCUMENTORRECEIPT2="documentOrReceipt2",
+  DOCUMENTORRECEIPT3="documentOrReceipt3",
+  RELEVANTINFOFILE="relevantInfoFile",
+  SPONSOR1SIGNATURE="sponsor1Signature",
+  SPONSOR2SIGNATURE="sponsor2Signature"
 }
 
 // interface iHeroHeader {

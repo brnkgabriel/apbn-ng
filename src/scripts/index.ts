@@ -1,7 +1,9 @@
-import { copyToClipboard, formatDate, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
+import { copyToClipboard, formatDate, ftDate, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants } from "~/types";
 import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime } from "~/types";
 import intlTelInput from "intl-tel-input"
+import { deleteFile, listFiles, uploadBlobOrFile } from "~/pages/api/storage";
+import type { UploadResult } from "firebase/storage";
 
 export const el = (query: string, parent?: HTMLElement) => parent ? parent.querySelector(query) : document.querySelector(query)
 export const all = (query: string, parent?: HTMLElement) => parent ? parent.querySelectorAll(query) : document.querySelectorAll(query)
@@ -260,7 +262,7 @@ class Main {
   }
 
 
-  submitDetails(form: HTMLFormElement, id: string) {
+  async submitDetails(form: HTMLFormElement, id: string) {
 
     const entries = this.formEntries(form) as any;
 
@@ -273,6 +275,56 @@ class Main {
     });
     
     console.log("entries", entries)
+    const email = entries.email
+    const decreeUploadFile = entries[Constants.DECREEUPLOAD] as File
+    const documentOrReceipt1File = entries[Constants.DOCUMENTORRECEIPT1] as File
+    const documentOrReceipt2File = entries[Constants.DOCUMENTORRECEIPT2] as File
+    const documentOrReceipt3File = entries[Constants.DOCUMENTORRECEIPT3] as File
+    const relevantInfoFile = entries[Constants.RELEVANTINFOFILE] as File
+    const sponsor1SignatureFile = entries[Constants.SPONSOR1SIGNATURE] as File
+    const sponsor2SignatureFile = entries[Constants.SPONSOR2SIGNATURE] as File
+
+    const decreeUploadUrl = `${email}/${decreeUploadFile.name}`
+    const documentOrReceipt1Url = `${email}/${documentOrReceipt1File.name}`
+    const documentOrReceipt2Url = `${email}/${documentOrReceipt2File.name}`
+    const documentOrReceipt3Url = `${email}/${documentOrReceipt3File.name}`
+    const relevantInfoUrl = `${email}/${relevantInfoFile.name}`
+    const sponsor1SignatureUrl = `${email}/${sponsor1SignatureFile.name}`
+    const sponsor2SignatureUrl = `${email}/${sponsor1SignatureFile.name}`
+
+    try {
+      const files = await listFiles(email)
+      files.forEach(file => deleteFile(file.fullPath))
+      console.log("files = deleted")
+
+      const snpDecreeUpload = await uploadBlobOrFile(decreeUploadUrl, decreeUploadFile)
+      const snpDocumentOrReceipt1 = await uploadBlobOrFile(documentOrReceipt1Url, documentOrReceipt1File)
+      const snpDocumentOrReceipt2 = await uploadBlobOrFile(documentOrReceipt2Url, documentOrReceipt2File)
+      const snpDocumentOrReceipt3 = await uploadBlobOrFile(documentOrReceipt3Url, documentOrReceipt3File)
+      const snpRelevantInfo = await uploadBlobOrFile(relevantInfoUrl, relevantInfoFile)
+      const snpSponsor1Signature = await uploadBlobOrFile(sponsor1SignatureUrl, sponsor1SignatureFile)
+      const snpSponsor2Signature = await uploadBlobOrFile(sponsor2SignatureUrl, sponsor2SignatureFile)
+
+      console.log("decree upload", snpDecreeUpload)
+      console.log("document or receipt 1", snpDocumentOrReceipt1)
+      console.log("document or receipt 2", snpDocumentOrReceipt2)
+      console.log("document or receipt 3", snpDocumentOrReceipt3)
+      console.log("relevant info", snpRelevantInfo)
+      console.log("sponsor 1 signature", snpSponsor1Signature)
+      console.log("sponsor 2 signature", snpSponsor2Signature)
+
+
+    } catch (error: any) {
+      console.log("error uploading file", error.message)
+    }
+
+    // DECREEUPLOAD="decreeUpload",
+    // DOCUMENTORRECEIPT1="documentOrReceipt1",
+    // DOCUMENTORRECEIPT2="documentOrReceipt2",
+    // DOCUMENTORRECEIPT3="documentOrReceipt3",
+    // RELEVANTINFOFILE="relevantInfoFile",
+    // SPONSOR1SIGNATURE="sponsor1Signature",
+    // SPONSOR2SIGNATURE="sponsor2Signature"
     // const map = this.formMap.get(id) as iSubmit
 
     // const apiOptions: iApiOptions = {
@@ -440,8 +492,9 @@ export class Clock {
   start() {
     if (this.timeElement) {
       const sliderTimestampStr = this.timeElement.getAttribute(Constants.DATASLIDERDATE)
-      const sliderDate = new Date(Number(sliderTimestampStr))
-      this.timeElement.textContent = `${formatDate(sliderDate)}, ${sliderDate.toLocaleTimeString()}`
+      const sliderDate = new Date(sliderTimestampStr as string)
+      console.log("sliderDate", sliderDate)
+      this.timeElement.textContent = ftDate(sliderDate)
     }
     if (this.clockIsVisible) {
       const dateStr = this.secondsDigit.getAttribute("data-date") as string
