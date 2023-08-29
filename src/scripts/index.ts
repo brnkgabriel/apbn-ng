@@ -3,7 +3,7 @@ import { Constants } from "~/types";
 import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime } from "~/types";
 import intlTelInput from "intl-tel-input"
 import { deleteFile, listFiles, uploadBlobOrFile } from "~/pages/api/storage";
-import type { UploadResult } from "firebase/storage";
+import type { StorageReference, UploadResult } from "firebase/storage";
 
 export const el = (query: string, parent?: HTMLElement) => parent ? parent.querySelector(query) : document.querySelector(query)
 export const all = (query: string, parent?: HTMLElement) => parent ? parent.querySelectorAll(query) : document.querySelectorAll(query)
@@ -240,7 +240,6 @@ class Main {
     const target = evt.target as HTMLFormElement
     const name = target.getAttribute(Constants.DATANAME)
 
-    console.log("name is", name)
     switch (name) {
       case Constants.SUBSCRIBEFORM: return this.submitDetails(target, Constants.SUBSCRIBERS)
       case Constants.PARTNERSFORM: return this.submitDetails(target, Constants.PARTNERS)
@@ -261,6 +260,14 @@ class Main {
     return entries
   }
 
+  async handleDelete(file: StorageReference) {
+    try {
+      await deleteFile(file.fullPath)
+      console.log("file", file.name, "= deleted")
+    } catch (error: any) {
+      console.log("couldn't delete because", error.message)
+    }
+  }
 
   async submitDetails(form: HTMLFormElement, id: string) {
 
@@ -294,16 +301,43 @@ class Main {
 
     try {
       const files = await listFiles(email)
-      files.forEach(file => deleteFile(file.fullPath))
+      files.forEach(this.handleDelete.bind(this))
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i]
+        await this.handleDelete(file)
+      }
       console.log("files = deleted")
 
-      const snpDecreeUpload = await uploadBlobOrFile(decreeUploadUrl, decreeUploadFile)
-      const snpDocumentOrReceipt1 = await uploadBlobOrFile(documentOrReceipt1Url, documentOrReceipt1File)
-      const snpDocumentOrReceipt2 = await uploadBlobOrFile(documentOrReceipt2Url, documentOrReceipt2File)
-      const snpDocumentOrReceipt3 = await uploadBlobOrFile(documentOrReceipt3Url, documentOrReceipt3File)
-      const snpRelevantInfo = await uploadBlobOrFile(relevantInfoUrl, relevantInfoFile)
-      const snpSponsor1Signature = await uploadBlobOrFile(sponsor1SignatureUrl, sponsor1SignatureFile)
-      const snpSponsor2Signature = await uploadBlobOrFile(sponsor2SignatureUrl, sponsor2SignatureFile)
+      let snpDecreeUpload = ""
+      let snpDocumentOrReceipt1 = ""
+      let snpDocumentOrReceipt2 = ""
+      let snpDocumentOrReceipt3 = ""
+      let snpRelevantInfo = ""
+      let snpSponsor1Signature = ""
+      let snpSponsor2Signature = ""
+
+      
+      if (decreeUploadFile.name.length > 0) {
+        snpDecreeUpload = await uploadBlobOrFile(decreeUploadUrl, decreeUploadFile)
+      }
+      if (documentOrReceipt1File.name.length > 0) {
+        snpDocumentOrReceipt1 = await uploadBlobOrFile(documentOrReceipt1Url, documentOrReceipt1File)
+      }
+      if (documentOrReceipt2File.name.length > 0) {
+        snpDocumentOrReceipt2 = await uploadBlobOrFile(documentOrReceipt2Url, documentOrReceipt2File)
+      }
+      if (documentOrReceipt3File.name.length > 0) {
+        snpDocumentOrReceipt3 = await uploadBlobOrFile(documentOrReceipt3Url, documentOrReceipt3File)
+      }
+      if (relevantInfoFile.name.length > 0) {
+        snpRelevantInfo = await uploadBlobOrFile(relevantInfoUrl, relevantInfoFile)
+      }
+      if (sponsor1SignatureFile.name.length > 0) {
+        snpSponsor1Signature = await uploadBlobOrFile(sponsor1SignatureUrl, sponsor1SignatureFile)
+      }
+      if (sponsor2SignatureFile.name.length > 0) {
+        snpSponsor2Signature = await uploadBlobOrFile(sponsor2SignatureUrl, sponsor2SignatureFile)
+      }
 
       console.log("decree upload", snpDecreeUpload)
       console.log("document or receipt 1", snpDocumentOrReceipt1)
@@ -493,7 +527,6 @@ export class Clock {
     if (this.timeElement) {
       const sliderTimestampStr = this.timeElement.getAttribute(Constants.DATASLIDERDATE)
       const sliderDate = new Date(sliderTimestampStr as string)
-      console.log("sliderDate", sliderDate)
       this.timeElement.textContent = ftDate(sliderDate)
     }
     if (this.clockIsVisible) {
