@@ -43,8 +43,9 @@ const showLink = type === Constants.LINK ? true : false
 			<button
 				type={btnType}
 				class={className}
-				aria-label={title}>
-				{title}
+				aria-label={title}> 
+				<span class="-txt">{title}</span>
+				<span class="-spin-loader border-font dark:border-rcn-mid-blue"></span>
 			</button>
 		)
 	)
