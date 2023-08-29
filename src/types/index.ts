@@ -496,3 +496,66 @@ export interface iInput {
 export interface iImage {
   quote: string;
 }
+
+export interface iRegisterFiles {
+  decreeUploadFile: File;
+  documentOrReceipt1File: File;
+  documentOrReceipt2File: File;
+  documentOrReceipt3File: File;
+  relevantInfoFile: File;
+  sponsor1SignatureFile: File;
+  sponsor2SignatureFile: File;
+}
+
+export interface iRegisterURLs {
+  decreeUploadUrl: string;
+  documentOrReceipt1Url: string;
+  documentOrReceipt2Url: string;
+  documentOrReceipt3Url: string;
+  relevantInfoUrl: string;
+  sponsor1SignatureUrl: string;
+  sponsor2SignatureUrl: string;
+}
+
+export interface iFilesUrls {
+  files: iRegisterFiles;
+  urls: iRegisterURLs;
+}
+
+export interface iEntry {
+  date: string;
+  name: string;
+  telephone: string;
+  email: string;
+  website: string;
+  yearofincorporation: string;
+  address: string;
+  president: string;
+  registrar: string;
+  nationalSecretary: string;
+  staffStrength: string;
+  stateChapters: string;
+  fellows: string;
+  associates: string;
+  others: string;
+  minimumQualificationForRegisteringMembers: string;
+  parliamentQuote: string;
+  decreeUpload: File | string;
+  organizationActivities: string;
+  affiliatedToAnotherBody: string;
+  sponsor1name: string;
+  sponsor1address: string;
+  sponsor1number: number;
+  sponsor1Signature: File | string;
+  sponsor2name: string;
+  sponsor2address: string;
+  sponsor2number: number;
+  sponsor2Signature: File | string;
+  relevantInfoFile: File | string;
+  otherRelevantInfo: string;
+  documentOrReceipt1: File | string;
+  documentOrReceipt2: File | string;
+  documentOrReceipt3: File | string;
+  countryName: string;
+  countryCode: string;
+}

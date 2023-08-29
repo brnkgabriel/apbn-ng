@@ -1,16 +1,53 @@
 ---
 import { Constants } from "~/types";
 import Layout from "../layouts/Layout.astro";
-import HeroSection from "~/components/partials/HeroSection.astro"
+import HeroSection from "~/components/partials/HeroSection.astro";
+import ButtonLink from "~/components/partials/ButtonLink.astro";
 
-const keywords = [
-  "contact"
-]
-const title = `Contact | ${Constants.SITENAME}`
+const keywords = ["contact"];
+const title = `Contact | ${Constants.SITENAME}`;
 ---
+
 <Layout title={title} keywords={keywords}>
   <HeroSection
     header="Contact Us"
     showCta={false}
-    subline="You are indeed welcome to contact us at any time and for any reason you think we can provide our professional opinion. Simply send us a mail using the form below." />
-</Layout> 
+    subline="You are indeed welcome to contact us at any time and for any reason you think we can provide our professional opinion. Simply send us a mail using the form below."
+  />
+  <form
+    class="center flex flex-col items-center gap-2 w-full md:max-w-md"
+    data-name="contact form"
+  >
+    <h2 class="font-semibold text-md">Send us a message</h2>
+    <input
+      name="name"
+      type="text"
+      placeholder="Name"
+      class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 shadow-custom bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2 autofill:!text-font dark:autofill:text-white"
+    />
+    <input
+      name="email"
+      type="email"
+      placeholder="Email"
+      class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 shadow-custom bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+    />
+    <input
+      name="subject"
+      type="text"
+      placeholder="Subject"
+      class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 shadow-custom bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+    />
+    <textarea
+      name="message"
+      rows="5"
+      class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 shadow-custom bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
+      placeholder="Message"></textarea>
+    <ButtonLink
+      className="bt bt-orange dark:bt-white w-full md:w-fit"
+      btnType="submit"
+      title="submit"
+      type="button"
+    />
+    <p class="-status col-span-2" data-type="error"></p>
+  </form>
+</Layout>

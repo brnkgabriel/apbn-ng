@@ -270,7 +270,7 @@ class Main {
   }
 
   getFilesAndURLs(entries: iEntry): { urls: iRegisterURLs, files: iRegisterFiles } {
-
+    
     const email = entries.email
     const decreeUploadFile = entries[Constants.DECREEUPLOAD] as File
     const documentOrReceipt1File = entries[Constants.DOCUMENTORRECEIPT1] as File
@@ -282,10 +282,10 @@ class Main {
 
     return {
       urls: {
-        decreeUploadUrl: `${email}/${decreeUploadFile.name}`,
+        decreeUploadUrl:`${email}/${decreeUploadFile.name}`,
         documentOrReceipt1Url: `${email}/${documentOrReceipt1File.name}`,
         documentOrReceipt2Url: `${email}/${documentOrReceipt2File.name}`,
-        documentOrReceipt3Url: `${email}/${documentOrReceipt3File.name}`,
+        documentOrReceipt3Url:`${email}/${documentOrReceipt3File.name}`,
         relevantInfoUrl: `${email}/${relevantInfoFile.name}`,
         sponsor1SignatureUrl: `${email}/${sponsor1SignatureFile.name}`,
         sponsor2SignatureUrl: `${email}/${sponsor2SignatureFile.name}`
@@ -302,8 +302,8 @@ class Main {
     }
   }
 
-  async uploadAndReplace(entries: iEntry, filesUrls: iFilesUrls) {
-
+  async replaceFilesWithUrls(entries: iEntry, filesUrls: iFilesUrls) {
+    
     let snpDecreeUpload = ""
     let snpDocumentOrReceipt1 = ""
     let snpDocumentOrReceipt2 = ""
@@ -312,7 +312,7 @@ class Main {
     let snpSponsor1Signature = ""
     let snpSponsor2Signature = ""
 
-
+    
     if (filesUrls.files.decreeUploadFile.name.length > 0) {
       snpDecreeUpload = await uploadBlobOrFile(filesUrls.urls.decreeUploadUrl, filesUrls.files.decreeUploadFile) as string
       entries.decreeUpload = snpDecreeUpload
@@ -358,9 +358,16 @@ class Main {
 
     return entries
   }
+  
+  async submitDetails(form: HTMLFormElement, id: string) {
 
-  async register (entries: iEntry, id: string, form: HTMLFormElement) {
-    
+    let entries = this.formEntries(form) as iEntry;
+
+    console.log("entries", entries)
+
+    entries.countryName = this.countryName
+    entries.countryCode = this.countryCode
+
     const email = entries.email
 
     const filesUrls = this.getFilesAndURLs(entries)
@@ -374,7 +381,7 @@ class Main {
       }
       console.log("files = deleted")
 
-      entries = await this.uploadAndReplace(entries, filesUrls)
+      entries = await this.replaceFilesWithUrls(entries, filesUrls)
 
       console.log("updated entries are", entries)
 
@@ -383,12 +390,12 @@ class Main {
         'screen_name': id
       });
 
-
+      
       const map = this.formMap.get(id) as iSubmit
-
+        
       const apiOptions: iApiOptions = {
         collection: Constants.APBN,
-        id,
+        id: email,
         entries,
         wrapperHTML: form,
         statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
@@ -397,103 +404,32 @@ class Main {
       const res = await postForm(apiOptions, map.messages, map.api)
       console.log("submitted is", res)
     } catch (error: any) {
-
+      
       gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
         ...entries,
         'screen_name': id
       });
       console.log("error uploading file", error.message)
     }
-  }
 
-  async contact(entries: iEntry, id: string, form: HTMLFormElement) {
+    // DECREEUPLOAD="decreeUpload",
+    // DOCUMENTORRECEIPT1="documentOrReceipt1",
+    // DOCUMENTORRECEIPT2="documentOrReceipt2",
+    // DOCUMENTORRECEIPT3="documentOrReceipt3",
+    // RELEVANTINFOFILE="relevantInfoFile",
+    // SPONSOR1SIGNATURE="sponsor1Signature",
+    // SPONSOR2SIGNATURE="sponsor2Signature"
+    // const map = this.formMap.get(id) as iSubmit
 
-    try {
-      
-      gtag(Constants.EVENT, Constants.CONTACTFORMSUBMISSION, {
-        ...entries,
-        'screen_name': id
-      });
-      
-      const map = this.formMap.get(id) as iSubmit
-
-      const apiOptions: iApiOptions = {
-        collection: Constants.APBN,
-        id,
-        entries,
-        wrapperHTML: form,
-        statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
-      }
-      const res = await postForm(apiOptions, map.messages, map.api)
-      console.log("submitted status is", res)
-    } catch (error: any) {
-
-      gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
-        ...entries,
-        'screen_name': id
-      });
-      console.log("error uploading file", error.message)
-    }
-  }
-
-  async submitDetails(form: HTMLFormElement, id: string) {
-
-    let entries = this.formEntries(form) as iEntry;
-
-    entries.countryName = this.countryName
-    entries.countryCode = this.countryCode
-
-    switch (id) {
-      case Constants.REGISTRATION: return await this.register(entries, id, form)
-      case Constants.CONTACTUS: return await this.contact(entries, id, form)
-    
-      default:
-        break;
-    }
-    // const email = entries.email
-
-    // const filesUrls = this.getFilesAndURLs(entries)
-
-    // try {
-    //   const files = await listFiles(email)
-    //   files.forEach(this.handleDelete.bind(this))
-    //   for (let i = 0; i < files.length; i++) {
-    //     const file = files[i]
-    //     await this.handleDelete(file)
-    //   }
-    //   console.log("files = deleted")
-
-    //   entries = await this.uploadAndReplace(entries, filesUrls)
-
-    //   console.log("updated entries are", entries)
-
-    //   gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
-    //     ...entries,
-    //     'screen_name': id
-    //   });
-
-
-    //   const map = this.formMap.get(id) as iSubmit
-
-    //   const apiOptions: iApiOptions = {
-    //     collection: Constants.APBN,
-    //     id: email,
-    //     entries,
-    //     wrapperHTML: form,
-    //     statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
-    //   }
-
-    //   const res = await postForm(apiOptions, map.messages, map.api)
-    //   console.log("submitted is", res)
-    // } catch (error: any) {
-
-    //   gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
-    //     ...entries,
-    //     'screen_name': id
-    //   });
-    //   console.log("error uploading file", error.message)
+    // const apiOptions: iApiOptions = {
+    //   collection: Constants.RCNLAGOSCOLLECTION,
+    //   id,
+    //   entries,
+    //   wrapperHTML: form,
+    //   statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
     // }
 
+    // postForm(apiOptions, map.messages, map.api)
   }
 
   toggleModal(target?: HTMLElement) {
@@ -623,7 +559,7 @@ class AudioController {
 }
 
 export class Clock {
-  private timeInterval: number = 1
+  private timeInterval:number = 1
   private daysDigit: HTMLElement
   private hoursDigit: HTMLElement
   private minutesDigit: HTMLElement
@@ -639,9 +575,9 @@ export class Clock {
     this.timeElement = el(`p[${Constants.DATASLIDERDATE}]`) as HTMLElement
 
     this.clockIsVisible = this.daysDigit !== null
-      || this.hoursDigit !== null
-      || this.minutesDigit !== null
-      || this.secondsDigit !== null
+    || this.hoursDigit !== null
+    || this.minutesDigit !== null
+    || this.secondsDigit !== null
 
 
     this.start()
@@ -664,12 +600,12 @@ export class Clock {
       }
     }
   }
-
+   
   initializeClock(endTime: number) {
-    clearInterval(this.timeInterval)
+    clearInterval(this.timeInterval) 
     this.timeInterval = setInterval(() => this.tick(endTime), 1000) as unknown as number
   }
-
+  
   tick(endTime: number) {
     var rtime = this.remainingTime(endTime)
     this.updateClockUi(rtime)
@@ -685,9 +621,9 @@ export class Clock {
 
   isCountdownOver(time: iTime) {
     return time.days === 0 && time.hours === 0 &&
-      time.minutes === 0 && time.seconds === 0
+    time.minutes === 0 && time.seconds === 0
   }
-
+  
   remainingTime(endTime: number) {
     const t = +new Date(endTime) - Date.now()
 
@@ -695,7 +631,7 @@ export class Clock {
     const minutes = Math.floor((t / 1000 / 60) % 60)
     const hours = Math.floor((t / (1000 * 60 * 60)) % 24)
     const days = Math.floor(t / (1000 * 60 * 60 * 24))
-    const time: iTime = { t, days, hours, minutes, seconds }
+    const time: iTime = {t, days, hours, minutes, seconds }
 
     if (this.isCountdownOver(time))
       setTimeout(() => console.log("countdown = over"), 3000)

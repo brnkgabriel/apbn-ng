@@ -170,8 +170,10 @@ export const postForm = async (
     const remoteData = await response.json()
 
     handleResponse(remoteData, apiOptions)
+    return true
   } catch (error: any) {
     console.error(error)
+    return false
   }
 
   apiOptions.wrapperHTML?.classList.remove("-loading")
