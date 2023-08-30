@@ -43,18 +43,21 @@ const title = `Register | ${Constants.SITENAME}`;
         <input
         name="name"
         type="text"
+        required
         placeholder="Name of the professional body"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2 autofill:!text-font dark:autofill:text-white"
         />
       <input
         name="telephone"
         type="text"
+        required
         placeholder="Telephone number(s) [separate with comma]"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
         />
       <input
         name="email"
         type="email"
+        required
         placeholder="Email"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
         />  
@@ -67,6 +70,7 @@ const title = `Register | ${Constants.SITENAME}`;
       <input
         name="yearofincorporation"
         type="number"
+        required
         placeholder="Year of Incorporation / Establishment"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"
         />
@@ -195,6 +199,7 @@ const title = `Register | ${Constants.SITENAME}`;
         <input
           name="sponsor1Signature"
           type="file"
+          required
           placeholder="Supportive document or receipt"
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
         <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN (upload sponsor #1 signature above)</h3>
@@ -221,6 +226,7 @@ const title = `Register | ${Constants.SITENAME}`;
       <input
         name="sponsor2Signature"
         type="file"
+        required
         placeholder="Supportive document or receipt"
         class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
       <h3 class="font-semibold">*Application must be sponsored by two (2) existing Member-bodies of APBN (upload sponsor #2 signature above)</h3>
@@ -243,11 +249,13 @@ const title = `Register | ${Constants.SITENAME}`;
         <input
           name="documentOrReceipt1"
           type="file"
+          required
           placeholder="Supportive document or receipt"
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
         <input
           name="documentOrReceipt2"
           type="file"
+          required
           placeholder="Supportive document or receipt"
           class="block rounded-lg border-2 border-darker dark:border-white/60 border-opacity-30 py-1.5 placeholder:text-gray-400 w-full px-2 bg-transparent focus-visible:border-darker dark:focus-visible:border-white focus-visible:outline-none col-span-2"/>
         <input
