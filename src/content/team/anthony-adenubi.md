@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "5"
 name: Anthony Adenubi
 acronym: ICSAN

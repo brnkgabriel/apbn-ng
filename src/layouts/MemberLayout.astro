@@ -9,8 +9,7 @@ interface Frontmatter {
   fullname: string;
   category: string;
   website: string;
-  logo: string;
-  name: string;
+  logo: string; 
 }
 
 interface Props {
@@ -19,12 +18,11 @@ interface Props {
 
 const { frontmatter } = Astro.props as Props
 
-const { fullname, acronym, website, logo, name } = frontmatter
+const { fullname, acronym, website, logo } = frontmatter
 
 const keywords = [
   acronym,
   fullname,
-  name
 ]
 
 ---
@@ -41,7 +39,7 @@ const keywords = [
           width={800}
           height={800}
           class="w-32 h-32"
-          alt={fullname || name}
+          alt={fullname}
           format="webp"
         />
       </div>

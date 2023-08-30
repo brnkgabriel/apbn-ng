@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "9"
 name: Surv. Akinloye O. Oyegbola
 acronym: FNIS, FNIA, PPNIS

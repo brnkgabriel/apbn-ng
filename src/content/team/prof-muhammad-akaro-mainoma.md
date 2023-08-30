@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "3"
 name: Prof. Muhammad Akaro Mainoma
 acronym: MNI

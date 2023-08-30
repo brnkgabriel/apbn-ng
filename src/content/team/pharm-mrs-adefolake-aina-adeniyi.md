@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "4"
 name: Pharm. Mrs. Adefolake Aina Adeniyi
 acronym: MAW

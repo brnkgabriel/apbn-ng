@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "2"
 name: Alh. Ismailia M. Zakari
 acronym: MNI, FBR, FCA

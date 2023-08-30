@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "8"
 name: TPL Paul Akporowho
 acronym: MNITP, MISPN, FNES

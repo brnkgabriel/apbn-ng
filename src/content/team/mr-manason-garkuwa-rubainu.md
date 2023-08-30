@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MemberLayout.astro
+layout: ../../layouts/TeamLayout.astro
 order: "1"
 name: Mr. Manason Garkuwa Rubainu
 role: President

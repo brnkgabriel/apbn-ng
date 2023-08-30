@@ -1,16 +1,14 @@
 ---
 import Layout from "./Layout.astro";
 import { Image } from "astro:assets"
-import ButtonLink from "~/components/partials/ButtonLink.astro";
 
 
 interface Frontmatter {
-  acronym: string;
-  fullname: string;
-  category: string;
-  website: string;
-  logo: string;
+  order: string;
   name: string;
+  acronym: string;
+  role: string;
+  picture: string;
 }
 
 interface Props {
@@ -19,12 +17,13 @@ interface Props {
 
 const { frontmatter } = Astro.props as Props
 
-const { fullname, acronym, website, logo, name } = frontmatter
+const { order, acronym, name, role, picture } = frontmatter
 
 const keywords = [
   acronym,
-  fullname,
-  name
+  name,
+  order,
+  role
 ]
 
 ---
@@ -33,15 +32,15 @@ const keywords = [
     <div class="flex flex-col items-center justify-center gap-2">
       <div class="text-center">
         <h1 class="text-2xl md:text-5xl font-semibold">{acronym}</h1>
-        <span>{fullname}</span>
+        <span>{name}</span>
       </div>
-      <div class="rounded-full p-4 shadow-custom bg-white overflow-hidden">
+      <div class="rounded-lg shadow-custom bg-white overflow-hidden">
         <Image
-          src={logo}
+          src={picture}
           width={800}
           height={800}
           class="w-32 h-32"
-          alt={fullname || name}
+          alt={name}
           format="webp"
         />
       </div>
@@ -51,12 +50,7 @@ const keywords = [
         <div class="max-w-2xl mx-auto center">
           <slot />
         </div>
-        <div class="w-full text-center flex flex-col md:flex-row justify-center items-center gap-2 p-2">
-          <ButtonLink title="all members" href="/members" type="link" className="bt bt-orange dark:bt-white text-center inline-block w-full md:w-fit" />
-          <ButtonLink title={`${acronym} homepage`} href={website} type="link" className="bt bt-orange dark:bt-white text-center inline-block w-full md:w-fit" />
-        </div>
       </article>
-      <aside></aside>
     </div>
   </section>
 </Layout>
