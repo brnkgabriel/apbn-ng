@@ -1,6 +1,6 @@
 import { copyToClipboard, formatDate, ftDate, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants } from "~/types";
-import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime, iOptions, iEntry, iRegisterURLs, iRegisterFiles, iFilesUrls } from "~/types";
+import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime, iOptions, iEntry, iRegisterURLs, iRegisterFiles, iFilesUrls, iSubmitOptions } from "~/types";
 import intlTelInput from "intl-tel-input"
 import { deleteFile, listFiles, uploadBlobOrFile } from "~/pages/api/storage";
 import type { StorageReference, UploadResult } from "firebase/storage";
@@ -359,8 +359,8 @@ class Main {
     return entries
   }
 
-  async register (entries: iEntry, id: string, form: HTMLFormElement) {
-    
+  async register (options: iSubmitOptions) {
+    let { entries, id, form, statusHTML } = options
     const email = entries.email
 
     const filesUrls = this.getFilesAndURLs(entries)
@@ -391,7 +391,7 @@ class Main {
         id,
         entries,
         wrapperHTML: form,
-        statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
+        statusHTML
       }
 
       const res = await postForm(apiOptions, map.messages, map.api)
@@ -406,7 +406,8 @@ class Main {
     }
   }
 
-  async contact(entries: iEntry, id: string, form: HTMLFormElement) {
+  async contact(options: iSubmitOptions) {
+    let { entries, id, form, statusHTML } = options
 
     try {
       
@@ -422,7 +423,7 @@ class Main {
         id,
         entries,
         wrapperHTML: form,
-        statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
+        statusHTML
       }
       const res = await postForm(apiOptions, map.messages, map.api)
       console.log("submitted status is", res)
@@ -438,62 +439,25 @@ class Main {
 
   async submitDetails(form: HTMLFormElement, id: string) {
 
+    const statusHTML = form.querySelector(Constants.STATUSQUERY) as HTMLElement
+    form.classList.add("-loading")
+
     let entries = this.formEntries(form) as iEntry;
 
     entries.countryName = this.countryName
     entries.countryCode = this.countryCode
 
+    const options: iSubmitOptions = {
+      entries, form, id, statusHTML
+    }
+
     switch (id) {
-      case Constants.REGISTRATION: return await this.register(entries, id, form)
-      case Constants.CONTACTUS: return await this.contact(entries, id, form)
+      case Constants.REGISTRATION: return await this.register(options)
+      case Constants.CONTACTUS: return await this.contact(options)
     
       default:
         break;
     }
-    // const email = entries.email
-
-    // const filesUrls = this.getFilesAndURLs(entries)
-
-    // try {
-    //   const files = await listFiles(email)
-    //   files.forEach(this.handleDelete.bind(this))
-    //   for (let i = 0; i < files.length; i++) {
-    //     const file = files[i]
-    //     await this.handleDelete(file)
-    //   }
-    //   console.log("files = deleted")
-
-    //   entries = await this.uploadAndReplace(entries, filesUrls)
-
-    //   console.log("updated entries are", entries)
-
-    //   gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
-    //     ...entries,
-    //     'screen_name': id
-    //   });
-
-
-    //   const map = this.formMap.get(id) as iSubmit
-
-    //   const apiOptions: iApiOptions = {
-    //     collection: Constants.APBN,
-    //     id: email,
-    //     entries,
-    //     wrapperHTML: form,
-    //     statusHTML: form.querySelector(Constants.STATUSQUERY) as HTMLElement
-    //   }
-
-    //   const res = await postForm(apiOptions, map.messages, map.api)
-    //   console.log("submitted is", res)
-    // } catch (error: any) {
-
-    //   gtag(Constants.EVENT, Constants.REGISTRATIONFORMSUBMISSION, {
-    //     ...entries,
-    //     'screen_name': id
-    //   });
-    //   console.log("error uploading file", error.message)
-    // }
-
   }
 
   toggleModal(target?: HTMLElement) {

@@ -11,7 +11,7 @@ export const formatDate = (date: Date) => {
 
 export const ftDate = (date: Date) => {
   console.log("from ftDate", date)
-  return `${formatDate(date)} ${date.toLocaleTimeString()}`
+  return `${formatDate(date)} ${date.toLocaleTimeString()} GMT+0100`
 }
 
 export const slug = (file: string): iSlug => {
@@ -150,7 +150,6 @@ export const postForm = async (
   api: string
 ) => {
 
-  apiOptions.wrapperHTML?.classList.add("-loading")
   const options = {
     // headers: { "Content-type": "multipart/form-data" },
     headers: { "Content-type": "application/json" },
@@ -173,10 +172,10 @@ export const postForm = async (
     return true
   } catch (error: any) {
     console.error(error)
+    apiOptions.wrapperHTML?.classList.remove("-loading")
     return false
   }
 
-  apiOptions.wrapperHTML?.classList.remove("-loading")
 }
 
 const handleResponse = (data: iResponse, apiOptions: iApiOptions) => {

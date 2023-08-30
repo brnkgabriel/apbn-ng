@@ -559,3 +559,10 @@ export interface iEntry {
   countryName: string;
   countryCode: string;
 }
+
+export interface iSubmitOptions {
+  entries: iEntry;
+  id: string;
+  form: HTMLFormElement;
+  statusHTML: HTMLElement
+}
