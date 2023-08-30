@@ -616,7 +616,7 @@ export class Clock {
       const sliderTimestampStr = this.timeElement.getAttribute(Constants.DATASLIDERDATE)
       const timestamp = Number(sliderTimestampStr)
       const sliderDate = new Date(timestamp)
-      this.timeElement.textContent = sliderDate.toString()
+      this.timeElement.textContent = `${sliderDate.toDateString()}, ${sliderDate.toLocaleTimeString()}`
     }
     if (this.clockIsVisible) {
       const dateStr = this.secondsDigit.getAttribute("data-date") as string
