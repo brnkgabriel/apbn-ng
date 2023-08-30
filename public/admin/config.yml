@@ -44,7 +44,7 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{name}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter 
-      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MemberLayout.astro"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/TeamLayout.astro"}
       - {label: "Order", name: "order", widget: "number"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Acronym", name: "acronym", widget: "string", required: false}

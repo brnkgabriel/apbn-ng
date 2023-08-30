@@ -8,15 +8,16 @@ export interface Props {
   member: CollectionEntry<"team">;
 }
 const withArrow = true;
-
 const { member } = Astro.props;
+
+let hasContent = member.body.length > 0
 ---
 
 {
-  member.data.body 
+  hasContent
   ? (
   <a
-  href={`/members/${member.slug}`}
+  href={`/team/${member.slug}`}
   rel="prefetch"
   aria-label={member.data.name}
   class="flex flex-col paper rounded-lg overflow-hidden shadow-rcn p-2 gap-2">
