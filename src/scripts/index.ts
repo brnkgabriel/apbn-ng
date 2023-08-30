@@ -614,8 +614,9 @@ export class Clock {
   start() {
     if (this.timeElement) {
       const sliderTimestampStr = this.timeElement.getAttribute(Constants.DATASLIDERDATE)
-      const sliderDate = new Date(sliderTimestampStr as string)
-      this.timeElement.textContent = ftDate(sliderDate)
+      const timestamp = Number(sliderTimestampStr)
+      const sliderDate = new Date(timestamp)
+      this.timeElement.textContent = sliderDate.toString()
     }
     if (this.clockIsVisible) {
       const dateStr = this.secondsDigit.getAttribute("data-date") as string

@@ -566,3 +566,11 @@ export interface iSubmitOptions {
   form: HTMLFormElement;
   statusHTML: HTMLElement
 }
+
+export interface iTUnit {
+  day: number;
+  month: number;
+  date: number;
+  hr: number;
+  mn: number;
+}

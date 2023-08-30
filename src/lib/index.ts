@@ -1,4 +1,4 @@
-import { Constants, iEvent, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember, iTeam } from "~/types";
+import { Constants, iEvent, type DateTimeFormatOptions, type iApiOptions, type iMessage, type iResponse, type iSlug, iBlog, iPage, iMember, iTeam, iTUnit } from "~/types";
 
 export * from "./data"
 
@@ -9,10 +9,57 @@ export const formatDate = (date: Date) => {
   return formattedDate;
 };
 
-export const ftDate = (date: Date) => {
-  console.log("from ftDate", date)
-  return `${formatDate(date)} ${date.toLocaleTimeString()} GMT+0100`
+// export const ftDate = (date: Date) => {
+//   return `${formatDate(date)} ${date.toLocaleTimeString()} GMT+0100`
+// }
+
+
+export const ftDate = (time: Date) => {
+  var tUnits: iTUnit = timeUnits(time)
+  var t = twelveHrFormat(tUnits.hr, tUnits.mn)
+  return `${fullDate(time)}`
 }
+
+export const timeUnits = (time: Date) => {
+  const _date = time
+  const day = _date.getDay()
+  const month = _date.getMonth()
+  const date = _date.getDate()
+  const hr = _date.getHours()
+  const mn = _date.getMinutes()
+  return { day, month, date, hr, mn }
+}
+
+export const pad = (time: number) => time.toString().length == 1 ? '0' + time : time
+
+export const twelveHrFormat = (hr: number, mn:number) => {
+  if (hr === 12) return pad(hr) + ':' + pad(mn) + 'pm'
+  else if (hr > 12) return pad(hr - 12) + ':' + pad(mn) + 'pm'
+  else if (hr === 0) return '12:' + pad(mn) + 'am'
+  else return pad(hr) + ':' + pad(mn) + 'am'
+}
+
+
+// export const tDate = (time: Date) => {
+//   var _time = new Date(time)
+//   var time_date = _time.getDate()
+//   var now_date = new Date(Date.now()).getDate()
+//   var time_diff = now_date - time_date
+
+//   if (time_diff === 0) return capitalize('today')
+//   else if (time_diff === 1) return capitalize('yesterday')
+//   else if (time_diff === -1) return capitalize('tomorrow')
+//   else return fullDate(time)
+// }
+
+export const fullDate = (time: Date) => {
+  var date = new Date(time)
+  var mnth = date.toLocaleDateString("en-US", { month: 'long' })
+  var day = date.toLocaleDateString("en-US", { weekday: 'long' })
+  return day + ' ' + mnth + ' ' + date.getDate()
+}
+
+export const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1)
 
 export const slug = (file: string): iSlug => {
   const pieces = file.split("/")

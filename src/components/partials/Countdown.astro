@@ -1,5 +1,4 @@
 ---
-import { ftDate } from "~/lib";
 
 export interface Props {
   classes?: string;
@@ -32,7 +31,7 @@ const className = defaultClasses + " " + classes
   </div> 
   <div class="flex flex-col w-[52px] p-2 rounded-lg bg-white dark:bg-darker shadow-custom">
     <span class="countdown flex justify-center text-xl font-semibold">
-      <span style="--value:49;" data-digit="seconds"  data-date={ftDate(date)} class="relative"></span> 
+      <span style="--value:49;" data-digit="seconds"  data-date={date} class="relative"></span> 
     </span>
     sec
   </div>
