@@ -1,4 +1,5 @@
 ---
+import ButtonLink from "~/components/partials/ButtonLink.astro";
 import Layout from "./Layout.astro";
 import { Image } from "astro:assets"
 
@@ -45,12 +46,13 @@ const keywords = [
         />
       </div>
     </div>
-    <div>
-      <article class="flex flex-col">
-        <div class="max-w-2xl mx-auto center">
-          <slot />
+    <article class="flex flex-col">
+      <div class="max-w-2xl mx-auto center">
+        <slot />
+        <div class="w-full text-center flex flex-col md:flex-row justify-center items-center gap-2 p-2">
+          <ButtonLink title="all management team" href="/team" type="link" className="bt bt-orange dark:bt-white text-center inline-block w-full md:w-fit" />
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   </section>
 </Layout>
