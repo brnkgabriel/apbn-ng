@@ -47,7 +47,7 @@ const { event } = Astro.props as Props;
       width={560}
       height={315}
       class="object-cover w-full"
-      alt="latest message"
+      alt="latest event"
       src={event.data.image || youTubeThumbnail(event.data.videourl as string)}
       format="webp"
     />
