@@ -9,7 +9,7 @@ const slider = allSliders
 .filter(slider => slider.data.active)
 .filter(slider => slider.data.type === Constants.APBN)[0]
 
-const style = `background: url(${slider.data.image}) no-repeat;background-size: cover; background-position: center`
+const style = `background: url(${slider.data.image}) no-repeat;background-size: contain; background-position: center`
 ---
 
 {
