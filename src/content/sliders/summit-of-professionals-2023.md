@@ -10,6 +10,6 @@ theme: "Renewed Hope and Actions: The Contribution of Professionals"
 host: Mr. Manason Rubainu (President, APBN)
 chairman: Dr. Omede Idris (FNMA)
 keynotespeaker: Prof. Tunji Olaopa
-image: /images/uploads/1326x602.webp
+image: /images/uploads/1326x602_2.webp
 type: APBN
 ---
