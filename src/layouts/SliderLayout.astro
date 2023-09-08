@@ -25,7 +25,11 @@ const {
   map,
   theme,
   venue,
-  website
+  website,
+  facilitator1,
+  facilitator2,
+  facilitator3,
+  facilitator4
 } = frontmatter;
 
 
@@ -55,19 +59,23 @@ const keywords = [
     showCta={false}
     subline={theme as string}
   />
-  <div class="center grid grid-cols-1 gap-4">
+  <div class="center flex flex-col gap-4">
     {
       image && (
-        <Image
-          width={1326}
-          height={602}
-          src={image}
-          class="w-full max-w-3xl block"
-          alt={name}
-          format="webp"
-        />
+        <div class="flex items-center justify-center">
+          <Image
+            width={1326}
+            height={602}
+            src={image}
+            class="w-full max-w-3xl"
+            alt={name}
+            format="webp"
+          />
+        </div>
       )
     }
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      
     {
       name && (
         <div class="leading-[1.1]">
@@ -109,6 +117,38 @@ const keywords = [
       )
     } 
     {
+      facilitator1 && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Facilitator #1:</h4>
+          <p>{facilitator1}</p>
+        </div>
+      )
+    } 
+    {
+      facilitator2 && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Facilitator #2:</h4>
+          <p>{facilitator2}</p>
+        </div>
+      )
+    } 
+    {
+      facilitator3 && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Facilitator #3:</h4>
+          <p>{facilitator3}</p>
+        </div>
+      )
+    } 
+    {
+      facilitator4 && (
+        <div class="leading-[1.1]">
+          <h4 class="text-sm font-semibold">Facilitator #4:</h4>
+          <p>{facilitator4}</p>
+        </div>
+      )
+    } 
+    {
       venue && (
         <div class="leading-[1.1]">
           <h4 class="text-sm font-semibold">Venue:</h4>
@@ -124,6 +164,7 @@ const keywords = [
         </div>
       )
     } 
+    </div>
   </div>
   {
     hasContent && (

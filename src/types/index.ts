@@ -169,6 +169,10 @@ export interface iSlider {
   host?: string;
   chairman?: string;
   keynotespeaker?: string;
+  facilitator1?: string;
+  facilitator2?: string;
+  facilitator3?: string;
+  facilitator4?: string;
   videourl?: string;
   image: string;
   type: string;
