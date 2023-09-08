@@ -68,6 +68,10 @@ collections:
       - {label: "Host", name: "host", widget: "string", required: false}
       - {label: "Chairman", name: "chairman", widget: "string", required: false}
       - {label: "Keynote Speaker", name: "keynotespeaker", widget: "string", required: false}
+      - {label: "Facilitator #1", name: "facilitator1", widget: "string", required: false}
+      - {label: "Facilitator #2", name: "facilitator2", widget: "string", required: false}
+      - {label: "Facilitator #3", name: "facilitator3", widget: "string", required: false}
+      - {label: "Facilitator #4", name: "facilitator4", widget: "string", required: false}
       - {label: "Video URL", name: "videourl", widget: "string", required: false}
       - {label: "Website", name: "website", widget: "string", required: false}
       - {label: "Desktop Advertising Image (1920 x 400)", name: "dkimage", widget: "image", required: false}
