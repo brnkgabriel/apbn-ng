@@ -30,8 +30,8 @@ class Main {
   private headerEl: HTMLElement
   private sublineEl: HTMLElement
   private resetSearchBtn: HTMLElement
-  private countryCode: string = "+234"
-  private countryName: string = ""
+  // private countryCode: string = "+234"
+  // private countryName: string = ""
   private formMap: Map<string, iSubmit> = new Map()
 
   constructor() {
@@ -103,30 +103,30 @@ class Main {
     addEventListener(Constants.CLICK, this.handleClick.bind(this))
     addEventListener(Constants.SUBMIT, this.handleSubmit.bind(this))
     this.updateCopyrightYear()
-    this.initializeTelInput()
+    // this.initializeTelInput()
     this.initSearch()
   }
 
-  initializeTelInput() {
-    const telInput = document.querySelector('input[type="tel"]') as HTMLInputElement
-    if (telInput) {
-      const phoneInput = intlTelInput(telInput as Element, {
-        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.min.js',
-        preferredCountries: ['ng'],
-        separateDialCode: true, // Show separate dial code
-      });
+  // initializeTelInput() {
+  //   const telInput = document.querySelector('input[type="tel"]') as HTMLInputElement
+  //   if (telInput) {
+  //     const phoneInput = intlTelInput(telInput as Element, {
+  //       utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.min.js',
+  //       preferredCountries: ['ng'],
+  //       separateDialCode: true, // Show separate dial code
+  //     });
 
-      // phoneInput.setNumber(this.countryCode + telInput.value); // Set initial value
-      // telInput.value = this.countryCode;
-      this.countryName = phoneInput.getSelectedCountryData().name
+  //     // phoneInput.setNumber(this.countryCode + telInput.value); // Set initial value
+  //     // telInput.value = this.countryCode;
+  //     this.countryName = phoneInput.getSelectedCountryData().name
 
-        // Watch for changes to selected country
-        ; (telInput as HTMLInputElement).addEventListener('countrychange', (e) => {
-          this.countryCode = `${phoneInput.getSelectedCountryData().dialCode}`
-          this.countryName = phoneInput.getSelectedCountryData().name
-        });
-    }
-  }
+  //       // Watch for changes to selected country
+  //       ; (telInput as HTMLInputElement).addEventListener('countrychange', (e) => {
+  //         this.countryCode = `${phoneInput.getSelectedCountryData().dialCode}`
+  //         this.countryName = phoneInput.getSelectedCountryData().name
+  //       });
+  //   }
+  // }
 
   updateCopyrightYear() {
     const year = document.getElementById('year') as HTMLElement
@@ -443,9 +443,6 @@ class Main {
     form.classList.add("-loading")
 
     let entries = this.formEntries(form) as iEntry;
-
-    entries.countryName = this.countryName
-    entries.countryCode = this.countryCode
 
     const options: iSubmitOptions = {
       entries, form, id, statusHTML

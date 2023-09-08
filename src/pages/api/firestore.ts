@@ -1,9 +1,7 @@
 import {
   collection, getDocs, getDoc,
-  addDoc, deleteDoc, doc, query,
-  where, setDoc, collectionGroup,
-  Timestamp,
-  DocumentData
+  addDoc, deleteDoc, doc,
+  setDoc, DocumentData
 } from "firebase/firestore"
 import type { iOptions, iResponse } from "~/types"
 import { firestoredb } from "./firebase"
