@@ -9,10 +9,12 @@ const slider = allSliders
 .filter(slider => slider.data.active)
 .filter(slider => slider.data.type === Constants.APBN)[0]
 
-const isTeasing = Date.now() < +new Date(slider.data.date as Date)  ? true : false;
+let shouldShow = false
 
-console.log("isTeasing", isTeasing, "slider", slider, "live date", +new Date(slider.data.date as Date), "now", Date.now())
-const shouldShow = slider && isTeasing;
+if (slider) {
+  const isTeasing = Date.now() < +new Date(slider.data.date as Date)  ? true : false;
+  shouldShow = isTeasing;
+}
 
 const style = shouldShow ? `background: url(${slider.data.image}) no-repeat;background-size: contain; background-position: center` : "";
 ---
