@@ -9,11 +9,16 @@ const slider = allSliders
 .filter(slider => slider.data.active)
 .filter(slider => slider.data.type === Constants.APBN)[0]
 
-const style = slider ? `background: url(${slider.data.image}) no-repeat;background-size: contain; background-position: center` : ""
+const isTeasing = Date.now() < +new Date(slider.data.date as Date)  ? true : false;
+
+console.log("isTeasing", isTeasing, "slider", slider, "live date", +new Date(slider.data.date as Date), "now", Date.now())
+const shouldShow = slider && isTeasing;
+
+const style = shouldShow ? `background: url(${slider.data.image}) no-repeat;background-size: contain; background-position: center` : "";
 ---
 
 {
-  slider ? (
+  shouldShow ? (
     <section>
       <div class="my-4 md:my-0 md:center grid grid-cols-1 md:grid-cols-2 gap-2 md:aspect-[1920/400] md:min-h-[268px]">
         <div class="w-full h-full aspect-[1326/602] md:aspect-[1920/400]" style={style}></div>
