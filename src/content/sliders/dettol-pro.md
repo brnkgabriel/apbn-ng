@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/SliderLayout.astro
-active: true
+active: false
 date: 2023-08-27T15:27:03.180
 name: Dettol Pro
 theme: Discover our surface care & hand hygiene range
