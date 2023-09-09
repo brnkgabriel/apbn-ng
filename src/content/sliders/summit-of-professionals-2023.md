@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/SliderLayout.astro
-active: true
+active: false
 date: 2023-09-12T09:00:00.000+01:00
 name: Summit of Professionals 2023
 time: 10am
