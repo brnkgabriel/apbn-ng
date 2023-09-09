@@ -3,6 +3,9 @@ import ButtonLink from "../partials/ButtonLink.astro";
 import WhiteLogo from "../icons/WhiteLogo.astro";
 import { links } from "~/lib";
 import FollowUsLinks from "../partials/FollowUsLinks.astro";
+import Call from "../icons/Call.astro";
+import Email from "../icons/Email.astro";
+import Map from "../icons/Map.astro";
 
 ---
 
@@ -11,23 +14,24 @@ import FollowUsLinks from "../partials/FollowUsLinks.astro";
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-2">
       <div class="flex items-start flex-col gap-2">
         <WhiteLogo/>
-        <div class="flex flex-col justify-start items-start">
-          <div class="flex justify-center items-center gap-2">
-            <a href="tel:+2348129962551" aria-label="call us on line 1" class="-phone flex justify-center items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-                <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
-              </svg>
-              <span>Call Us</span>
-            </a>
-          </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 place-items-start">
+          <a href="tel:+2348129962551" aria-label="call us on line 1" class="-phone flex justify-center items-center gap-1">
+            <Call />
+            <span>Call Us</span>
+          </a>
+          <a href="mailto:apbnnigeria40@gmail.com?subject=Inquiries" aria-label="send us an email" class="-email flex justify-center items-center gap-1">
+            <Email />        
+            <span>Email Us</span>
+          </a>
+          <a target="_blank" href="https://www.google.com/maps/place/Nigerian+Institution+Of+Surveyors,+Lagos+State+Branch/@6.6176048,3.3529034,17z/data=!3m1!4b1!4m6!3m5!1s0x103b93c91e89dded:0xbb9b37c1371183fc!8m2!3d6.6175995!4d3.3554783!16s%2Fg%2F11fx95r01v?entry=ttu" aria-label="lagos office" class="-email flex justify-center items-center gap-1">
+            <Map />         
+            Lagos Office
+          </a>
+          <a target="_blank" href="https://www.google.com/maps/place/National+Engineering+Center,+Abuja/@9.0588028,7.490754,17z/data=!3m1!4b1!4m6!3m5!1s0x104e0bb013eb9e81:0xc7b3079c1e690365!8m2!3d9.0587975!4d7.4933289!16s%2Fg%2F11cncsnfll?entry=ttu" aria-label="abuja office" class="-email flex justify-center items-center gap-1">
+            <Map />           
+            Abuja Office
+          </a>
         </div>
-        <a href="mailto:apbnadmmgr@gmail.com?subject=Inquiries" aria-label="send us an email" class="-email flex justify-center items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-          </svg>          
-          <span>Send us an email</span>
-        </a>
       </div>
       <div class="flex items-start flex-col">
         <p class="uppercase font-semibold underline">{links.association.name}</p>
