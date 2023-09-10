@@ -113,7 +113,7 @@ export enum Constants {
   // events
   PLAYEVENT="play",
   SEARCHFORSERMON="search_for_sermon",
-  SHARESERMON="share_sermon",
+  SHAREMEDIA="share_media",
   COPYDATA="copy_information",
 
   // attributes 

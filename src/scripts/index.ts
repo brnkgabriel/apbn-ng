@@ -149,7 +149,7 @@ class Main {
       case Constants.COPY: return this.handleCopy(target)
       case Constants.SEARCH: return this.handleSearch(this.searchInp.value.toLowerCase())
       case Constants.RESETSEARCH: return this.resetSearch()
-      case Constants.SHARE: return this.shareSermon(target)
+      case Constants.SHARE: return this.shareMedia(target)
     }
 
     switch (type) {
@@ -157,10 +157,10 @@ class Main {
     }
   }
 
-  shareSermon(target: HTMLElement) {
+  shareMedia(target: HTMLElement) {
     const event = JSON.parse(target.getAttribute(Constants.DATAEVENT) as string) as iEvent
     handleShare(event.title, event.videourl || event.audiourl)
-    gtag(Constants.EVENT, Constants.SHARESERMON, {
+    gtag(Constants.EVENT, Constants.SHAREMEDIA, {
       'title': event.title,
       'screen_name': pathstring,
       'description': event.description,
