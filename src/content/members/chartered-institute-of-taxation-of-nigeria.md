@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "2"
 acronym: CITN
 fullname: Chartered Institute of Taxation of Nigeria
 category: Accounts & Finance
