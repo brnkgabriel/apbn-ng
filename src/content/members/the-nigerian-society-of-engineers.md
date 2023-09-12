@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NSE
 fullname: The Nigerian Society of Engineers
 category: Engineering

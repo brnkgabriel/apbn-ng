@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: ICSAN
 fullname: Institute of Chartered Secretaries and Administrators Of Nigeria
 category: Administration

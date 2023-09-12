@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NLA
 fullname: Nigerian Library Association
 category: Education

@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIS
 fullname: Nigerian Institute of Surveyors
 category: Architecture

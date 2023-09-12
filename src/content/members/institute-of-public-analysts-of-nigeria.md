@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: IPAN
 fullname: Institute of Public Analysts of Nigeria
 category: Management

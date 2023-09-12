@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: IMC
 fullname: Institute of Management Consultancy of Nigeria
 category: Management

@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: CIPSM
 fullname: Chartered Institute of Purchasing & Supply Management of Nigeria
 category: Management

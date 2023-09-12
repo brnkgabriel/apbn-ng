@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NVMA
 fullname: Nigerian Veterinary Medical Association
 category: Health & Wellness

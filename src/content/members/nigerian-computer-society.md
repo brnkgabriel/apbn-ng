@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NCS
 fullname: Nigerian Computer Society
 category: Technology

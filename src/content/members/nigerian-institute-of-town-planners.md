@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NITP
 fullname: Nigerian Institute of Town Planners
 category: Management

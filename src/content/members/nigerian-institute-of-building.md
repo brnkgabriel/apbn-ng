@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIOB
 fullname: Nigerian Institute of Building
 category: Architecture

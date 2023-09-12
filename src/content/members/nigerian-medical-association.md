@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NMA
 fullname: Nigerian Medical Association
 category: Health & Wellness

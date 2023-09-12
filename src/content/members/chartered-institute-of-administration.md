@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: CIA
 fullname: Chartered Institute of Administration
 category: Administration

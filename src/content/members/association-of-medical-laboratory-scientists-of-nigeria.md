@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: AMLSN
 fullname: Association of Medical Laboratory Scientists of Nigeria
 category: Health & Wellness

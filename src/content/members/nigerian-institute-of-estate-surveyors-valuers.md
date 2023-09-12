@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIESV
 fullname: Nigerian Institute of Estate Surveyors & Valuers
 category: Architecture

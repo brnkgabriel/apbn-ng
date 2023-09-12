@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NMGS
 fullname: Nigerian Mining and Geosciences Society
 category: Environmental Sciences

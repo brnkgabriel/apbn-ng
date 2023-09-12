@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: CIPM
 fullname: Chartered Institute of Personnel Management of Nigeria
 category: Management

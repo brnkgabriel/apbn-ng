@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: CIIN
 fullname: Chartered Insurance Institute of Nigeria
 category: Accounts & Finance

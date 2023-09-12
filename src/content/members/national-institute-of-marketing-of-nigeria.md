@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIMN
 fullname: National Institute of Marketing of Nigeria
 category: Sales & Marketing

@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIM
 fullname: Nigerian Institute of Management
 category: Management

@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIPR
 fullname: Nigerian Institute of Public Relations
 category: Administration

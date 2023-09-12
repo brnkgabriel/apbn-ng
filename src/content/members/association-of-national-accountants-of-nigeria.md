@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: ANAN
 fullname: Association of National Accountants of Nigeria
 category: Accounts & Finance

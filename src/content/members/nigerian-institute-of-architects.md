@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIA
 fullname: Nigerian Institute of Architects
 category: Architecture

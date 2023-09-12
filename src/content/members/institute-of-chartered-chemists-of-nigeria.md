@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: ICCON
 fullname: Institute of Chartered Chemists of Nigeria
 category: Pure Sciences

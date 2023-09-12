@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: PSN
 fullname: Pharmaceutical Society of Nigeria
 category: Health & Wellness

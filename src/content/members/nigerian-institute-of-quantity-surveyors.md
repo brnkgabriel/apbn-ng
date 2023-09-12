@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NIQS
 fullname: Nigerian Institute of Quantity Surveyors
 category: Architecture

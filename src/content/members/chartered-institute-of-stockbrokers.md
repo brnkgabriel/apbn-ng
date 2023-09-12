@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: CISN
 fullname: Chartered Institute of Stockbrokers
 category: Accounts and Finance

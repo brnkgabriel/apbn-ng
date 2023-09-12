@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: CIBN
 fullname: Chartered Institute of Bankers of Nigeria
 category: Accounts & Finance

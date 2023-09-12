@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "100"
 acronym: NBA
 fullname: Nigerian Bar Association
 category: Legal
