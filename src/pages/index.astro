@@ -13,7 +13,9 @@ import APBNSliders from '~/components/partials/APBNSliders.astro';
 import AdvertisingSliders from '~/components/partials/AdvertisingSliders.astro';
 
 const allMembers: CollectionEntry<"members">[] = await getCollection("members")
-const members = allMembers.slice(0,4)
+const members = allMembers
+.sort((a, b) => Number(a.data.order) - Number(b.data.order))
+.slice(0,4)
 
 const allEvents: CollectionEntry<"events">[] = await getCollection("events")
 const events = allEvents
