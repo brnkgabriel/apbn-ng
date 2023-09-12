@@ -31,6 +31,7 @@ collections:
     slug: "{{fullname}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter 
       - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MemberLayout.astro"}
+      - {label: "Order", name: "order", widget: "number", default: 100}
       - {label: "Acronym", name: "acronym", widget: "string"}
       - {label: "Full name", name: "fullname", widget: "string"}
       - {label: "Category", name: "category", widget: "string"}
