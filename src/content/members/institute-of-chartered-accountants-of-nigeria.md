@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MemberLayout.astro
+order: "1"
 acronym: ICAN
 fullname: Institute of Chartered Accountants of Nigeria
 category: Accounts & Finance
