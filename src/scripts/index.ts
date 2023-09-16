@@ -435,6 +435,7 @@ class Main {
 
       const res = await postForm(apiOptions, map.messages, map.api)
       this.preloader.textContent = ""
+      this.totalFiles = 0
       console.log("submitted is", res)
     } catch (error: any) {
 
