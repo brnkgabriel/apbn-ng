@@ -1,9 +1,8 @@
-import { copyToClipboard, formatDate, ftDate, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
+import { copyToClipboard, getPathString, handlePlayEvent, handleShare, postForm, youTubeEmbedLink } from "~/lib";
 import { Constants } from "~/types";
 import type { iDynamic, iEvent, iApiOptions, iSubmit, iModal, iTime, iOptions, iEntry, iRegisterURLs, iRegisterFiles, iFilesUrls, iSubmitOptions } from "~/types";
-import intlTelInput from "intl-tel-input"
 import { deleteFile, listFiles, uploadBlobOrFile } from "~/pages/api/storage";
-import type { StorageReference, UploadResult } from "firebase/storage";
+import type { StorageReference } from "firebase/storage";
 
 export const el = (query: string, parent?: HTMLElement) => parent ? parent.querySelector(query) : document.querySelector(query)
 export const all = (query: string, parent?: HTMLElement) => parent ? parent.querySelectorAll(query) : document.querySelectorAll(query)
@@ -26,6 +25,7 @@ const pathstring = getPathString(url.pathname);
 class Main {
   private bodyEl: HTMLElement
   private modalEl: HTMLElement
+  private preloader: HTMLElement
   private searchInp: HTMLInputElement
   private headerEl: HTMLElement
   private sublineEl: HTMLElement
@@ -33,6 +33,7 @@ class Main {
   // private countryCode: string = "+234"
   // private countryName: string = ""
   private formMap: Map<string, iSubmit> = new Map()
+  private totalFiles: number = 0
 
   constructor() {
     this.bodyEl = document.querySelector(Constants.BODYELEMENT) as HTMLElement
@@ -41,6 +42,7 @@ class Main {
     this.resetSearchBtn = document.getElementById(Constants.RESETSEARCHID) as HTMLElement
     this.headerEl = document.getElementById(Constants.HEADERID) as HTMLElement
     this.sublineEl = document.getElementById(Constants.SUBLINEID) as HTMLElement
+    this.preloader = document.querySelector(Constants.PRELOADER) as HTMLElement
 
     this.formMap.set(Constants.SUBSCRIBERS, {
       id: Constants.SUBSCRIBERS,
@@ -312,46 +314,83 @@ class Main {
     let snpSponsor1Signature = ""
     let snpSponsor2Signature = ""
 
+    if (filesUrls.files.decreeUploadFile.name.length > 0) {
+      this.totalFiles++
+    }
+    if (filesUrls.files.documentOrReceipt1File.name.length > 0){
+      this.totalFiles++
+    }
+    if (filesUrls.files.documentOrReceipt2File.name.length > 0) {
+      this.totalFiles++
+    }
+    if (filesUrls.files.documentOrReceipt3File.name.length > 0) {
+      this.totalFiles++
+    }
+    if (filesUrls.files.relevantInfoFile.name.length > 0) {
+      this.totalFiles++
+    }
+    if (filesUrls.files.sponsor1SignatureFile.name.length > 0) {
+      this.totalFiles++
+    }
+    if (filesUrls.files.sponsor2SignatureFile.name.length > 0) {
+      this.totalFiles++
+    }
+
+    let count = 0
 
     if (filesUrls.files.decreeUploadFile.name.length > 0) {
       snpDecreeUpload = await uploadBlobOrFile(filesUrls.urls.decreeUploadUrl, filesUrls.files.decreeUploadFile) as string
       entries.decreeUpload = snpDecreeUpload
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.decreeUpload = ""
     }
     if (filesUrls.files.documentOrReceipt1File.name.length > 0) {
       snpDocumentOrReceipt1 = await uploadBlobOrFile(filesUrls.urls.documentOrReceipt1Url, filesUrls.files.documentOrReceipt1File) as string
       entries.documentOrReceipt1 = snpDocumentOrReceipt1
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.documentOrReceipt1 = ""
     }
     if (filesUrls.files.documentOrReceipt2File.name.length > 0) {
       snpDocumentOrReceipt2 = await uploadBlobOrFile(filesUrls.urls.documentOrReceipt2Url, filesUrls.files.documentOrReceipt2File) as string
       entries.documentOrReceipt2 = snpDocumentOrReceipt2
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.documentOrReceipt2 = ""
     }
     if (filesUrls.files.documentOrReceipt3File.name.length > 0) {
       snpDocumentOrReceipt3 = await uploadBlobOrFile(filesUrls.urls.documentOrReceipt3Url, filesUrls.files.documentOrReceipt3File) as string
       entries.documentOrReceipt3 = snpDocumentOrReceipt3
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.documentOrReceipt3 = ""
     }
     if (filesUrls.files.relevantInfoFile.name.length > 0) {
       snpRelevantInfo = await uploadBlobOrFile(filesUrls.urls.relevantInfoUrl, filesUrls.files.relevantInfoFile) as string
       entries.relevantInfoFile = snpRelevantInfo
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.relevantInfoFile = ""
     }
     if (filesUrls.files.sponsor1SignatureFile.name.length > 0) {
       snpSponsor1Signature = await uploadBlobOrFile(filesUrls.urls.sponsor1SignatureUrl, filesUrls.files.sponsor1SignatureFile) as string
       entries.sponsor1Signature = snpSponsor1Signature
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.sponsor1Signature = ""
     }
     if (filesUrls.files.sponsor2SignatureFile.name.length > 0) {
       snpSponsor2Signature = await uploadBlobOrFile(filesUrls.urls.sponsor2SignatureUrl, filesUrls.files.sponsor2SignatureFile) as string
       entries.sponsor2Signature = snpSponsor2Signature
+      count++
+      this.preloader.textContent = `${count} / ${this.totalFiles} files uploaded`
     } else {
       entries.sponsor2Signature = ""
     }
@@ -395,6 +434,7 @@ class Main {
       }
 
       const res = await postForm(apiOptions, map.messages, map.api)
+      this.preloader.textContent = ""
       console.log("submitted is", res)
     } catch (error: any) {
 

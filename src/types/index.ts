@@ -42,6 +42,7 @@ export enum Constants {
   HAMBURGER = "hamburger",
   CLOSEMOBILEMENU = "close-mobile-menu",
   LINKS = ".-links",
+  PRELOADER=".-preloader",
   ACTIVE = "active",
   MOBILENAVTOP = "[data-type='mobile navigation'] .-top",
   HIDEBACKBTNCLASS = "-hide-back-bt",
