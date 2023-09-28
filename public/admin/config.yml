@@ -80,3 +80,35 @@ collections:
       - {label: "APBN Event Image (1326 x 602)", name: "image", widget: "image", required: false}
       - {label: "Slider Type", name: "type", widget: "select", options: ["APBN", "Advertising"]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
+  - name: "others" # Used in routes, e.g., /admin/collections/blog
+    label: "Others" # Used in the UI
+    folder: "src/content/others" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{title}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    identifier_field: title
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden"}
+      - {
+          label: "Registration Requirements",
+          name: "requirements",
+          widget: "list",
+          allow_add: true,
+          required: false,
+          summary: 'requirement',
+          fields: [
+            {label: "Requirement", name: "requirement", widget: "string", required: false}
+          ]
+        }
+      - {
+          label: "Footer",
+          name: "footer",
+          widget: "list",
+          allow_add: true,
+          required: false,
+          summary: 'branch',
+          fields: [
+            {label: "Branch", name: "branch", widget: "string", required: false},
+            {label: "Address", name: "address", widget: "string", required: false},
+            {label: "Phone Number", name: "phoneNumber", widget: "string", required: false}
+          ]
+        }
