@@ -11,7 +11,7 @@ const { address } = Astro.props
 <div aria-label="lagos office" class="-email flex flex-col md:flex-row justify-center items-center gap-4">
   <div aria-label="address" class="flex flex-col md:flex-row items-center justify-center md:justify-start gap-1">
     <Map />  
-    <p class="text-center md:text-left flex gap-1"><strong>{ address.branch }:</strong><span>{ address.address }</span></p>
+    <p class="text-center md:text-left flex flex-col md:flex-row gap-1"><strong>{ address.branch }:</strong><span>{ address.address }</span></p>
   </div>
   <a href={`tel:${address.phoneNumber}`} aria-label="call us on line 1" class="-phone flex justify-center items-center gap-1 rounded-lg border px-4 py-2 w-full md:w-fit">
     <Call />
