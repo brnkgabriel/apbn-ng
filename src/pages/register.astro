@@ -1,11 +1,17 @@
 ---
-import { Constants } from "~/types";
+import { Constants, iOthers } from "~/types";
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "~/components/partials/HeroSection.astro";
 import ButtonLink from "~/components/partials/ButtonLink.astro";
+import { getEntry } from "astro:content"
 
 const keywords = ["register"];
 const title = `Register | ${Constants.SITENAME}`;
+
+const entry = await getEntry("others", "other-information")
+
+const data = entry.data as iOthers
+ 
 ---
 
 <Layout title={title} keywords={keywords}>
@@ -18,22 +24,11 @@ const title = `Register | ${Constants.SITENAME}`;
     <h2 class="font-semibold text-md">ADMISSION REQUIREMENTS</h2>
     The following are the admission requirements:
     <ol class="list-decimal pl-[20px]">
-      <li>Dully completed sponsored Application form (Form C)</li>
-      <li>A profile of the Institute/Institute/Association</li>
-      <li>Copy of the Certificate of Incorporation</li>
-      <li>Copy of Act of Parliament or Decree backing the Institute/Association</li>
-      <li>Current annual year book/handbook of the Institute/Association</li>
-      <li>Register of current membership strength (including breakdown into available classes of full members)</li>
-      <li>Minimum requirement for enrolment of students/training and graduation into the various membership status up to fellowship level</li>
-      <li>Brief on continuous education for members of the Institute/Association</li>
-      <li>Brief on affiliations</li>
-      <li>Other supportive documents</li>
-      <li>Three Hundred Thousand Naira (₦300,000) application fee</li>
-      <li>Three Hundred Thousand Naira (₦300,000) processing fee</li>
-      <li>Records of past activities</li>
-      <li>Audited account for the past 3 years</li>
-      <li>Site visit</li>
-      <li>Date of next AGM</li>
+      {
+        data.requirements.map(requirement => (
+          <li>{requirement}</li>
+        ))
+      }
     </ol> 
   </div>
   <form class="center flex flex-col items-center gap-2" data-name="registration form">

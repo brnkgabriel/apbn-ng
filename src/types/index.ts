@@ -579,3 +579,13 @@ export interface iTUnit {
   hr: number;
   mn: number;
 }
+export interface iAddress {
+  branch: string;
+  address: string;
+  phoneNumber: string;
+}
+export interface iOthers {
+  name: string;
+  requirements: string[];
+  footer: iAddress[]
+}

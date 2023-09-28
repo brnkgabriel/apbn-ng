@@ -38,6 +38,19 @@ const TeamCollection = defineCollection({
   })
 })
 
+const OthersCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    name: z.string(),
+    requirements: z.array(z.string()),
+    footer: z.array(z.object({
+      branch: z.string(),
+      address: z.string(),
+      phoneNumber: z.string()
+    }))
+  })
+})
+
 const SlidersCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -68,5 +81,6 @@ export const collections = {
   "members": MembersCollection,
   "events": EventsCollection,
   "team": TeamCollection,
-  "sliders": SlidersCollection
+  "sliders": SlidersCollection,
+  "others": OthersCollection
 }
