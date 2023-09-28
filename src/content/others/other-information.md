@@ -21,8 +21,7 @@ requirements:
   - Date of next AGM
 footer:
   - branch: Lagos Office
-    address: NIS Lagos State Building H Plot B, Assbifi Road, Ikeja CBD Alausa,
-      Ikeja, Lagos
+    address: NIS Lagos State Building H Plot B, Assbifi Road, Ikeja CBD Alausa, Ikeja, Lagos
     phoneNumber: "+2348129962551"
   - branch: Abuja Office
     address: National Engineering Centre Opp, National Mosque, CBD, Abuja
