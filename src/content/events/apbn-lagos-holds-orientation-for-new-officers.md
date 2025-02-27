@@ -3,6 +3,7 @@ layout: ../../layouts/EventLayout.astro
 active: true
 title: APBN Lagos holds orientation for new officers
 date: 2025-02-27T20:01:01.091
+image: /images/uploads/whatsapp-image-2025-02-27-at-20.04.55_9a1b90d4.jpg
 ---
 The Association of Professional Bodies of Nigeria (APBN), Lagos Chapter, at its last Annual General Meeting (AGM) produced a new set of officials to oversee the affairs of the association for the next two years.
 
