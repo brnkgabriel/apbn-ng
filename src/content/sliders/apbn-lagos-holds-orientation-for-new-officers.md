@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/SliderLayout.astro
 active: true
-date: 2025-02-27T19:45:58.967
+date: 2025-02-27T19:56:41.664+01:00
 name: APBN Lagos holds orientation for new officers
 image: /images/uploads/untitled.jpg
 type: APBN
