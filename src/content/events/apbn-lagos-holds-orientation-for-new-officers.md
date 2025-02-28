@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/EventLayout.astro
 active: true
-title: APBN Orientation
+title: APBN Lagos Orientation
 description: APBN Lagos holds orientation for new officers
 date: 2025-02-27T10:00:30.000+01:00
 image: /images/uploads/whatsapp-image-2025-02-27-at-20.04.55_9a1b90d4.jpg
