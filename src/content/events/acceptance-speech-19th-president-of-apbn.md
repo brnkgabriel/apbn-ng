@@ -5,7 +5,7 @@ title: Acceptance Speech 19th President of APBN
 description: Acceptance Speech By Ismaila M. Zakari mni, FBR, MIoD, FCA
   President and Chairman of the Board and Executive Council of APBN, 2024 - 2026
 date: 2025-03-05T15:35:08.579+01:00
-image: /images/uploads/newpresi.jpg
+image: ""
 ---
 Acceptance Speech 
 By 
