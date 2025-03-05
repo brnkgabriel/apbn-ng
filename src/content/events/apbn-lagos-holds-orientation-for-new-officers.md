@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/EventLayout.astro
 active: true
-title: "PBN delegation visit to ICAN "
-description: PBN delegation visit to ICAN on the 31st of Oct. 2024
+title: "APBN delegation visit to ICAN "
+description: APBN delegation visit to ICAN on the 31st of Oct. 2024
 date: 2025-02-27T10:00:30.000+01:00
 image: /images/uploads/icanvisist.jpg
 ---
