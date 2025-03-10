@@ -2,7 +2,7 @@
 layout: ../../layouts/TeamLayout.astro
 order: "1"
 name: Mr. Manason Garkuwa Rubainu
-role: President
+role: Immediate Past President
 picture: /images/uploads/president.webp
 ---
 Mr. Manason Garkuwa RUBAINU was born at about 1400 hours Nigerian time on Wednesday August 14th, 1957 to Rev and Mrs Rubainu Garkuwa in Kumo, Akko Local Government Area of the present Gombe State.
