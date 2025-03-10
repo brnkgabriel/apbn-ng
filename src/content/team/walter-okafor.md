@@ -2,17 +2,12 @@
 layout: ../../layouts/TeamLayout.astro
 order: "6"
 name: Professor Godwin Emmanuel Oyedokun
-acronym: ND (Fin), HND (Acct.), BSc. (Acct. Ed), BSc (Fin.), LLB., LLM, MBA
-  (Acct. & Fin.), MSc. (Acct.), MSc. (Bus &Econs), MSc. (Fin), MSc. (Econs),
-  Ph.D. (Acct), Ph.D. (Fin), Ph.D. (FA), CICA, CFA, CFE, CIPFA, CPFA, CertIFR,
-  ACS, ACIS, ACIArb, ACAMS, FBR, IPA, IFA, MNIM, FCA, FCTI, FCIB, FCNA, FCFIP,
-  FCE, FERP, FFAR, FPD-CR, FSEAN, FNIOAIM, FCCrFA, FCCFI, FICA, FCECFI, CFIHArm,
-  FTPL, CT, JP
+acronym: ""
 role: Financial Secretary
 picture: /images/uploads/financial-secretary.jpg
 ---
 Professor
-Godwin Emmanuel Oyedokunis a distinguished scholar-practitioner with over two decades of
+Godwin Emmanuel Oyedokun (ND (Fin), HND (Acct.), BSc. (Acct. Ed), BSc (Fin.), LLB., LLM, MBA (Acct. & Fin.), MSc. (Acct.), MSc. (Bus &Econs), MSc. (Fin), MSc. (Econs), Ph.D. (Acct), Ph.D. (Fin), Ph.D. (FA), CICA, CFA, CFE, CIPFA, CPFA, CertIFR, ACS, ACIS, ACIArb, ACAMS, FBR, IPA, IFA, MNIM, FCA, FCTI, FCIB, FCNA, FCFIP, FCE, FERP, FFAR, FPD-CR, FSEAN, FNIOAIM, FCCrFA, FCCFI, FICA, FCECFI, CFIHArm, FTPL, CT, JP) is a distinguished scholar-practitioner with over two decades of
 experience in forensic accounting, financial development, Taxation,
 and public policy. He is a Professor of Accounting & Financial
 Development at Lead City University, Ibadan, Nigeria, and a Visiting
@@ -34,10 +29,6 @@ University’s Continuing Education programmes in Lagos. Heis also an External E
 programmes of Abia State University, Uturu Nigeria, Atiba University,
 Oyo, Nigeria, and Dominican University, Ibadan, Nigeria.
 
-
-
-
-
 Prof.
 Oyedokun is a sought-after intellectual, who has presented various
 technical/seminar papers at conferences/training/seminars, and he is
@@ -51,11 +42,7 @@ successfully supervised 129 BSc Projects, 7 PGD Projects, 52 MSc
 Dissertations, and 34 completed PhD Theses in management, accounting,
 finance, taxation, Project management, procurement management,
 insurance & risk management, and forensic accounting & audit
-in Nigeria and overseas. 
-
-
-
-
+in Nigeria and overseas.
 
 Prof.
 Oyedokun is the founder of OGE Group and the Principal Partner at
@@ -105,7 +92,7 @@ in Forensic Accounting and Audit from Charisma University, TCI, West
 Indies. Professor Oyedokun is also an alumnus of Lead City University
 where he bagged his Bachelor of Laws (LLB), and Master of Laws (LLM)
 and he is currently studying for a Doctor of Philosophy (Ph.D) in Law
-at the same university. 
+at the same university.
 
 He
 has more than 30 relevant professional qualifications to his credit.
