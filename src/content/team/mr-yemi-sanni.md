@@ -1,27 +1,45 @@
 ---
 layout: ../../layouts/TeamLayout.astro
 order: "7"
-name: Mr. Yemi Sanni
-acronym: PHD, FCA, FCTI, FCIPA, FIMC
+name: Mr. Pascal Nsoromotu
+acronym: ""
 role: Treasurer
-picture: /images/uploads/treasurer.webp
+picture: /images/uploads/mrpascal.jpg
 ---
-Adeyemi, an indigene of Ibadan, Oyo State, has undergone a distinguished academic journey. He secured his OND in Accounting from The Polytechnic Ibadan and followed it with an HND in Accounting from Yaba College of Technology. His pursuit of knowledge took him to the University of Finance in Geneva, Switzerland, where he achieved a Bachelor's degree in Finance with first-class honors. He further fortified his education with a Master's Degree in Accounting and a PhD in Accounting, focusing on Tax and Fiscal Policy, from Babcock University.
+NSOROMOTU Pascal Iheanacho
+hails from Oboro Amurie, Isu Local Government Area, Imo State. He is
+a community leader and a philanthropist. He is a change catalyst and
+has passion for growth and development. He graduated from Olabisi
+Onabanjo University, Department of Banking and Finance. (Second Class
+upper). He holds M.sc degree in Finance from the University of Lagos.
+He is a Fellow of the Chartered Institute of Bankers of Nigeria
+(CIBN). He is also a member of the Governing Council of The Chartered
+Institute of Bankers of Nigeria (CIBN). He is currently the National
+Treasurer, Association of Professional Bodies of Nigeria (APBN)
 
+Pascal
+became an associate of The Chartered Institute of Bakers of Nigeria
+in 2003, and since then has remained focused and resolute, in the
+affairs of the Institute. He started mentoring and preparing
+candidates for CIBN exams as soon as he became chartered. He is
+currently an examiner with CIBN in the area of Finance in Global
+Market. He is a member of Capacity Building and Certification
+Committee. Because of his passion for learning and development, he
+Co-authored the Study pack for Finance in Global Market, in line with
+the new CIBN syllabus. He is currently an exco member in CIBN Lagos
+branch. He is the Vice Chairman of Education committee in CIBN Lagos
+Branch. He was the chairman planning committee of the maiden CIBN
+Lagos Millenium Bankers Conference, held in Lagos. 
 
-
-
-
-Among his notable achievements, Adeyemi holds prestigious affiliations, including being a Fellow of the Institute of Chartered Accountants of Nigeria (I.C.A.N), CITN, CIPA Ghana, and IMC (UK). He's enriched his expertise with an Advanced Diploma in Management Accounting from CIMA UK and a Certificate in Transfer Pricing from The Chartered Institute of Taxation (CIOT) UK. Additionally, his dedication to continuous learning led him to participate in Executive Education programs at the Harvard Business School in the USA, INSEAD in Fontainebleau, France, and Euromoney in Turkey.
-
-
-
-
-
-Adeyemi's career path includes significant roles at UBA, Zenith Bank, and FCMB, which paved the way for his impactful ventures. He founded the Indigenous Accounting firm Yemi Sanni & Co. (Chartered Accountants) and emerged as the Principal Partner of the renowned tax consulting firm Mazars Consulting.
-
-
-
-
-
-With a wealth of experience and expertise, Adeyemi currently serves as a member of the Governing Council of the Institute of Chartered Accountants of Nigeria (ICAN) and also holds membership in the Association of Professional Bodies of Nigeria (APBN). His academic prowess, combined with his professional accomplishments, positions him as a key contributor to the fields of accounting, finance, and taxation.
+Pascal
+Started his career as a Lecturer (Research Fellow) in Covenant
+University, Ota Ogun State. From there he proceeded to Equatorial
+Trust Bank (now Sterling Bank), to have practical knowledge of his
+course. From Equitorial Trust Bank, He moved to Oceanic Bank (now Eco
+Bank), where he worked in various departments, including Marketing,
+Operations, Dispute resolution. Pascal performed marvelously well
+while he journeyed for 13 years in the banking industry. He handled
+many sensitive tasks which earned him love and accolades from both
+his superior and junior colleagues. Pascal is currently the MD/CEO of
+De-Ideal Pason Global Limited. A company involved in financial
+consultancy and Training. He is married with 4 kids.
