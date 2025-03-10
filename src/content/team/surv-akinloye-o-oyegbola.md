@@ -1,57 +1,17 @@
 ---
 layout: ../../layouts/TeamLayout.astro
 order: "9"
-name: Surv. Akinloye O. Oyegbola
-acronym: FNIS, FNIA, PPNIS
+name: Mr. Manason Garkuwa Rubainu
+acronym: ""
 role: Immediate Past President
-picture: /images/uploads/past-president.webp
+picture: /images/uploads/president.webp
 ---
-Surv. Akinloye Olufemi Oyegbola was born on September 7th, 1955. He is the first of the five children of Deacon Joshua Oyewole Oyegbola, a Management Consultant, and Deaconess (Mrs.) Victoria Ibidunni Oyegbola, a teacher, both of blessed memory.
+Mr. Manason Garkuwa RUBAINU was born at about 1400 hours Nigerian time on Wednesday August 14th, 1957 to Rev and Mrs Rubainu Garkuwa in Kumo, Akko Local Government Area of the present Gombe State.
 
+Mr. M. G. Rubainu is a graduate of Chemistry from the prestigious Ahmadu Bello University and was first employed as Medical Laboratory Scientist -in- Training by the old Bauchi State (present Bauchi and Gombe States) government before proceeding to the School of Medical Laboratory Science of the Ahmadu Bello University Teaching Hospital, Zaria where he obtained the Associate of the Institute of Medical Laboratory Science (AIMLS) of Nigeria in Chemical Pathology.
 
+Mr. Rubainu, known more by his first name - Manason, had an eventful working life in the Laboratory Services ( DMLS) of the University of Abuja Teaching Hospital, Gwagwalada – Abuja. During this period Mr. Rubainu progressed from a bench medical laboratory scientist performing routine testing to medical laboratory manager and leader - DMLS. He underwent numerous in-service training during this period in many disciplines and specialties of the medical laboratory science practice. He received training in medical laboratory instrumentations, test methods and techniques, Quality Management System, Medical Laboratory Audit, Safety Audit among others. He is the first medical laboratory Scientist in Nigeria to be trained in Assisted Reproduction Technology (Intra Uterine Insemination and Invitro Fertilization) and Tissue Banking (preparation of tissues for therapeutic purposes). He is the first scientist, in Nigeria, to start counting CD4 positive lymphocytes and lysing HIV envelope and assaying the p24 core structural protein as a measure of viral density before the advent of RT – PCR and its utilization for viral load assay. Manason Chaired the Medical Laboratory Equipment Standardization and Harmonization; Chair of the evaluation of HIV testing technologies, Federal Ministry of Health (FMOH) from 2010 to date. He is currently Chairman of the National HIV Laboratory Task Team of the FMOH, Medical Laboratory Science hospital laboratories between August 13th, 1982, when he was first employed, till he retired on August 14th, 2017 as the first Director Medical Council of Nigeria' s ( MLSCN) Invitro Diagnostics Technical Committee and MLSCN's Technical Committee on Medical Laboratory Accreditation.
 
+Mr. M. G. Rubainu has served as Board Member of MLSCN, University of Port Harcourt Teaching Hospital and Federal Medical Center Makurdi. He is a Past President of the Association of Medical  Laboratory  Scientists  of Nigeria ( AMLSN). He served as Second Deputy President, Association of Professional Bodies of Nigeria (APBN) from September 2018 to September 2020 and First Deputy President from September 2020 to September 2022 before ascending the Presidency the same September 2022.
 
-
-He completed his primary and secondary school education at Surulere Baptist School and Birch Freeman High School, both in Surulere, Lagos State, graduating in 1967 and 1973 respectively. Initially, he briefly attended the Federal School of Science, Victoria Island, Lagos, before commencing his employment with the Federal Ministry of Works, Survey Department in May 1975 to embark on a course in Surveying.
-
-
-
-
-
-He successfully finished the Basic Course in Surveying (Basic 17) at the School of Surveying, Oyo, Oyo State, in 1976. Following this, he was posted to the Ilorin Field Headquarters of the Federal Survey Department. In 1977, he was awarded a Federal Government Scholarship to pursue a degree in Surveying Engineering at the University of Architecture, Civil Engineering, and Geodesy in Sofia, Bulgaria. He returned in 1983 with a Master's degree, M.Sc. (Surveying Engineering). By 1989, he had earned registration as a Surveyor from the Surveyors Council of Nigeria (SURCON).
-
-
-
-
-
-During his National Youth Service Corps tenure, he served as a lecturer at the National Open University, Lagos. Feeling underutilized, he sought redeployment after five months, leading to his assignment at Niger Build Construction Company Ltd, where he served out his service term and continued as a retained employee.
-
-
-
-
-
-In 1985, he joined Yaba College of Technology (Yaba Tech), Lagos, as a part-time lecturer, transitioning to a full-time lecturer in the Civil Engineering Department in 1986. After six years of full-time lecturing at Yaba Tech, he resigned from his position in 1991 to establish his private practice. His goal was to become involved in the administration of his professional institution, the Nigerian Institution of Surveyors, to contribute to its growth. Despite resigning, he maintained a role as a part-time lecturer in the Civil Engineering Department for an additional 23 years. He initiated his private practice in the same year, establishing Akin Oyegbola & Associates, a Surveying and GIS Consultants firm, as well as Stroytel Concerns Ltd.
-
-
-
-
-
-Surv. Akin Oyegbola assumed the position of Secretary General of the Nigerian Institution of Surveyors (NIS) from 2000 to 2002. During his tenure, he led eleven NIS representatives to the Surveyors Council of Nigeria and also represented the Institution in the Council of the Association of Professional Bodies of Nigeria (APBN). Within the same year, he contested and secured the position of Financial Secretary.
-
-
-
-
-
-This marked the commencement of his uninterrupted ten-year membership on the Executive Council of APBN. In 2008, he was appointed as the Secretary General of APBN, stepping down from the Council in 2010. Simultaneously, he became the Vice President (National) of the NIS, which also earned him a seat on the Governing Council of the Federal School of Surveying, Oyo. He served as an examiner for the Surveyors' Council of Nigeria from 2001 to 2012.
-
-
-
-
-
-In 1993, he joined the Association of Private Practicing Surveyors of Nigeria and later took on the role of President of a Rotary Club in 1998, attaining the Paul Harris fellowship in 1996. His career within NIS continued, with him assuming the position of Deputy President in 2014 and subsequently rising to the presidency from 2016 to 2018.
-
-
-
-
-
-Providence made it possible for him to return to APBN as the 1st Deputy. Between 2003 and 2005, he held the position of Chairman of the Lagos State Branch of APBN.
+Mr. Manason Garkuwa RUBAINU is a Fellow of the West African Post Graduate College of Medical Laboratory Science (FWAPGCMLS) - Faculty of Molecular Diagnostics and Translation Science. He is also Fellow, Association of Medical Laboratory Scientists of Nigeria (FAMLSN).
