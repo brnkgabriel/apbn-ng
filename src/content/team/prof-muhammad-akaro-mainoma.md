@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/TeamLayout.astro
-order: "3"
+order: "2"
 name: Prof. Muhammad Akaro Mainoma
 acronym: MNI
 role: 1st Deputy President
