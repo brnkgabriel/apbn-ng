@@ -3,7 +3,7 @@ layout: ../../layouts/TeamLayout.astro
 order: "3"
 name: Prof. Muhammad Akaro Mainoma
 acronym: MNI
-role: 2nd Deputy President
+role: 1st Deputy President
 picture: /images/uploads/deputy-president-2.webp
 ---
 Professor Muhammad Akaro Mainoma, MNI is a member of the National Institute, a Professor of Accounting and Finance, a former Commissioner of Finance, a former Vice-Chancellor, Nasarawa State University, Keffi, and former ANAN President. He is a pioneer Chairman of the Board of Trustees of ANAN University Kwall, a pioneer Chairman of the Governing Board of Gobarau Academy Katsina, a pioneer Chairman of the Governing Board of the Association of Forensic Accounting Researchers, and a member of the Governing Board of ICT University Cameroon. He is a member of the Board of Trustees of Miango Old Students Association (MIOSA). Prof. Mainoma is the 2nd Deputy President of the Association of Professional Bodies in Nigeria (APBN). He is an alumnus of Ahmadu Bello University and a member of the Council of Several professional organizations in Nigeria, Ireland, and the United States. He holds the fellowship of the Association of National Accountants of Nigeria (ANAN), Chartered Institute of Taxation (CITN), Nigeria Accounting Association (NAA), Certified Institute of Forensic Investigation Professionals (USA), Certified Public Accountants (Ireland), Association of Forensic Accounting Researchers (AFAR), Academy of Management Nigeria, and others.
