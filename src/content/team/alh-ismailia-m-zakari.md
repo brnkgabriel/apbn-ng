@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/TeamLayout.astro
-order: "2"
+order: "3"
 name: " Tpl. Ayinde "
 acronym: ""
 role: 2nd Deputy President
