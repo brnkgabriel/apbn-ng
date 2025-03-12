@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/TeamLayout.astro
-order: "7"
+order: "4"
 name: Engr. Prof. Sony Emeka Ali
 acronym: " FNSE, FNICE, FNIStructE, FAutoEI, FNISafetyE, FNIFEngM, FNIHTE, FIMC"
 role: Secretary General
