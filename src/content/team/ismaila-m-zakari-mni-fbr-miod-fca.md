@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/TeamLayout.astro
 order: "1"
-name: "Ismaila M. Zakari mni, FBR, MIoD, FCA "
-acronym: ""
+name: Ismaila M. Zakari
+acronym: " mni, FBR, MIoD, FCA "
 role: President
 picture: /images/uploads/president.jpg
 ---
