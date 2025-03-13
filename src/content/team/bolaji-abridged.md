@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/TeamLayout.astro
 order: "8"
-name: Bolaji Abridged
+name: Bolaji Junaid
 role: "Publicity Secretary "
 picture: /images/uploads/publicity.jpg
 ---
